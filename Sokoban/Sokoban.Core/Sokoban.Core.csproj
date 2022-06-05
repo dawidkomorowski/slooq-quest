@@ -11,4 +11,12 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Geisha.Engine" Version="0.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+	</ItemGroup>
+
 </Project>

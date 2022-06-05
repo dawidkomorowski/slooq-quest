@@ -1,8 +1,14 @@
 ﻿using System.Reflection;
+using Autofac;
 using Geisha.Engine;
+using Sokoban.Core;
 
 namespace Sokoban
 {
+    // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation>();
+    // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation, TInterface>();
+    // TODO Feature Request: Custom Window Icon?
+
     internal sealed class SokobanGame : IGame
     {
         private static string EngineInformation =>
@@ -12,6 +18,11 @@ namespace Sokoban
 
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
+            // Sokoban.Core
+            componentsRegistry.AutofacContainerBuilder.RegisterType<EntityFactory>().AsSelf().SingleInstance();
+
+            // Sokoban
+            componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
         }
     }
 }

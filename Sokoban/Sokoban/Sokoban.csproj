@@ -20,6 +20,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+	  <ProjectReference Include="..\Sokoban.Core\Sokoban.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

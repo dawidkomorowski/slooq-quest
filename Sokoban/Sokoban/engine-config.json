@@ -11,7 +11,7 @@
     "ShowGameLoopStatistics": false,
     "ShowTotalFrames": true,
     "ShowTotalTime": true,
-    "StartUpSceneBehavior": ""
+    "StartUpSceneBehavior": "SokobanGame"
   },
   "Physics": {
     "RenderCollisionGeometry": false
