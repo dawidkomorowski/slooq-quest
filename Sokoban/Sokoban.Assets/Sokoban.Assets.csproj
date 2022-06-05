@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>0.1</Version>
+		<Authors>Dawid Komorowski</Authors>
+		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
+		<Product>Sokoban.Assets</Product>
+		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+</Project>
