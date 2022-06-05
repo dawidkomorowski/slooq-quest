@@ -1,5 +1,6 @@
 ﻿using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
+using Sokoban.Core.LevelModel;
 
 namespace Sokoban
 {
@@ -30,8 +31,18 @@ namespace Sokoban
 
             protected override void OnLoaded()
             {
+                var level = new Level();
+
                 _entityFactory.CreateCamera(Scene);
-                _entityFactory.CreateGround(Scene);
+
+                for (var x = 0; x < level.Width; x++)
+                {
+                    for (var y = 0; y < level.Height; y++)
+                    {
+                        var tile = level.GetTile(x, y);
+                        _entityFactory.CreateGround(Scene, tile);
+                    }
+                }
             }
         }
     }
