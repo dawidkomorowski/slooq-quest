@@ -23,6 +23,7 @@
     "SortingLayersOrder": [
       "Background",
       "Ground",
+      "TileObject",
       "Default",
       "Box",
       "UI"

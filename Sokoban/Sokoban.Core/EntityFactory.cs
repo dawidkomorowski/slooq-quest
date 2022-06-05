@@ -61,6 +61,20 @@ namespace Sokoban.Core
             return entity;
         }
 
+        public Entity CreateWall(Scene scene, Wall wall)
+        {
+            var entity = scene.CreateEntity();
+
+            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = GetTranslation(wall.Tile);
+
+            var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Wall.RedGray);
+            spriteRendererComponent.SortingLayerName = "TileObject";
+
+            return entity;
+        }
+
         private static Vector2 GetTranslation(Tile tile)
         {
             const int tileSize = 64;

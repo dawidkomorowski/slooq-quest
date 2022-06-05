@@ -15,6 +15,9 @@
                     SetTile(x, y, new Tile(x, y));
                 }
             }
+
+            GetTile(0, 0).TileObject = new Wall();
+            GetTile(4, 5).TileObject = new Wall();
         }
 
         public int Width { get; } = 10;

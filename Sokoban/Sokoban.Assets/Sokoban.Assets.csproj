@@ -22,6 +22,15 @@
 	  <None Update="Assets\kenney_sokobanpack\License.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

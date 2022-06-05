@@ -42,6 +42,11 @@ namespace Sokoban
                     {
                         var tile = level.GetTile(x, y);
                         _entityFactory.CreateGround(Scene, tile);
+
+                        if (tile.TileObject is Wall wall)
+                        {
+                            _entityFactory.CreateWall(Scene, wall);
+                        }
                     }
                 }
             }
