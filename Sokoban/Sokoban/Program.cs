@@ -1,4 +1,5 @@
 using System;
+using Geisha.Engine.Windows;
 
 namespace Sokoban
 {
@@ -10,6 +11,7 @@ namespace Sokoban
         [STAThread]
         private static void Main()
         {
+            WindowsApplication.Run(new SokobanGame());
         }
     }
 }
