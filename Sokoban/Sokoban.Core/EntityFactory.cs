@@ -31,6 +31,22 @@ namespace Sokoban.Core
             return entity;
         }
 
+        public Entity CreateBackground(Scene scene)
+        {
+            var entity = scene.CreateEntity();
+
+            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = new Vector2(320 - 32, 320 - 32);
+
+            var rectangleRendererComponent = entity.CreateComponent<RectangleRendererComponent>();
+            rectangleRendererComponent.Dimension = new Vector2(1280, 720);
+            rectangleRendererComponent.Color = Color.FromArgb(255, 91, 105, 107);
+            rectangleRendererComponent.FillInterior = true;
+            rectangleRendererComponent.SortingLayerName = "Background";
+
+            return entity;
+        }
+
         public Entity CreateGround(Scene scene, Tile tile)
         {
             var entity = scene.CreateEntity();

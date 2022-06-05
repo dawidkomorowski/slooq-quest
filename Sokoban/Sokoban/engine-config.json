@@ -21,6 +21,7 @@
     "ScreenHeight": 720,
     "ScreenWidth": 1280,
     "SortingLayersOrder": [
+      "Background",
       "Ground",
       "Default",
       "Box",

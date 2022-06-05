@@ -34,6 +34,7 @@ namespace Sokoban
                 var level = new Level();
 
                 _entityFactory.CreateCamera(Scene);
+                _entityFactory.CreateBackground(Scene);
 
                 for (var x = 0; x < level.Width; x++)
                 {
