@@ -19,9 +19,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Assets\dummy-file.txt">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
+	  <ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="engine-config.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
