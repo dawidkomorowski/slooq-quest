@@ -19,12 +19,13 @@
             get => _tileObject;
             internal set
             {
-                _tileObject = value;
-
-                if (_tileObject != null)
+                if (value != null)
                 {
-                    _tileObject.Tile = this;
+                    value.Tile.TileObject = null;
+                    value.Tile = this;
                 }
+
+                _tileObject = value;
             }
         }
     }

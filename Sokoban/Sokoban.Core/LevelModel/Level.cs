@@ -15,10 +15,6 @@
                     SetTile(x, y, new Tile(x, y));
                 }
             }
-
-            GetTile(0, 0).TileObject = new Wall();
-            GetTile(4, 5).TileObject = new Wall();
-            GetTile(3, 3).TileObject = new Player();
         }
 
         public int Width { get; } = 10;
@@ -27,6 +23,17 @@
         public Tile GetTile(int x, int y)
         {
             return _tiles[y * Width + x];
+        }
+
+        public static Level CreateTestLevel()
+        {
+            var level = new Level();
+
+            level.GetTile(0, 0).TileObject = new Wall();
+            level.GetTile(4, 5).TileObject = new Wall();
+            level.GetTile(3, 3).TileObject = new Player();
+
+            return level;
         }
 
         private void SetTile(int x, int y, Tile tile)

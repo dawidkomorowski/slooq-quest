@@ -31,7 +31,7 @@ namespace Sokoban
 
             protected override void OnLoaded()
             {
-                var level = new Level();
+                var level = Level.CreateTestLevel();
 
                 _entityFactory.CreateCamera(Scene);
                 _entityFactory.CreateBackground(Scene);

@@ -12,11 +12,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Geisha.Engine" Version="0.7.0" />
+		<PackageReference Include="Geisha.Engine" Version="0.7.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+		<ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>Sokoban.Core.Tests</_Parameter1>
+		</AssemblyAttribute>
 	</ItemGroup>
 
 </Project>
