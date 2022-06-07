@@ -25,6 +25,11 @@ namespace Sokoban.Core.GameLogic
                     }
                 }
             }
+
+            if (Player is null)
+            {
+                throw new ArgumentException("Level does not contain player.");
+            }
         }
 
         public Level Level { get; }

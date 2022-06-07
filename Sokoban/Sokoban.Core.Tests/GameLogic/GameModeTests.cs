@@ -8,6 +8,18 @@ namespace Sokoban.Core.Tests.GameLogic
     public class GameModeTests
     {
         [Test]
+        public void Constructor_ShouldThrowException_GivenLevelWithNoPlayer()
+        {
+            // Arrange
+
+            var level = new Level();
+
+            // Act
+            // Assert
+            Assert.That(() => new GameMode(level), Throws.ArgumentException);
+        }
+
+        [Test]
         public void Constructor_ShouldThrowException_GivenLevelWithMultiplePlayers()
         {
             // Arrange

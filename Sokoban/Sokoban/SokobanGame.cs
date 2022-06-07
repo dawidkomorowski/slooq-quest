@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
 using Autofac;
 using Geisha.Engine;
+using Sokoban.Components;
 using Sokoban.Core;
+using Sokoban.Core.Components;
 
 namespace Sokoban
 {
@@ -19,10 +21,13 @@ namespace Sokoban
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
             // Sokoban.Core
-            componentsRegistry.AutofacContainerBuilder.RegisterType<EntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<CoreEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<TileObjectPositionComponentFactory>();
 
             // Sokoban
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<GameEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<PlayerControllerComponentFactory>();
         }
     }
 }

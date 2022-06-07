@@ -5,15 +5,17 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Assets;
+using Sokoban.Core.Components;
 using Sokoban.Core.LevelModel;
+using Sokoban.Core.Util;
 
 namespace Sokoban.Core
 {
-    public sealed class EntityFactory
+    public sealed class CoreEntityFactory
     {
         private readonly IAssetStore _assetStore;
 
-        public EntityFactory(IAssetStore assetStore)
+        public CoreEntityFactory(IAssetStore assetStore)
         {
             _assetStore = assetStore;
         }
@@ -52,7 +54,7 @@ namespace Sokoban.Core
             var entity = scene.CreateEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = GetTranslation(tile);
+            transform2DComponent.Translation = tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
             spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Ground.Gray);
@@ -66,11 +68,14 @@ namespace Sokoban.Core
             var entity = scene.CreateEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = GetTranslation(wall.Tile);
+            transform2DComponent.Translation = wall.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
             spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Wall.RedGray);
             spriteRendererComponent.SortingLayerName = "TileObject";
+
+            var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
+            tileObjectPositionComponent.TileObject = wall;
 
             return entity;
         }
@@ -80,19 +85,16 @@ namespace Sokoban.Core
             var entity = scene.CreateEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = GetTranslation(player.Tile);
+            transform2DComponent.Translation = player.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
             spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Player.Default);
             spriteRendererComponent.SortingLayerName = "TileObject";
 
-            return entity;
-        }
+            var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
+            tileObjectPositionComponent.TileObject = player;
 
-        private static Vector2 GetTranslation(Tile tile)
-        {
-            const int tileSize = 64;
-            return new Vector2(tile.X * tileSize, tile.Y * tileSize);
+            return entity;
         }
     }
 }

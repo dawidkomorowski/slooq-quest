@@ -22,5 +22,10 @@ namespace Sokoban.Assets
                 public static AssetId Default { get; } = new AssetId(new Guid("434a0837-6f94-4f06-8951-ef53936756c0"));
             }
         }
+
+        public static class InputMapping
+        {
+            public static AssetId Default { get; } = new AssetId(new Guid("e38ecd7d-cf5c-4399-8ef7-ef2d3f497e22"));
+        }
     }
 }

@@ -16,6 +16,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Assets\KeyboardMapping.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Assets\dummy-file.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

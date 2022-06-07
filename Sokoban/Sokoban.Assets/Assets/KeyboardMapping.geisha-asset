@@ -1,0 +1,34 @@
+{
+  "AssetId": "e38ecd7d-cf5c-4399-8ef7-ef2d3f497e22",
+  "AssetType": "Geisha.Engine.Input.InputMapping",
+  "ContentFormat": "Json",
+  "Content": {
+    "ActionMappings": {
+      "MoveUp": [
+        {
+          "Key": "Up",
+          "MouseButton": null
+        }
+      ],
+      "MoveDown": [
+        {
+          "Key": "Down",
+          "MouseButton": null
+        }
+      ],
+      "MoveLeft": [
+        {
+          "Key": "Left",
+          "MouseButton": null
+        }
+      ],
+      "MoveRight": [
+        {
+          "Key": "Right",
+          "MouseButton": null
+        }
+      ]
+    },
+    "AxisMappings": {}
+  }
+}
