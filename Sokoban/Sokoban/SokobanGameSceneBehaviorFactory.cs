@@ -47,6 +47,11 @@ namespace Sokoban
                         {
                             _entityFactory.CreateWall(Scene, wall);
                         }
+
+                        if (tile.TileObject is Player player)
+                        {
+                            _entityFactory.CreatePlayer(Scene, player);
+                        }
                     }
                 }
             }

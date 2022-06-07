@@ -18,6 +18,7 @@
 
             GetTile(0, 0).TileObject = new Wall();
             GetTile(4, 5).TileObject = new Wall();
+            GetTile(3, 3).TileObject = new Player();
         }
 
         public int Width { get; } = 10;
