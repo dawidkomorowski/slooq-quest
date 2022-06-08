@@ -74,6 +74,11 @@ namespace Sokoban.Core
                     {
                         CreatePlayer(levelEntity, player);
                     }
+
+                    if (tile.CrateSpot != null)
+                    {
+                        CreateCrateSpot(levelEntity, tile.CrateSpot);
+                    }
                 }
             }
 
@@ -135,6 +140,18 @@ namespace Sokoban.Core
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = player;
+        }
+
+        private void CreateCrateSpot(Entity levelEntity, CrateSpot crateSpot)
+        {
+            var entity = levelEntity.CreateChildEntity();
+
+            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = crateSpot.Tile.GetTranslation();
+
+            var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Brown);
+            spriteRendererComponent.SortingLayerName = "CrateSpot";
         }
     }
 }

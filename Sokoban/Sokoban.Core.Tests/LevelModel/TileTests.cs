@@ -18,6 +18,17 @@ namespace Sokoban.Core.Tests.LevelModel
         }
 
         [Test]
+        public void Constructor_ShouldCreateTileWithNullCrateSpot()
+        {
+            // Arrange
+            // Act
+            var tile = new Tile(0, 0);
+
+            // Assert
+            Assert.That(tile.CrateSpot, Is.Null);
+        }
+
+        [Test]
         public void TileObject_Set_ShouldSetTileOfTileObjectToCurrentTile()
         {
             // Arrange
@@ -49,6 +60,21 @@ namespace Sokoban.Core.Tests.LevelModel
             Assert.That(tile.TileObject, Is.EqualTo(tileObject));
             Assert.That(tileObject.Tile, Is.EqualTo(tile));
             Assert.That(otherTile.TileObject, Is.Null);
+        }
+
+        [Test]
+        public void CrateSpot_Set_ShouldSetTileOfCrateSpotToCurrentTile()
+        {
+            // Arrange
+            var tile = new Tile(0, 0);
+            var crateSpot = new CrateSpot();
+
+            // Act
+            tile.CrateSpot = crateSpot;
+
+            // Assert
+            Assert.That(tile.CrateSpot, Is.EqualTo(crateSpot));
+            Assert.That(crateSpot.Tile, Is.EqualTo(tile));
         }
     }
 }

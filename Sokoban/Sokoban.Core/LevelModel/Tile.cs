@@ -3,6 +3,7 @@
     public sealed class Tile
     {
         private TileObject? _tileObject;
+        private CrateSpot? _crateSpot;
 
         public Tile(int x, int y)
         {
@@ -26,6 +27,20 @@
                 }
 
                 _tileObject = value;
+            }
+        }
+
+        public CrateSpot? CrateSpot
+        {
+            get => _crateSpot;
+            internal set
+            {
+                if (value != null)
+                {
+                    value.Tile = this;
+                }
+
+                _crateSpot = value;
             }
         }
     }

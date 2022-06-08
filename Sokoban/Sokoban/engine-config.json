@@ -23,10 +23,8 @@
     "SortingLayersOrder": [
       "Background",
       "Ground",
-      "TileObject",
-      "Default",
-      "Box",
-      "UI"
+      "CrateSpot",
+      "TileObject"
     ]
   }
 }

@@ -22,6 +22,11 @@ namespace Sokoban.Assets
                 public static AssetId Brown { get; } = new AssetId(new Guid("38b93af1-0689-4006-9821-6339a8a2f7b4"));
             }
 
+            public static class CrateSpot
+            {
+                public static AssetId Brown { get; } = new AssetId(new Guid("46f723ec-3f77-41b2-8503-43c6290181d1"));
+            }
+
             public static class Player
             {
                 public static AssetId Default { get; } = new AssetId(new Guid("434a0837-6f94-4f06-8951-ef53936756c0"));
