@@ -86,6 +86,12 @@ namespace Sokoban.Core.GameLogic
                 }
 
                 var crateTargetTile = Level.GetTile(crateTargetX, crateTargetY);
+
+                if (crateTargetTile.TileObject != null)
+                {
+                    return;
+                }
+
                 crateTargetTile.TileObject = crate;
             }
 

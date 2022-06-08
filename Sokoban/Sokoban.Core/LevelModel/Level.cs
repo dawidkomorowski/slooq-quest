@@ -29,10 +29,25 @@
         {
             var level = new Level();
 
-            level.GetTile(0, 0).TileObject = new Wall();
+            for (var x = 0; x < level.Width; x++)
+            {
+                for (var y = 0; y < level.Height; y++)
+                {
+                    if (x == 0 || y == 0 || x == level.Width - 1 || y == level.Height - 1)
+                    {
+                        level.GetTile(x, y).TileObject = new Wall();
+                    }
+                }
+            }
+
             level.GetTile(4, 5).TileObject = new Wall();
-            level.GetTile(3, 3).TileObject = new Player();
+            level.GetTile(5, 5).TileObject = new Wall();
+            level.GetTile(6, 5).TileObject = new Wall();
+
             level.GetTile(6, 7).TileObject = new Crate();
+            level.GetTile(2, 4).TileObject = new Crate();
+
+            level.GetTile(3, 3).TileObject = new Player();
 
             return level;
         }
