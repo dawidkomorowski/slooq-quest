@@ -40,6 +40,11 @@ namespace Sokoban.Core.GameLogic
             var x = Player.Tile.X;
             var y = Player.Tile.Y;
 
+            if (y == Level.Height - 1)
+            {
+                return;
+            }
+
             Level.GetTile(x, y + 1).TileObject = Player;
         }
 
@@ -47,6 +52,11 @@ namespace Sokoban.Core.GameLogic
         {
             var x = Player.Tile.X;
             var y = Player.Tile.Y;
+
+            if (y == 0)
+            {
+                return;
+            }
 
             Level.GetTile(x, y - 1).TileObject = Player;
         }
@@ -56,6 +66,11 @@ namespace Sokoban.Core.GameLogic
             var x = Player.Tile.X;
             var y = Player.Tile.Y;
 
+            if (x == 0)
+            {
+                return;
+            }
+
             Level.GetTile(x - 1, y).TileObject = Player;
         }
 
@@ -63,6 +78,11 @@ namespace Sokoban.Core.GameLogic
         {
             var x = Player.Tile.X;
             var y = Player.Tile.Y;
+
+            if (x == Level.Width - 1)
+            {
+                return;
+            }
 
             Level.GetTile(x + 1, y).TileObject = Player;
         }
