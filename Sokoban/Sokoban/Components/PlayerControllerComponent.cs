@@ -1,17 +1,19 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Linq;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
+using Sokoban.Core.Components;
 using Sokoban.Core.GameLogic;
+using Sokoban.Core.LevelModel;
 
 namespace Sokoban.Components
 {
     internal sealed class PlayerControllerComponent : BehaviorComponent
     {
         private InputComponent _inputComponent = null!;
-        private TimeSpan _timer;
+        private TileObjectPositionComponent _playerTileObjectPositionComponent = null!;
 
         public PlayerControllerComponent(Entity entity) : base(entity)
         {
@@ -22,40 +24,42 @@ namespace Sokoban.Components
         public override void OnStart()
         {
             _inputComponent = Entity.GetComponent<InputComponent>();
+
+            _playerTileObjectPositionComponent = Entity.Scene.AllEntities
+                .Single(e => e.HasComponent<TileObjectPositionComponent>() && e.GetComponent<TileObjectPositionComponent>().TileObject is Player)
+                .GetComponent<TileObjectPositionComponent>();
         }
 
         public override void OnUpdate(GameTime gameTime)
         {
-            _timer += gameTime.DeltaTime;
-            if (_timer <= TimeSpan.FromMilliseconds(200)) return;
+            if (_playerTileObjectPositionComponent.IsAnimating)
+            {
+                return;
+            }
 
             Debug.Assert(GameMode != null, nameof(GameMode) + " != null");
 
             if (_inputComponent.GetActionState("MoveUp"))
             {
                 GameMode.MoveUp();
-                _timer = TimeSpan.Zero;
                 return;
             }
 
             if (_inputComponent.GetActionState("MoveDown"))
             {
                 GameMode.MoveDown();
-                _timer = TimeSpan.Zero;
                 return;
             }
 
             if (_inputComponent.GetActionState("MoveLeft"))
             {
                 GameMode.MoveLeft();
-                _timer = TimeSpan.Zero;
                 return;
             }
 
             if (_inputComponent.GetActionState("MoveRight"))
             {
                 GameMode.MoveRight();
-                _timer = TimeSpan.Zero;
                 return;
             }
         }
