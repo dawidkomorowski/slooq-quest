@@ -37,54 +37,50 @@ namespace Sokoban.Core.GameLogic
 
         public void MoveUp()
         {
-            var x = Player.Tile.X;
-            var y = Player.Tile.Y;
-
-            if (y == Level.Height - 1)
-            {
-                return;
-            }
-
-            Level.GetTile(x, y + 1).TileObject = Player;
+            Move(0, 1);
         }
 
         public void MoveDown()
         {
-            var x = Player.Tile.X;
-            var y = Player.Tile.Y;
-
-            if (y == 0)
-            {
-                return;
-            }
-
-            Level.GetTile(x, y - 1).TileObject = Player;
+            Move(0, -1);
         }
 
         public void MoveLeft()
         {
-            var x = Player.Tile.X;
-            var y = Player.Tile.Y;
-
-            if (x == 0)
-            {
-                return;
-            }
-
-            Level.GetTile(x - 1, y).TileObject = Player;
+            Move(-1, 0);
         }
 
         public void MoveRight()
         {
+            Move(1, 0);
+        }
+
+        private void Move(int deltaX, int deltaY)
+        {
             var x = Player.Tile.X;
             var y = Player.Tile.Y;
 
-            if (x == Level.Width - 1)
+            var targetX = x + deltaX;
+            var targetY = y + deltaY;
+
+            if (IsOutsideOfLevel(targetX, targetY))
             {
                 return;
             }
 
-            Level.GetTile(x + 1, y).TileObject = Player;
+            var targetTile = Level.GetTile(targetX, targetY);
+
+            if (targetTile.TileObject is Wall)
+            {
+                return;
+            }
+
+            targetTile.TileObject = Player;
+        }
+
+        private bool IsOutsideOfLevel(int x, int y)
+        {
+            return x < 0 || y < 0 || x >= Level.Width || y >= Level.Height;
         }
     }
 }

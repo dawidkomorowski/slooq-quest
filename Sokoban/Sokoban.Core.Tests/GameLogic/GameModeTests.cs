@@ -87,6 +87,25 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
+        public void MoveUp_ShouldNotMovePlayer_WhenTileHasWall()
+        {
+            // Arrange
+            var player = new Player();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(5, 6).TileObject = new Wall();
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveUp();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
+        }
+
+        [Test]
         public void MoveDown_ShouldMovePlayerDown_WhenTileIsEmpty()
         {
             // Arrange
@@ -121,6 +140,25 @@ namespace Sokoban.Core.Tests.GameLogic
 
             // Assert
             Assert.That(level.GetTile(5, 0).TileObject, Is.EqualTo(player));
+        }
+
+        [Test]
+        public void MoveDown_ShouldNotMovePlayer_WhenTileHasWall()
+        {
+            // Arrange
+            var player = new Player();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(5, 4).TileObject = new Wall();
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveDown();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
         }
 
         [Test]
@@ -161,6 +199,25 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
+        public void MoveLeft_ShouldNotMovePlayer_WhenTileHasWall()
+        {
+            // Arrange
+            var player = new Player();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(4, 5).TileObject = new Wall();
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveLeft();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
+        }
+
+        [Test]
         public void MoveRight_ShouldMovePlayerRight_WhenTileIsEmpty()
         {
             // Arrange
@@ -195,6 +252,25 @@ namespace Sokoban.Core.Tests.GameLogic
 
             // Assert
             Assert.That(level.GetTile(9, 5).TileObject, Is.EqualTo(player));
+        }
+
+        [Test]
+        public void MoveRight_ShouldNotMovePlayer_WhenTileHasWall()
+        {
+            // Arrange
+            var player = new Player();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(6, 5).TileObject = new Wall();
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveRight();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
         }
     }
 }
