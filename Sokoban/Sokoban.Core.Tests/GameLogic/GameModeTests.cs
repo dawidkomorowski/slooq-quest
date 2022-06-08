@@ -49,8 +49,10 @@ namespace Sokoban.Core.Tests.GameLogic
             Assert.That(gameMode.Player, Is.EqualTo(player));
         }
 
+        #region MoveUp
+
         [Test]
-        public void MoveUp_ShouldMovePlayerUp_WhenTileIsEmpty()
+        public void MoveUp_ShouldMovePlayerUp_WhenTargetTileIsEmpty()
         {
             // Arrange
             var player = new Player();
@@ -69,7 +71,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveUp_ShouldNotMovePlayer_WhenPlayerIsAtTopBorderOfLevel()
+        public void MoveUp_ShouldNotMovePlayer_WhenTargetTileIsOutsideOfLevel()
         {
             // Arrange
             var player = new Player();
@@ -87,7 +89,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveUp_ShouldNotMovePlayer_WhenTileHasWall()
+        public void MoveUp_ShouldNotMovePlayer_WhenTargetTileHasWall()
         {
             // Arrange
             var player = new Player();
@@ -106,7 +108,33 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveDown_ShouldMovePlayerDown_WhenTileIsEmpty()
+        public void MoveUp_ShouldMovePlayerAndCrateUp_WhenTargetTileHasCrate_AndNextTileIsEmpty()
+        {
+            // Arrange
+            var player = new Player();
+            var crate = new Crate();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(5, 6).TileObject = crate;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveUp();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.Null);
+            Assert.That(level.GetTile(5, 6).TileObject, Is.EqualTo(player));
+            Assert.That(level.GetTile(5, 7).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
+
+        #region MoveDown
+
+        [Test]
+        public void MoveDown_ShouldMovePlayerDown_WhenTargetTileIsEmpty()
         {
             // Arrange
             var player = new Player();
@@ -125,7 +153,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveDown_ShouldNotMovePlayer_WhenPlayerIsAtBottomBorderOfLevel()
+        public void MoveDown_ShouldNotMovePlayer_WhenTargetTileIsOutsideOfLevel()
         {
             // Arrange
             var player = new Player();
@@ -143,7 +171,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveDown_ShouldNotMovePlayer_WhenTileHasWall()
+        public void MoveDown_ShouldNotMovePlayer_WhenTargetTileHasWall()
         {
             // Arrange
             var player = new Player();
@@ -162,7 +190,33 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveLeft_ShouldMovePlayerLeft_WhenTileIsEmpty()
+        public void MoveDown_ShouldMovePlayerAndCrateDown_WhenTargetTileHasCrate_AndNextTileIsEmpty()
+        {
+            // Arrange
+            var player = new Player();
+            var crate = new Crate();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(5, 4).TileObject = crate;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveDown();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.Null);
+            Assert.That(level.GetTile(5, 4).TileObject, Is.EqualTo(player));
+            Assert.That(level.GetTile(5, 3).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
+
+        #region MoveLeft
+
+        [Test]
+        public void MoveLeft_ShouldMovePlayerLeft_WhenTargetTileIsEmpty()
         {
             // Arrange
             var player = new Player();
@@ -181,7 +235,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveLeft_ShouldNotMovePlayer_WhenPlayerIsAtLeftBorderOfLevel()
+        public void MoveLeft_ShouldNotMovePlayer_WhenTargetTileIsOutsideOfLevel()
         {
             // Arrange
             var player = new Player();
@@ -199,7 +253,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveLeft_ShouldNotMovePlayer_WhenTileHasWall()
+        public void MoveLeft_ShouldNotMovePlayer_WhenTargetTileHasWall()
         {
             // Arrange
             var player = new Player();
@@ -218,7 +272,33 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveRight_ShouldMovePlayerRight_WhenTileIsEmpty()
+        public void MoveLeft_ShouldMovePlayerAndCrateLeft_WhenTargetTileHasCrate_AndNextTileIsEmpty()
+        {
+            // Arrange
+            var player = new Player();
+            var crate = new Crate();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(4, 5).TileObject = crate;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveLeft();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.Null);
+            Assert.That(level.GetTile(4, 5).TileObject, Is.EqualTo(player));
+            Assert.That(level.GetTile(3, 5).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
+
+        #region MoveRight
+
+        [Test]
+        public void MoveRight_ShouldMovePlayerRight_WhenTargetTileIsEmpty()
         {
             // Arrange
             var player = new Player();
@@ -237,7 +317,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveRight_ShouldNotMovePlayer_WhenPlayerIsAtRightBorderOfLevel()
+        public void MoveRight_ShouldNotMovePlayer_WhenTargetTileIsOutsideOfLevel()
         {
             // Arrange
             var player = new Player();
@@ -255,7 +335,7 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         [Test]
-        public void MoveRight_ShouldNotMovePlayer_WhenTileHasWall()
+        public void MoveRight_ShouldNotMovePlayer_WhenTargetTileHasWall()
         {
             // Arrange
             var player = new Player();
@@ -272,5 +352,29 @@ namespace Sokoban.Core.Tests.GameLogic
             // Assert
             Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
         }
+
+        [Test]
+        public void MoveRight_ShouldMovePlayerAndCrateRight_WhenTargetTileHasCrate_AndNextTileIsEmpty()
+        {
+            // Arrange
+            var player = new Player();
+            var crate = new Crate();
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = player;
+            level.GetTile(6, 5).TileObject = crate;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveRight();
+
+            // Assert
+            Assert.That(level.GetTile(5, 5).TileObject, Is.Null);
+            Assert.That(level.GetTile(6, 5).TileObject, Is.EqualTo(player));
+            Assert.That(level.GetTile(7, 5).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
     }
 }
