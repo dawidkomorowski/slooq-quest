@@ -55,6 +55,11 @@ namespace Sokoban
                             _coreEntityFactory.CreateWall(Scene, wall);
                         }
 
+                        if (tile.TileObject is Crate crate)
+                        {
+                            _coreEntityFactory.CreateCrate(Scene, crate);
+                        }
+
                         if (tile.TileObject is Player player)
                         {
                             _coreEntityFactory.CreatePlayer(Scene, player);

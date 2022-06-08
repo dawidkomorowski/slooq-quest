@@ -16,6 +16,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Assets\KeyboardMapping.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

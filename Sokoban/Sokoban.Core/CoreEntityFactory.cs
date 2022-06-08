@@ -80,6 +80,23 @@ namespace Sokoban.Core
             return entity;
         }
 
+        public Entity CreateCrate(Scene scene, Crate crate)
+        {
+            var entity = scene.CreateEntity();
+
+            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = crate.Tile.GetTranslation();
+
+            var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
+            spriteRendererComponent.SortingLayerName = "TileObject";
+
+            var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
+            tileObjectPositionComponent.TileObject = crate;
+
+            return entity;
+        }
+
         public Entity CreatePlayer(Scene scene, Player player)
         {
             var entity = scene.CreateEntity();

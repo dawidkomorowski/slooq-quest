@@ -17,6 +17,11 @@ namespace Sokoban.Assets
                 public static AssetId RedGray { get; } = new AssetId(new Guid("0f721725-a418-4fd8-8243-0ae80db34b34"));
             }
 
+            public static class Crate
+            {
+                public static AssetId Brown { get; } = new AssetId(new Guid("38b93af1-0689-4006-9821-6339a8a2f7b4"));
+            }
+
             public static class Player
             {
                 public static AssetId Default { get; } = new AssetId(new Guid("434a0837-6f94-4f06-8951-ef53936756c0"));

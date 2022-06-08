@@ -32,6 +32,7 @@
             level.GetTile(0, 0).TileObject = new Wall();
             level.GetTile(4, 5).TileObject = new Wall();
             level.GetTile(3, 3).TileObject = new Player();
+            level.GetTile(6, 7).TileObject = new Crate();
 
             return level;
         }
