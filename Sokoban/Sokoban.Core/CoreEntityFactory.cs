@@ -24,8 +24,7 @@ namespace Sokoban.Core
         {
             var entity = scene.CreateEntity();
 
-            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = new Vector2(320 - 32, 320 - 32);
+            entity.CreateComponent<Transform2DComponent>();
 
             var cameraComponent = entity.CreateComponent<CameraComponent>();
             cameraComponent.ViewRectangle = new Vector2(1280, 720);
@@ -37,8 +36,7 @@ namespace Sokoban.Core
         {
             var entity = scene.CreateEntity();
 
-            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = new Vector2(320 - 32, 320 - 32);
+            entity.CreateComponent<Transform2DComponent>();
 
             var rectangleRendererComponent = entity.CreateComponent<RectangleRendererComponent>();
             rectangleRendererComponent.Dimension = new Vector2(1280, 720);
@@ -49,9 +47,42 @@ namespace Sokoban.Core
             return entity;
         }
 
-        public Entity CreateGround(Scene scene, Tile tile)
+        public Entity CreateLevel(Scene scene, Level level)
         {
-            var entity = scene.CreateEntity();
+            var levelEntity = scene.CreateEntity();
+            var transform2DComponent = levelEntity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = new Vector2(-320 + 32, -320 + 32);
+
+            for (var x = 0; x < level.Width; x++)
+            {
+                for (var y = 0; y < level.Height; y++)
+                {
+                    var tile = level.GetTile(x, y);
+                    CreateGround(levelEntity, tile);
+
+                    if (tile.TileObject is Wall wall)
+                    {
+                        CreateWall(levelEntity, wall);
+                    }
+
+                    if (tile.TileObject is Crate crate)
+                    {
+                        CreateCrate(levelEntity, crate);
+                    }
+
+                    if (tile.TileObject is Player player)
+                    {
+                        CreatePlayer(levelEntity, player);
+                    }
+                }
+            }
+
+            return levelEntity;
+        }
+
+        private void CreateGround(Entity levelEntity, Tile tile)
+        {
+            var entity = levelEntity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = tile.GetTranslation();
@@ -59,13 +90,11 @@ namespace Sokoban.Core
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
             spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Ground.Gray);
             spriteRendererComponent.SortingLayerName = "Ground";
-
-            return entity;
         }
 
-        public Entity CreateWall(Scene scene, Wall wall)
+        private void CreateWall(Entity levelEntity, Wall wall)
         {
-            var entity = scene.CreateEntity();
+            var entity = levelEntity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = wall.Tile.GetTranslation();
@@ -76,13 +105,11 @@ namespace Sokoban.Core
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = wall;
-
-            return entity;
         }
 
-        public Entity CreateCrate(Scene scene, Crate crate)
+        private void CreateCrate(Entity levelEntity, Crate crate)
         {
-            var entity = scene.CreateEntity();
+            var entity = levelEntity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = crate.Tile.GetTranslation();
@@ -93,13 +120,11 @@ namespace Sokoban.Core
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = crate;
-
-            return entity;
         }
 
-        public Entity CreatePlayer(Scene scene, Player player)
+        private void CreatePlayer(Entity levelEntity, Player player)
         {
-            var entity = scene.CreateEntity();
+            var entity = levelEntity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = player.Tile.GetTranslation();
@@ -110,8 +135,6 @@ namespace Sokoban.Core
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = player;
-
-            return entity;
         }
     }
 }

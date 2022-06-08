@@ -40,32 +40,13 @@ namespace Sokoban
 
                 var gameMode = new GameMode(level);
 
-                _coreEntityFactory.CreateCamera(Scene);
-                _coreEntityFactory.CreateBackground(Scene);
+                var camera = _coreEntityFactory.CreateCamera(Scene);
 
-                for (var x = 0; x < level.Width; x++)
-                {
-                    for (var y = 0; y < level.Height; y++)
-                    {
-                        var tile = level.GetTile(x, y);
-                        _coreEntityFactory.CreateGround(Scene, tile);
+                var background = _coreEntityFactory.CreateBackground(Scene);
+                background.Parent = camera;
 
-                        if (tile.TileObject is Wall wall)
-                        {
-                            _coreEntityFactory.CreateWall(Scene, wall);
-                        }
-
-                        if (tile.TileObject is Crate crate)
-                        {
-                            _coreEntityFactory.CreateCrate(Scene, crate);
-                        }
-
-                        if (tile.TileObject is Player player)
-                        {
-                            _coreEntityFactory.CreatePlayer(Scene, player);
-                        }
-                    }
-                }
+                var levelEntity = _coreEntityFactory.CreateLevel(Scene, level);
+                levelEntity.Parent = camera;
 
                 _gameEntityFactory.CreatePlayerController(Scene, gameMode);
             }

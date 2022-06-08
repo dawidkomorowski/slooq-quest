@@ -10,6 +10,7 @@ namespace Sokoban
     // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation>();
     // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation, TInterface>();
     // TODO Feature Request: Custom Window Icon?
+    // TODO Better exception information when entity in hierarchy does not have Transform2DComponent.
 
     internal sealed class SokobanGame : IGame
     {
