@@ -80,6 +80,11 @@ namespace Sokoban.Core.GameLogic
                 var crateTargetX = targetX + deltaX;
                 var crateTargetY = targetY + deltaY;
 
+                if (IsOutsideOfLevel(crateTargetX, crateTargetY))
+                {
+                    return;
+                }
+
                 var crateTargetTile = Level.GetTile(crateTargetX, crateTargetY);
                 crateTargetTile.TileObject = crate;
             }
