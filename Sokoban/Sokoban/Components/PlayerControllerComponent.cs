@@ -35,24 +35,28 @@ namespace Sokoban.Components
             {
                 GameMode.MoveUp();
                 _timer = TimeSpan.Zero;
+                return;
             }
 
             if (_inputComponent.GetActionState("MoveDown"))
             {
                 GameMode.MoveDown();
                 _timer = TimeSpan.Zero;
+                return;
             }
 
             if (_inputComponent.GetActionState("MoveLeft"))
             {
                 GameMode.MoveLeft();
                 _timer = TimeSpan.Zero;
+                return;
             }
 
             if (_inputComponent.GetActionState("MoveRight"))
             {
                 GameMode.MoveRight();
                 _timer = TimeSpan.Zero;
+                return;
             }
         }
     }
