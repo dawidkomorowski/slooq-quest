@@ -24,7 +24,8 @@
       "Background",
       "Ground",
       "CrateSpot",
-      "TileObject"
+      "TileObject",
+      "UI"
     ]
   }
 }

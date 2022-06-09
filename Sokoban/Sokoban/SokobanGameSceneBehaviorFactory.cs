@@ -25,6 +25,9 @@ namespace Sokoban
         {
             private readonly CoreEntityFactory _coreEntityFactory;
             private readonly GameEntityFactory _gameEntityFactory;
+            private Entity _cameraEntity = null!;
+            private Entity? _levelEntity;
+            private Entity? _playerControllerEntity;
 
             public override string Name => SceneBehaviorName;
 
@@ -36,19 +39,15 @@ namespace Sokoban
 
             protected override void OnLoaded()
             {
-                var level = Level.CreateTestLevel();
-
-                var gameMode = new GameMode(level);
-
-                var camera = _coreEntityFactory.CreateCamera(Scene);
+                _cameraEntity = _coreEntityFactory.CreateCamera(Scene);
 
                 var background = _coreEntityFactory.CreateBackground(Scene);
-                background.Parent = camera;
+                background.Parent = _cameraEntity;
 
-                var levelEntity = _coreEntityFactory.CreateLevel(Scene, level);
-                levelEntity.Parent = camera;
+                var inGameMenu = _gameEntityFactory.CreateInGameMenu(Scene);
+                inGameMenu.Parent = _cameraEntity;
 
-                _coreEntityFactory.CreatePlayerController(Scene, gameMode);
+                _gameEntityFactory.CreateRestartLevelEntity(Scene);
             }
         }
     }

@@ -34,9 +34,6 @@
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.sprite.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Assets\KeyboardMapping.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
 	  <None Update="Assets\dummy-file.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
@@ -68,6 +65,9 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\KeyboardMapping.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

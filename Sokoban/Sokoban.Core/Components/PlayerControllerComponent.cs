@@ -19,6 +19,7 @@ namespace Sokoban.Core.Components
         }
 
         public GameMode? GameMode { get; set; }
+        public bool Enabled { get; set; } = true;
 
         public override void OnStart()
         {
@@ -31,6 +32,11 @@ namespace Sokoban.Core.Components
 
         public override void OnUpdate(GameTime gameTime)
         {
+            if (!Enabled)
+            {
+                return;
+            }
+
             if (_playerTileObjectPositionComponent.IsAnimating)
             {
                 return;

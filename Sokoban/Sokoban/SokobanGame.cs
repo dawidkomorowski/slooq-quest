@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Autofac;
 using Geisha.Engine;
+using Sokoban.Components;
 using Sokoban.Core;
 
 namespace Sokoban
@@ -9,6 +10,8 @@ namespace Sokoban
     // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation, TInterface>();
     // TODO Feature Request: Custom Window Icon?
     // TODO Better exception information when entity in hierarchy does not have Transform2DComponent.
+    // TODO TextRendererComponent should support text alignment.
+    // TODO Ability to change visibility of whole hierarchy of renderers.
 
     internal sealed class SokobanGame : IGame
     {
@@ -23,6 +26,9 @@ namespace Sokoban
 
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<GameEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<InGameMenuComponentFactory>();
+            componentsRegistry.RegisterComponentFactory<InGameMenuOptionComponentFactory>();
+            componentsRegistry.RegisterComponentFactory<RestartLevelComponentFactory>();
         }
     }
 }

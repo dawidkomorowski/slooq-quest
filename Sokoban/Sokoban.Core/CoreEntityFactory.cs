@@ -53,6 +53,8 @@ namespace Sokoban.Core
         public Entity CreateLevel(Scene scene, Level level)
         {
             var levelEntity = scene.CreateEntity();
+            levelEntity.Name = "Level";
+
             var transform2DComponent = levelEntity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = new Vector2(-320 + 32, -320 + 32);
 
