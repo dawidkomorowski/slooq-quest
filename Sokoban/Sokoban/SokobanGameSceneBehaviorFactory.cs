@@ -48,7 +48,7 @@ namespace Sokoban
                 var levelEntity = _coreEntityFactory.CreateLevel(Scene, level);
                 levelEntity.Parent = camera;
 
-                _gameEntityFactory.CreatePlayerController(Scene, gameMode);
+                _coreEntityFactory.CreatePlayerController(Scene, gameMode);
             }
         }
     }

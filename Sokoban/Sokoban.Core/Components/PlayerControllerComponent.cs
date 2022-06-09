@@ -4,13 +4,12 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
-using Sokoban.Core.Components;
 using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
 
-namespace Sokoban.Components
+namespace Sokoban.Core.Components
 {
-    internal sealed class PlayerControllerComponent : BehaviorComponent
+    public sealed class PlayerControllerComponent : BehaviorComponent
     {
         private InputComponent _inputComponent = null!;
         private TileObjectPositionComponent _playerTileObjectPositionComponent = null!;
@@ -65,7 +64,7 @@ namespace Sokoban.Components
         }
     }
 
-    internal sealed class PlayerControllerComponentFactory : ComponentFactory<PlayerControllerComponent>
+    public sealed class PlayerControllerComponentFactory : ComponentFactory<PlayerControllerComponent>
     {
         protected override PlayerControllerComponent CreateComponent(Entity entity) => new PlayerControllerComponent(entity);
     }

@@ -2,10 +2,13 @@
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
+using Geisha.Engine.Input.Components;
+using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Assets;
 using Sokoban.Core.Components;
+using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
 using Sokoban.Core.Util;
 
@@ -83,6 +86,19 @@ namespace Sokoban.Core
             }
 
             return levelEntity;
+        }
+
+        public Entity CreatePlayerController(Scene scene, GameMode gameMode)
+        {
+            var entity = scene.CreateEntity();
+
+            var inputComponent = entity.CreateComponent<InputComponent>();
+            inputComponent.InputMapping = _assetStore.GetAsset<InputMapping>(SokobanAssetId.InputMapping.Default);
+
+            var playerControllerComponent = entity.CreateComponent<PlayerControllerComponent>();
+            playerControllerComponent.GameMode = gameMode;
+
+            return entity;
         }
 
         private void CreateGround(Entity levelEntity, Tile tile)
