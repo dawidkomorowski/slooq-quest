@@ -60,9 +60,12 @@ namespace Sokoban.Components
 
         private void SelectOption()
         {
-            var mo = _menuOptions.Single(mo => mo.IsSelected);
-            mo.Action?.Invoke();
-            ToggleMenu();
+            if (IsVisible)
+            {
+                var mo = _menuOptions.Single(mo => mo.IsSelected);
+                mo.Action?.Invoke();
+                ToggleMenu();
+            }
         }
 
         private void SelectOptionAtIndex(int index)
