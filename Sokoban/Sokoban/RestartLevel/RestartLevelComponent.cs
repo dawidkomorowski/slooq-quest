@@ -8,7 +8,7 @@ using Sokoban.Core.Components;
 using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
 
-namespace Sokoban.Components
+namespace Sokoban.RestartLevel
 {
     internal sealed class RestartLevelComponent : BehaviorComponent
     {

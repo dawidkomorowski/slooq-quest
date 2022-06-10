@@ -1,7 +1,6 @@
 ﻿using System;
 using Geisha.Common.Math;
 using Geisha.Engine.Core;
-using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input;
@@ -9,25 +8,19 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Components;
+using Sokoban.RestartLevel;
 
-namespace Sokoban
+namespace Sokoban.InGameMenu
 {
-    internal sealed class GameEntityFactory
+    internal sealed class InGameMenuEntityFactory
     {
-        private readonly IAssetStore _assetStore;
         private readonly IEngineManager _engineManager;
+        private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
 
-        public GameEntityFactory(IAssetStore assetStore, IEngineManager engineManager)
+        public InGameMenuEntityFactory(IEngineManager engineManager, RestartLevelEntityFactory restartLevelEntityFactory)
         {
-            _assetStore = assetStore;
             _engineManager = engineManager;
-        }
-
-        public void CreateRestartLevelEntity(Scene scene)
-        {
-            var entity = scene.CreateEntity();
-            entity.CreateComponent<RestartLevelComponent>();
+            _restartLevelEntityFactory = restartLevelEntityFactory;
         }
 
         public Entity CreateInGameMenu(Scene scene)
@@ -77,13 +70,13 @@ namespace Sokoban
             var menuOptionsContainerTransform = menuOptionsContainer.CreateComponent<Transform2DComponent>();
             menuOptionsContainerTransform.Translation = new Vector2(-300, 100);
 
-            CreateInGameMenuOption(menuOptionsContainer, "Restart level", 0, () => { CreateRestartLevelEntity(scene); });
+            CreateInGameMenuOption(menuOptionsContainer, "Restart level", 0, () => { _restartLevelEntityFactory.CreateRestartLevelEntity(scene); });
             CreateInGameMenuOption(menuOptionsContainer, "Exit", 1, () => { _engineManager.ScheduleEngineShutdown(); });
 
             return inGameMenu;
         }
 
-        private void CreateInGameMenuOption(Entity menuOptionsContainerEntity, string text, int index, Action action)
+        private static void CreateInGameMenuOption(Entity menuOptionsContainerEntity, string text, int index, Action action)
         {
             var entity = menuOptionsContainerEntity.CreateChildEntity();
 

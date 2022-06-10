@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 using Autofac;
 using Geisha.Engine;
-using Sokoban.Components;
 using Sokoban.Core;
+using Sokoban.InGameMenu;
+using Sokoban.RestartLevel;
 
 namespace Sokoban
 {
@@ -25,7 +26,8 @@ namespace Sokoban
             SokobanCoreModule.RegisterComponents(componentsRegistry);
 
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
-            componentsRegistry.AutofacContainerBuilder.RegisterType<GameEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<InGameMenuEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<RestartLevelEntityFactory>().AsSelf().SingleInstance();
             componentsRegistry.RegisterComponentFactory<InGameMenuComponentFactory>();
             componentsRegistry.RegisterComponentFactory<InGameMenuOptionComponentFactory>();
             componentsRegistry.RegisterComponentFactory<RestartLevelComponentFactory>();

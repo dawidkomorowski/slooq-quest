@@ -7,7 +7,7 @@ using Geisha.Engine.Input.Components;
 using Sokoban.Core.Components;
 using Sokoban.Core.Util;
 
-namespace Sokoban.Components
+namespace Sokoban.InGameMenu
 {
     internal sealed class InGameMenuComponent : BehaviorComponent
     {
@@ -48,24 +48,27 @@ namespace Sokoban.Components
 
         private void OptionUp()
         {
+            if (!IsVisible) return;
+
             CurrentIndex = Math.Abs((CurrentIndex - 1) % _menuOptions.Count);
             SelectOptionAtIndex(CurrentIndex);
         }
 
         private void OptionDown()
         {
+            if (!IsVisible) return;
+
             CurrentIndex = Math.Abs((CurrentIndex + 1) % _menuOptions.Count);
             SelectOptionAtIndex(CurrentIndex);
         }
 
         private void SelectOption()
         {
-            if (IsVisible)
-            {
-                var mo = _menuOptions.Single(mo => mo.IsSelected);
-                mo.Action?.Invoke();
-                ToggleMenu();
-            }
+            if (!IsVisible) return;
+
+            var mo = _menuOptions.Single(mo => mo.IsSelected);
+            mo.Action?.Invoke();
+            ToggleMenu();
         }
 
         private void SelectOptionAtIndex(int index)

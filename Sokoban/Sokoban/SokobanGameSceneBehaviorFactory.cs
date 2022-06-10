@@ -1,7 +1,7 @@
 ﻿using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
+using Sokoban.InGameMenu;
+using Sokoban.RestartLevel;
 
 namespace Sokoban
 {
@@ -9,32 +9,42 @@ namespace Sokoban
     {
         private const string SceneBehaviorName = "SokobanGame";
         private readonly CoreEntityFactory _coreEntityFactory;
-        private readonly GameEntityFactory _gameEntityFactory;
+        private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
+        private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
 
-        public SokobanGameSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, GameEntityFactory gameEntityFactory)
+        public SokobanGameSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
+            RestartLevelEntityFactory restartLevelEntityFactory)
         {
             _coreEntityFactory = coreEntityFactory;
-            _gameEntityFactory = gameEntityFactory;
+            _inGameMenuEntityFactory = inGameMenuEntityFactory;
+            _restartLevelEntityFactory = restartLevelEntityFactory;
         }
 
         public string BehaviorName => SceneBehaviorName;
 
-        public SceneBehavior Create(Scene scene) => new SokobanGameSceneBehavior(scene, _coreEntityFactory, _gameEntityFactory);
+        public SceneBehavior Create(Scene scene) =>
+            new SokobanGameSceneBehavior(
+                scene,
+                _coreEntityFactory,
+                _inGameMenuEntityFactory,
+                _restartLevelEntityFactory
+            );
 
         private sealed class SokobanGameSceneBehavior : SceneBehavior
         {
             private readonly CoreEntityFactory _coreEntityFactory;
-            private readonly GameEntityFactory _gameEntityFactory;
+            private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
+            private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
             private Entity _cameraEntity = null!;
-            private Entity? _levelEntity;
-            private Entity? _playerControllerEntity;
 
             public override string Name => SceneBehaviorName;
 
-            public SokobanGameSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, GameEntityFactory gameEntityFactory) : base(scene)
+            public SokobanGameSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
+                RestartLevelEntityFactory restartLevelEntityFactory) : base(scene)
             {
                 _coreEntityFactory = coreEntityFactory;
-                _gameEntityFactory = gameEntityFactory;
+                _inGameMenuEntityFactory = inGameMenuEntityFactory;
+                _restartLevelEntityFactory = restartLevelEntityFactory;
             }
 
             protected override void OnLoaded()
@@ -44,10 +54,10 @@ namespace Sokoban
                 var background = _coreEntityFactory.CreateBackground(Scene);
                 background.Parent = _cameraEntity;
 
-                var inGameMenu = _gameEntityFactory.CreateInGameMenu(Scene);
+                var inGameMenu = _inGameMenuEntityFactory.CreateInGameMenu(Scene);
                 inGameMenu.Parent = _cameraEntity;
 
-                _gameEntityFactory.CreateRestartLevelEntity(Scene);
+                _restartLevelEntityFactory.CreateRestartLevelEntity(Scene);
             }
         }
     }

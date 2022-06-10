@@ -4,7 +4,7 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 
-namespace Sokoban.Components
+namespace Sokoban.InGameMenu
 {
     internal sealed class InGameMenuOptionComponent : BehaviorComponent
     {
