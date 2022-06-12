@@ -5,7 +5,7 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<UseWindowsForms>true</UseWindowsForms>
 		<Nullable>enable</Nullable>
-		<Version>0.3</Version>
+		<Version>0.4</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
 		<Description>Sokoban game created in Geisha Engine.</Description>
