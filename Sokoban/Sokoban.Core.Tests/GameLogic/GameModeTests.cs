@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
 
@@ -545,6 +547,63 @@ namespace Sokoban.Core.Tests.GameLogic
             // Assert
             Assert.That(level.GetTile(5, 5).TileObject, Is.EqualTo(player));
             Assert.That(level.GetTile(6, 5).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
+
+        #region IsLevelComplete
+
+        public static IEnumerable<TestCaseData> IsLevelComplete_TestCases() => new[]
+        {
+            new TestCaseData(new Action<Level>(level =>
+            {
+                level.GetTile(5, 5).TileObject = new Player();
+
+                level.GetTile(1, 1).CrateSpot = new CrateSpot();
+                level.GetTile(2, 2).TileObject = new Crate();
+            }), false).SetName("Single crate spot without crate."),
+            new TestCaseData(new Action<Level>(level =>
+            {
+                level.GetTile(5, 5).TileObject = new Player();
+
+                level.GetTile(1, 1).CrateSpot = new CrateSpot();
+                level.GetTile(1, 1).TileObject = new Crate();
+            }), true).SetName("Single crate spot with crate."),
+            new TestCaseData(new Action<Level>(level =>
+            {
+                level.GetTile(5, 5).TileObject = new Player();
+
+                level.GetTile(1, 1).CrateSpot = new CrateSpot();
+                level.GetTile(1, 1).TileObject = new Crate();
+
+                level.GetTile(2, 2).CrateSpot = new CrateSpot();
+                level.GetTile(3, 3).TileObject = new Crate();
+            }), false).SetName("One crate spot with crate and another without crate."),
+            new TestCaseData(new Action<Level>(level =>
+            {
+                level.GetTile(5, 5).TileObject = new Player();
+
+                level.GetTile(1, 1).CrateSpot = new CrateSpot();
+                level.GetTile(1, 1).TileObject = new Crate();
+
+                level.GetTile(2, 2).CrateSpot = new CrateSpot();
+                level.GetTile(2, 2).TileObject = new Crate();
+            }), true).SetName("Two crate spots with crates.")
+        };
+
+        [TestCaseSource(nameof(IsLevelComplete_TestCases))]
+        public void IsLevelComplete_ShouldReturnTrue_WhenAllCreateSpots_HaveMatchingCrates(Action<Level> setupAction, bool expectedResult)
+        {
+            // Arrange
+            var level = new Level();
+
+            setupAction(level);
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            // Assert
+            Assert.That(gameMode.IsLevelComplete, Is.EqualTo(expectedResult));
         }
 
         #endregion

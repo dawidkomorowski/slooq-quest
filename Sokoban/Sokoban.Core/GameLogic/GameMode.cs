@@ -55,6 +55,30 @@ namespace Sokoban.Core.GameLogic
             Move(1, 0);
         }
 
+        public bool IsLevelComplete()
+        {
+            for (var x = 0; x < Level.Width; x++)
+            {
+                for (var y = 0; y < Level.Height; y++)
+                {
+                    var tile = Level.GetTile(x, y);
+
+                    if (tile.CrateSpot != null)
+                    {
+                        if (tile.TileObject is Crate crate)
+                        {
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private void Move(int deltaX, int deltaY)
         {
             var x = Player.Tile.X;
