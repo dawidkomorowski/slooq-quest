@@ -5,19 +5,19 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Core;
 using Sokoban.Core.Components;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
 
 namespace Sokoban.RestartLevel
 {
     internal sealed class RestartLevelComponent : BehaviorComponent
     {
         private readonly CoreEntityFactory _coreEntityFactory;
+        private readonly GameState _gameState;
         private bool _readyForRestart;
 
-        public RestartLevelComponent(Entity entity, CoreEntityFactory coreEntityFactory) : base(entity)
+        public RestartLevelComponent(Entity entity, CoreEntityFactory coreEntityFactory, GameState gameState) : base(entity)
         {
             _coreEntityFactory = coreEntityFactory;
+            _gameState = gameState;
         }
 
         public override void OnUpdate(GameTime gameTime)
@@ -36,13 +36,12 @@ namespace Sokoban.RestartLevel
             {
                 var cameraEntity = Scene.AllEntities.Single(e => e.HasComponent<CameraComponent>());
 
-                var level = Level.CreateTestLevel();
-                var gameMode = new GameMode(level);
+                _gameState.RecreateGameMode();
 
-                var levelEntity = _coreEntityFactory.CreateLevel(Scene, level);
+                var levelEntity = _coreEntityFactory.CreateLevel(Scene, _gameState.GameMode.Level);
                 levelEntity.Parent = cameraEntity;
 
-                _coreEntityFactory.CreatePlayerController(Scene, gameMode);
+                _coreEntityFactory.CreatePlayerController(Scene, _gameState.GameMode);
 
                 Entity.RemoveAfterFullFrame();
             }
@@ -52,12 +51,14 @@ namespace Sokoban.RestartLevel
     internal sealed class RestartLevelComponentFactory : ComponentFactory<RestartLevelComponent>
     {
         private readonly CoreEntityFactory _coreEntityFactory;
+        private readonly GameState _gameState;
 
-        public RestartLevelComponentFactory(CoreEntityFactory coreEntityFactory)
+        public RestartLevelComponentFactory(CoreEntityFactory coreEntityFactory, GameState gameState)
         {
             _coreEntityFactory = coreEntityFactory;
+            _gameState = gameState;
         }
 
-        protected override RestartLevelComponent CreateComponent(Entity entity) => new RestartLevelComponent(entity, _coreEntityFactory);
+        protected override RestartLevelComponent CreateComponent(Entity entity) => new RestartLevelComponent(entity, _coreEntityFactory, _gameState);
     }
 }

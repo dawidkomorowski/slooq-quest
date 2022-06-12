@@ -20,6 +20,7 @@ namespace Sokoban.InGameMenu
 
         public bool IsVisible { get; set; }
         public int CurrentIndex { get; set; }
+        public bool Enabled { get; set; } = true;
 
         public override void OnStart()
         {
@@ -38,6 +39,11 @@ namespace Sokoban.InGameMenu
 
         private void ToggleMenu()
         {
+            if (Enabled == false)
+            {
+                return;
+            }
+
             IsVisible = !IsVisible;
             HierarchyVisibility.SetVisibility(Entity, IsVisible);
             FindPlayerControllerComponent().Enabled = !IsVisible;
