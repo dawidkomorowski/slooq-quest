@@ -1,4 +1,6 @@
 ﻿using Geisha.Common.Math;
+using Geisha.Engine.Animation;
+using Geisha.Engine.Animation.Components;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -156,8 +158,23 @@ namespace Sokoban.Core
             spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Player.Default);
             spriteRendererComponent.SortingLayerName = "TileObject";
 
+            var spriteAnimationComponent = entity.CreateComponent<SpriteAnimationComponent>();
+            spriteAnimationComponent.AddAnimation("StandUp", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandUp));
+            spriteAnimationComponent.AddAnimation("StandDown", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandDown));
+            spriteAnimationComponent.AddAnimation("StandLeft", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandLeft));
+            spriteAnimationComponent.AddAnimation("StandRight", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandRight));
+            spriteAnimationComponent.AddAnimation("MoveUp", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveUp));
+            spriteAnimationComponent.AddAnimation("MoveDown", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveDown));
+            spriteAnimationComponent.AddAnimation("MoveLeft", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveLeft));
+            spriteAnimationComponent.AddAnimation("MoveRight", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveRight));
+            spriteAnimationComponent.PlayInLoop = true;
+            spriteAnimationComponent.PlaybackSpeed = 3.0;
+            spriteAnimationComponent.PlayAnimation("StandDown");
+
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = player;
+
+            entity.CreateComponent<PlayerAnimationControllerComponent>();
         }
 
         private void CreateCrateSpot(Entity levelEntity, CrateSpot crateSpot)
