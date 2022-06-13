@@ -25,6 +25,11 @@
             return _tiles[y * Width + x];
         }
 
+        public bool IsOutsideOfLevel(int x, int y)
+        {
+            return x < 0 || y < 0 || x >= Width || y >= Height;
+        }
+
         public static Level CreateTestLevel()
         {
             var level = new Level();

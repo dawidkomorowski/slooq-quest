@@ -43,5 +43,7 @@
                 _crateSpot = value;
             }
         }
+
+        public override string ToString() => $"{nameof(X)}: {X}, {nameof(Y)}: {Y}";
     }
 }

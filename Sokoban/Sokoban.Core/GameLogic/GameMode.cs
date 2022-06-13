@@ -91,7 +91,7 @@ namespace Sokoban.Core.GameLogic
             var targetX = x + deltaX;
             var targetY = y + deltaY;
 
-            if (IsOutsideOfLevel(targetX, targetY))
+            if (Level.IsOutsideOfLevel(targetX, targetY))
             {
                 return;
             }
@@ -108,7 +108,7 @@ namespace Sokoban.Core.GameLogic
                 var crateTargetX = targetX + deltaX;
                 var crateTargetY = targetY + deltaY;
 
-                if (IsOutsideOfLevel(crateTargetX, crateTargetY))
+                if (Level.IsOutsideOfLevel(crateTargetX, crateTargetY))
                 {
                     return;
                 }
@@ -124,11 +124,6 @@ namespace Sokoban.Core.GameLogic
             }
 
             targetTile.TileObject = Player;
-        }
-
-        private bool IsOutsideOfLevel(int x, int y)
-        {
-            return x < 0 || y < 0 || x >= Level.Width || y >= Level.Height;
         }
     }
 }
