@@ -44,9 +44,9 @@
             level.GetTile(5, 5).TileObject = new Wall();
             level.GetTile(6, 5).TileObject = new Wall();
 
-            level.GetTile(6, 7).TileObject = new Crate { Type = CrateType.Brown };
-            level.GetTile(2, 4).TileObject = new Crate { Type = CrateType.Brown };
-            level.GetTile(3, 6).TileObject = new Crate { Type = CrateType.Red };
+            level.GetTile(6, 7).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            level.GetTile(2, 4).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            level.GetTile(3, 6).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
 
             level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
             level.GetTile(8, 8).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };

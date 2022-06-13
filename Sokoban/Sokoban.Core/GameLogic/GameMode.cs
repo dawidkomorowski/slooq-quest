@@ -67,6 +67,10 @@ namespace Sokoban.Core.GameLogic
                     {
                         if (tile.TileObject is Crate crate)
                         {
+                            if (tile.CrateSpot.Type != crate.CrateSpotType)
+                            {
+                                return false;
+                            }
                         }
                         else
                         {

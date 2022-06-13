@@ -559,36 +559,43 @@ namespace Sokoban.Core.Tests.GameLogic
             {
                 level.GetTile(5, 5).TileObject = new Player();
 
-                level.GetTile(1, 1).CrateSpot = new CrateSpot();
-                level.GetTile(2, 2).TileObject = new Crate();
-            }), false).SetName("Single crate spot without crate."),
+                level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(2, 2).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            }), false).SetName("Single brown spot without brown crate."),
             new TestCaseData(new Action<Level>(level =>
             {
                 level.GetTile(5, 5).TileObject = new Player();
 
-                level.GetTile(1, 1).CrateSpot = new CrateSpot();
-                level.GetTile(1, 1).TileObject = new Crate();
-            }), true).SetName("Single crate spot with crate."),
+                level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(1, 1).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            }), true).SetName("Single brown spot with brown crate."),
             new TestCaseData(new Action<Level>(level =>
             {
                 level.GetTile(5, 5).TileObject = new Player();
 
-                level.GetTile(1, 1).CrateSpot = new CrateSpot();
-                level.GetTile(1, 1).TileObject = new Crate();
+                level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(1, 1).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
 
-                level.GetTile(2, 2).CrateSpot = new CrateSpot();
-                level.GetTile(3, 3).TileObject = new Crate();
-            }), false).SetName("One crate spot with crate and another without crate."),
+                level.GetTile(2, 2).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(3, 3).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            }), false).SetName("One brown spot with brown crate and another brown spot without brown crate."),
             new TestCaseData(new Action<Level>(level =>
             {
                 level.GetTile(5, 5).TileObject = new Player();
 
-                level.GetTile(1, 1).CrateSpot = new CrateSpot();
-                level.GetTile(1, 1).TileObject = new Crate();
+                level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(1, 1).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
 
-                level.GetTile(2, 2).CrateSpot = new CrateSpot();
-                level.GetTile(2, 2).TileObject = new Crate();
-            }), true).SetName("Two crate spots with crates.")
+                level.GetTile(2, 2).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(2, 2).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            }), true).SetName("Two brown spots with brown crates."),
+            new TestCaseData(new Action<Level>(level =>
+            {
+                level.GetTile(5, 5).TileObject = new Player();
+
+                level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+                level.GetTile(1, 1).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+            }), false).SetName("Single brown spot with red crate."),
         };
 
         [TestCaseSource(nameof(IsLevelComplete_TestCases))]
