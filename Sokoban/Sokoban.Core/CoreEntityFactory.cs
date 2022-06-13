@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System;
+using Geisha.Common.Math;
 using Geisha.Engine.Animation;
 using Geisha.Engine.Animation.Components;
 using Geisha.Engine.Core.Assets;
@@ -187,8 +188,13 @@ namespace Sokoban.Core
             transform2DComponent.Translation = crateSpot.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Brown);
             spriteRendererComponent.SortingLayerName = "CrateSpot";
+            spriteRendererComponent.Sprite = crateSpot.Type switch
+            {
+                CrateSpotType.Brown => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Brown),
+                CrateSpotType.Red => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Red),
+                _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate spot type: {crateSpot.Type}")
+            };
         }
     }
 }
