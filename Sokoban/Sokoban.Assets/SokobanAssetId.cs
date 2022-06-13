@@ -20,6 +20,7 @@ namespace Sokoban.Assets
             public static class Crate
             {
                 public static AssetId Brown { get; } = new AssetId(new Guid("38b93af1-0689-4006-9821-6339a8a2f7b4"));
+                public static AssetId Red { get; } = new AssetId(new Guid("a38a3dbf-9a1d-42bb-9312-813b7b5c38ad"));
             }
 
             public static class CrateSpot

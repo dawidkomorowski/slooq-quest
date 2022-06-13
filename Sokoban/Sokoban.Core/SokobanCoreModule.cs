@@ -9,6 +9,7 @@ namespace Sokoban.Core
         public static void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
             componentsRegistry.AutofacContainerBuilder.RegisterType<CoreEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<CrateRendererComponentFactory>();
             componentsRegistry.RegisterComponentFactory<PlayerAnimationControllerComponentFactory>();
             componentsRegistry.RegisterComponentFactory<PlayerControllerComponentFactory>();
             componentsRegistry.RegisterComponentFactory<TileObjectPositionComponentFactory>();

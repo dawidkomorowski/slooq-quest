@@ -140,11 +140,13 @@ namespace Sokoban.Core
             transform2DComponent.Translation = crate.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
             spriteRendererComponent.SortingLayerName = "TileObject";
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();
             tileObjectPositionComponent.TileObject = crate;
+
+            var crateRendererComponent = entity.CreateComponent<CrateRendererComponent>();
+            crateRendererComponent.Crate = crate;
         }
 
         private void CreatePlayer(Entity levelEntity, Player player)
