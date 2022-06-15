@@ -1,7 +1,7 @@
 ﻿{
   "Core": {
     "AssetsRootDirectoryPath": "Assets",
-    "CustomGameLoopSteps": [],
+    "CustomGameLoopSteps": ["SceneLoadingSystem"],
     "FixedUpdatesPerFrameLimit": 30,
     "FixedUpdatesPerSecond": 60,
     "ShowAllEntitiesCount": true,
@@ -11,7 +11,7 @@
     "ShowGameLoopStatistics": false,
     "ShowTotalFrames": true,
     "ShowTotalTime": true,
-    "StartUpSceneBehavior": "SokobanGame"
+    "StartUpSceneBehavior": "Main"
   },
   "Physics": {
     "RenderCollisionGeometry": false

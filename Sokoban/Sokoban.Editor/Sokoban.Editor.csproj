@@ -8,8 +8,8 @@
 		<Version>0.4</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
-		<Description>Sokoban game created in Geisha Engine.</Description>
-		<Product>Sokoban</Product>
+		<Description>Level editor for sokoban game created in Geisha Engine.</Description>
+		<Product>Sokoban.Editor</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
@@ -19,8 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
-	  <ProjectReference Include="..\Sokoban.Core\Sokoban.Core.csproj" />
+		<ProjectReference Include="..\Sokoban.Core\Sokoban.Core.csproj" />
 	</ItemGroup>
 
 </Project>

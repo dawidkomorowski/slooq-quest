@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Geisha.Engine;
 using Sokoban.Core.Components;
+using Sokoban.Core.SceneLoading;
 
 namespace Sokoban.Core
 {
@@ -8,11 +9,17 @@ namespace Sokoban.Core
     {
         public static void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
-            componentsRegistry.AutofacContainerBuilder.RegisterType<CoreEntityFactory>().AsSelf().SingleInstance();
+            // Components
             componentsRegistry.RegisterComponentFactory<CrateRendererComponentFactory>();
             componentsRegistry.RegisterComponentFactory<PlayerAnimationControllerComponentFactory>();
             componentsRegistry.RegisterComponentFactory<PlayerControllerComponentFactory>();
             componentsRegistry.RegisterComponentFactory<TileObjectPositionComponentFactory>();
+
+            // SceneLoading
+            componentsRegistry.RegisterComponentFactory<LoadSceneComponentFactory>();
+            componentsRegistry.RegisterSystem<SceneLoadingSystem>();
+
+            componentsRegistry.AutofacContainerBuilder.RegisterType<CoreEntityFactory>().AsSelf().SingleInstance();
         }
     }
 }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sokoban.Core", "Sokoban.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sokoban.Assets", "Sokoban.Assets\Sokoban.Assets.csproj", "{D44027F9-4F61-426A-9E97-4E9BA02A48CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.Core.Tests", "Sokoban.Core.Tests\Sokoban.Core.Tests.csproj", "{AD548A04-B0D9-4940-ABF3-C11E0F5409C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sokoban.Core.Tests", "Sokoban.Core.Tests\Sokoban.Core.Tests.csproj", "{AD548A04-B0D9-4940-ABF3-C11E0F5409C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokoban.Editor", "Sokoban.Editor\Sokoban.Editor.csproj", "{55FE47AB-5A03-47FC-A056-11E1B3D23994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AD548A04-B0D9-4940-ABF3-C11E0F5409C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD548A04-B0D9-4940-ABF3-C11E0F5409C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD548A04-B0D9-4940-ABF3-C11E0F5409C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55FE47AB-5A03-47FC-A056-11E1B3D23994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55FE47AB-5A03-47FC-A056-11E1B3D23994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55FE47AB-5A03-47FC-A056-11E1B3D23994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55FE47AB-5A03-47FC-A056-11E1B3D23994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
