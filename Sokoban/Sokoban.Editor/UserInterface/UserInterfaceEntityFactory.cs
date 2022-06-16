@@ -62,6 +62,11 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
+                        ActionName = "CreateBrownCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F1) } }
+                    },
+                    new ActionMapping
+                    {
                         ActionName = "Exit",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Escape) } }
                     }

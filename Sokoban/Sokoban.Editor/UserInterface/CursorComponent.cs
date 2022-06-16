@@ -38,11 +38,8 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("MoveDown", EditMode.MoveDown);
             inputComponent.BindAction("MoveLeft", EditMode.MoveLeft);
             inputComponent.BindAction("MoveRight", EditMode.MoveRight);
-            inputComponent.BindAction("Delete", () =>
-            {
-                EditMode.Delete();
-                ReloadLevel();
-            });
+            inputComponent.BindAction("Delete", ReloadLevelAfter(EditMode.Delete));
+            inputComponent.BindAction("CreateBrownCrate", ReloadLevelAfter(EditMode.CreateBrownCrate));
             inputComponent.BindAction("Exit", _engineManager.ScheduleEngineShutdown);
         }
 
@@ -74,6 +71,15 @@ namespace Sokoban.Editor.UserInterface
             newLevelRoot.Parent = camera;
 
             Entity.Parent = newLevelRoot;
+        }
+
+        private Action ReloadLevelAfter(Action action)
+        {
+            return () =>
+            {
+                action();
+                ReloadLevel();
+            };
         }
     }
 
