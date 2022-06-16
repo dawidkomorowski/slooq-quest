@@ -44,7 +44,7 @@ namespace Sokoban.Editor
                 var background = _coreEntityFactory.CreateBackground(Scene);
                 background.Parent = cameraEntity;
 
-                var level = Level.CreateTestLevel();
+                var level = new Level();
                 var editMode = new EditMode(level);
 
                 var levelEntity = _coreEntityFactory.CreateLevel(Scene, editMode.Level);

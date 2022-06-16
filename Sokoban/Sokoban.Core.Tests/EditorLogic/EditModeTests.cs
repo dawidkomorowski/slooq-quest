@@ -194,5 +194,37 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(level.GetTile(0, 0).CrateSpot, Is.Not.Null);
             Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(CrateSpotType.Red));
         }
+
+        [Test]
+        public void PlacePlayer_ShouldPlacePlayerOnSelectedTile_WhenThereIsNoPlayerInLevel()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.PlacePlayer();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
+            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Player>());
+        }
+
+        [Test]
+        public void PlacePlayer_ShouldPlacePlayerOnSelectedTile_WhenThereIsPlayerInLevel()
+        {
+            // Arrange
+            var level = new Level();
+            level.GetTile(9, 9).TileObject = new Player();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.PlacePlayer();
+
+            // Assert
+            Assert.That(level.GetTile(9, 9).TileObject, Is.Null);
+            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
+            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Player>());
+        }
     }
 }

@@ -77,6 +77,23 @@ namespace Sokoban.Core.EditorLogic
             SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
         }
 
+        public void PlacePlayer()
+        {
+            for (var x = 0; x < Level.Width; x++)
+            {
+                for (var y = 0; y < Level.Height; y++)
+                {
+                    var tile = Level.GetTile(x, y);
+                    if (tile.TileObject is Player)
+                    {
+                        tile.TileObject = null;
+                    }
+                }
+            }
+
+            SelectedTile.TileObject = new Player();
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))
