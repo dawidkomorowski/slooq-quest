@@ -1,6 +1,8 @@
 using System.Reflection;
+using Autofac;
 using Geisha.Engine;
 using Sokoban.Core;
+using Sokoban.Editor.UserInterface;
 
 namespace Sokoban.Editor
 {
@@ -14,6 +16,10 @@ namespace Sokoban.Editor
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
             SokobanCoreModule.RegisterComponents(componentsRegistry);
+
+            // UserInterface
+            componentsRegistry.AutofacContainerBuilder.RegisterType<UserInterfaceEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<CursorComponentFactory>();
 
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
         }

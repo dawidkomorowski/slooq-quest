@@ -33,6 +33,11 @@ namespace Sokoban.Assets
             {
                 public static AssetId Default { get; } = new AssetId(new Guid("a98d0e5d-1046-4aff-a958-017fcd307352"));
             }
+
+            public static class Editor
+            {
+                public static AssetId Cursor { get; } = new AssetId(new Guid("62393af4-2983-4086-8529-17cde2962cb6"));
+            }
         }
 
         public static class Animations

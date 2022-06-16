@@ -40,7 +40,6 @@ namespace Sokoban
             private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
             private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
             private readonly LevelCompleteEntityFactory _levelCompleteEntityFactory;
-            private Entity _cameraEntity = null!;
 
             public override string Name => SceneBehaviorName;
 
@@ -55,16 +54,16 @@ namespace Sokoban
 
             protected override void OnLoaded()
             {
-                _cameraEntity = _coreEntityFactory.CreateCamera(Scene);
+                var cameraEntity = _coreEntityFactory.CreateCamera(Scene);
 
                 var background = _coreEntityFactory.CreateBackground(Scene);
-                background.Parent = _cameraEntity;
+                background.Parent = cameraEntity;
 
                 var inGameMenu = _inGameMenuEntityFactory.CreateInGameMenu(Scene);
-                inGameMenu.Parent = _cameraEntity;
+                inGameMenu.Parent = cameraEntity;
 
                 var levelCompleteEntity = _levelCompleteEntityFactory.CreateLevelCompleteEntity(Scene);
-                levelCompleteEntity.Parent = _cameraEntity;
+                levelCompleteEntity.Parent = cameraEntity;
 
                 _restartLevelEntityFactory.CreateRestartLevelEntity(Scene);
             }
