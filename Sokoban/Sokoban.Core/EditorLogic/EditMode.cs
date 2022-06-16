@@ -72,6 +72,11 @@ namespace Sokoban.Core.EditorLogic
             SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
         }
 
+        public void CreateRedCrateSpot()
+        {
+            SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))

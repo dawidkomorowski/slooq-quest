@@ -1,4 +1,5 @@
-﻿using Geisha.Engine.Core.SceneModel;
+﻿using System.Windows.Forms;
+using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
 using Sokoban.Core.EditorLogic;
 using Sokoban.Core.LevelModel;
@@ -36,6 +37,8 @@ namespace Sokoban.Editor
 
             protected override void OnLoaded()
             {
+                Application.OpenForms[0].KeyDown += OnKeyDown;
+
                 var cameraEntity = _coreEntityFactory.CreateCamera(Scene);
 
                 var background = _coreEntityFactory.CreateBackground(Scene);
@@ -52,6 +55,14 @@ namespace Sokoban.Editor
 
                 var help = _userInterfaceEntityFactory.CreateHelp(Scene);
                 help.Parent = cameraEntity;
+            }
+        }
+
+        private static void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F10)
+            {
+                e.SuppressKeyPress = true;
             }
         }
     }

@@ -43,6 +43,7 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("CreateBrownCrate", ReloadLevelAfter(EditMode.CreateBrownCrate));
             inputComponent.BindAction("CreateRedCrate", ReloadLevelAfter(EditMode.CreateRedCrate));
             inputComponent.BindAction("CreateBrownCrateSpot", ReloadLevelAfter(EditMode.CreateBrownCrateSpot));
+            inputComponent.BindAction("CreateRedCrateSpot", ReloadLevelAfter(EditMode.CreateRedCrateSpot));
             inputComponent.BindAction("Exit", _engineManager.ScheduleEngineShutdown);
         }
 

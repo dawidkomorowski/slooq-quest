@@ -17,6 +17,7 @@ namespace Sokoban
     // BUG Cannot inject ISceneManager to component.
     // BUG Cannot inject ISceneManager to scene behavior.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
+    // TODO Prevent default behavior of F10 key press.
 
     internal sealed class SokobanGame : IGame
     {
