@@ -49,6 +49,9 @@ namespace Sokoban.Editor
 
                 var cursor = _userInterfaceEntityFactory.CreateCursor(Scene, editMode);
                 cursor.Parent = levelEntity;
+
+                var help = _userInterfaceEntityFactory.CreateHelp(Scene);
+                help.Parent = cameraEntity;
             }
         }
     }
