@@ -1,4 +1,5 @@
-﻿using Sokoban.Core.LevelModel;
+﻿using System;
+using Sokoban.Core.LevelModel;
 
 namespace Sokoban.Core.EditorLogic
 {
@@ -13,6 +14,8 @@ namespace Sokoban.Core.EditorLogic
         public Level Level { get; }
 
         public Tile SelectedTile { get; private set; }
+
+        public event EventHandler? LevelModified;
 
         public void MoveUp()
         {
@@ -50,31 +53,37 @@ namespace Sokoban.Core.EditorLogic
         {
             SelectedTile.TileObject = null;
             SelectedTile.CrateSpot = null;
+            OnLevelModified();
         }
 
         public void CreateRedGrayWall()
         {
             SelectedTile.TileObject = new Wall { Type = WallType.RedGray };
+            OnLevelModified();
         }
 
         public void CreateBrownCrate()
         {
             SelectedTile.TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
+            OnLevelModified();
         }
 
         public void CreateRedCrate()
         {
             SelectedTile.TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+            OnLevelModified();
         }
 
         public void CreateBrownCrateSpot()
         {
             SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
+            OnLevelModified();
         }
 
         public void CreateRedCrateSpot()
         {
             SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
+            OnLevelModified();
         }
 
         public void PlacePlayer()
@@ -92,6 +101,7 @@ namespace Sokoban.Core.EditorLogic
             }
 
             SelectedTile.TileObject = new Player();
+            OnLevelModified();
         }
 
         private void Move(int targetX, int targetY)
@@ -102,6 +112,11 @@ namespace Sokoban.Core.EditorLogic
             }
 
             SelectedTile = Level.GetTile(targetX, targetY);
+        }
+
+        private void OnLevelModified()
+        {
+            LevelModified?.Invoke(this, EventArgs.Empty);
         }
     }
 }

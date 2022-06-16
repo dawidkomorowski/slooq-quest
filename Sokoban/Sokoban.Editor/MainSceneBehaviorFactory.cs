@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
 using Sokoban.Core.EditorLogic;
@@ -26,6 +28,7 @@ namespace Sokoban.Editor
         {
             private readonly CoreEntityFactory _coreEntityFactory;
             private readonly UserInterfaceEntityFactory _userInterfaceEntityFactory;
+            private EditMode _editMode = null!;
 
             public MainSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, UserInterfaceEntityFactory userInterfaceEntityFactory) : base(scene)
             {
@@ -44,17 +47,36 @@ namespace Sokoban.Editor
                 var background = _coreEntityFactory.CreateBackground(Scene);
                 background.Parent = cameraEntity;
 
-                var level = new Level();
-                var editMode = new EditMode(level);
+                _editMode = new EditMode(LoadDefaultLevel());
+                _editMode.LevelModified += EditModeOnLevelModified;
 
-                var levelEntity = _coreEntityFactory.CreateLevel(Scene, editMode.Level);
+                var levelEntity = _coreEntityFactory.CreateLevel(Scene, _editMode.Level);
                 levelEntity.Parent = cameraEntity;
 
-                var cursor = _userInterfaceEntityFactory.CreateCursor(Scene, editMode);
+                var cursor = _userInterfaceEntityFactory.CreateCursor(Scene, _editMode);
                 cursor.Parent = levelEntity;
 
                 var help = _userInterfaceEntityFactory.CreateHelp(Scene);
                 help.Parent = cameraEntity;
+            }
+
+            private Level LoadDefaultLevel()
+            {
+                var defaultLevelPath = Path.Join("Levels", "NewLevel.sokoban-level");
+                if (File.Exists(defaultLevelPath))
+                {
+                    var serializedLevel = File.ReadAllText(defaultLevelPath);
+                    return Level.Deserialize(serializedLevel);
+                }
+                else
+                {
+                    return new Level();
+                }
+            }
+
+            private void EditModeOnLevelModified(object? sender, EventArgs e)
+            {
+                File.WriteAllText(Path.Join("Levels", "NewLevel.sokoban-level"), _editMode.Level.Serialize());
             }
         }
 

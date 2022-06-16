@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Sokoban.Core.EditorLogic;
 using Sokoban.Core.LevelModel;
 
@@ -113,6 +114,30 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void Delete_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            level.GetTile(0, 0).TileObject = new Wall();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.Delete();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
         public void CreateRedGrayWall_ShouldCreateRedGrayWallOnSelectedTile()
         {
             // Arrange
@@ -127,6 +152,29 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Wall>());
             var wall = (Wall)level.GetTile(0, 0).TileObject!;
             Assert.That(wall.Type, Is.EqualTo(WallType.RedGray));
+        }
+
+        [Test]
+        public void CreateRedGrayWall_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.CreateRedGrayWall();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
         [Test]
@@ -148,6 +196,29 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void CreateBrownCrate_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.CreateBrownCrate();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
         public void CreateRedCrate_ShouldCreateRedCrateOnSelectedTile()
         {
             // Arrange
@@ -166,6 +237,29 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void CreateRedCrate_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.CreateRedCrate();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
         public void CreateBrownCrateSpot_ShouldCreateBrownCrateSpotOnSelectedTile()
         {
             // Arrange
@@ -181,6 +275,29 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void CreateBrownCrateSpot_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.CreateBrownCrateSpot();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
         public void CreateRedCrateSpot_ShouldCreateRedCrateSpotOnSelectedTile()
         {
             // Arrange
@@ -193,6 +310,29 @@ namespace Sokoban.Core.Tests.EditorLogic
             // Assert
             Assert.That(level.GetTile(0, 0).CrateSpot, Is.Not.Null);
             Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(CrateSpotType.Red));
+        }
+
+        [Test]
+        public void CreateRedCrateSpot_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.CreateRedCrateSpot();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
         [Test]
@@ -225,6 +365,29 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(level.GetTile(9, 9).TileObject, Is.Null);
             Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
             Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Player>());
+        }
+
+        [Test]
+        public void PlacePlayer_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.PlacePlayer();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
     }
 }

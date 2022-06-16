@@ -38,14 +38,16 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("MoveDown", EditMode.MoveDown);
             inputComponent.BindAction("MoveLeft", EditMode.MoveLeft);
             inputComponent.BindAction("MoveRight", EditMode.MoveRight);
-            inputComponent.BindAction("Delete", ReloadLevelAfter(EditMode.Delete));
-            inputComponent.BindAction("CreateRedGrayWall", ReloadLevelAfter(EditMode.CreateRedGrayWall));
-            inputComponent.BindAction("CreateBrownCrate", ReloadLevelAfter(EditMode.CreateBrownCrate));
-            inputComponent.BindAction("CreateRedCrate", ReloadLevelAfter(EditMode.CreateRedCrate));
-            inputComponent.BindAction("CreateBrownCrateSpot", ReloadLevelAfter(EditMode.CreateBrownCrateSpot));
-            inputComponent.BindAction("CreateRedCrateSpot", ReloadLevelAfter(EditMode.CreateRedCrateSpot));
-            inputComponent.BindAction("PlacePlayer", ReloadLevelAfter(EditMode.PlacePlayer));
+            inputComponent.BindAction("Delete", EditMode.Delete);
+            inputComponent.BindAction("CreateRedGrayWall", EditMode.CreateRedGrayWall);
+            inputComponent.BindAction("CreateBrownCrate", EditMode.CreateBrownCrate);
+            inputComponent.BindAction("CreateRedCrate", EditMode.CreateRedCrate);
+            inputComponent.BindAction("CreateBrownCrateSpot", EditMode.CreateBrownCrateSpot);
+            inputComponent.BindAction("CreateRedCrateSpot", EditMode.CreateRedCrateSpot);
+            inputComponent.BindAction("PlacePlayer", EditMode.PlacePlayer);
             inputComponent.BindAction("Exit", _engineManager.ScheduleEngineShutdown);
+
+            EditMode.LevelModified += EditModeOnLevelModified;
         }
 
         public override void OnUpdate(GameTime gameTime)
@@ -78,13 +80,9 @@ namespace Sokoban.Editor.UserInterface
             Entity.Parent = newLevelRoot;
         }
 
-        private Action ReloadLevelAfter(Action action)
+        private void EditModeOnLevelModified(object? sender, EventArgs e)
         {
-            return () =>
-            {
-                action();
-                ReloadLevel();
-            };
+            ReloadLevel();
         }
     }
 
