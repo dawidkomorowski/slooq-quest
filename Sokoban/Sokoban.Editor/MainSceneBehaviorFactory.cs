@@ -4,7 +4,7 @@ using Sokoban.Core.EditorLogic;
 using Sokoban.Core.LevelModel;
 using Sokoban.Editor.UserInterface;
 
-namespace Sokoban
+namespace Sokoban.Editor
 {
     internal sealed class MainSceneBehaviorFactory : ISceneBehaviorFactory
     {
