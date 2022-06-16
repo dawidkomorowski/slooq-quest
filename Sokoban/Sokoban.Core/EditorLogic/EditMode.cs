@@ -62,6 +62,11 @@ namespace Sokoban.Core.EditorLogic
             SelectedTile.TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
         }
 
+        public void CreateRedGrayWall()
+        {
+            SelectedTile.TileObject = new Wall { Type = WallType.RedGray };
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))

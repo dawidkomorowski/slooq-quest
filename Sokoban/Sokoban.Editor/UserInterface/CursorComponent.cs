@@ -39,6 +39,7 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("MoveLeft", EditMode.MoveLeft);
             inputComponent.BindAction("MoveRight", EditMode.MoveRight);
             inputComponent.BindAction("Delete", ReloadLevelAfter(EditMode.Delete));
+            inputComponent.BindAction("CreateRedGrayWall", ReloadLevelAfter(EditMode.CreateRedGrayWall));
             inputComponent.BindAction("CreateBrownCrate", ReloadLevelAfter(EditMode.CreateBrownCrate));
             inputComponent.BindAction("CreateRedCrate", ReloadLevelAfter(EditMode.CreateRedCrate));
             inputComponent.BindAction("Exit", _engineManager.ScheduleEngineShutdown);
