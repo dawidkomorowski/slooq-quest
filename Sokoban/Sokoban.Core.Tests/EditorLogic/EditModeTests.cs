@@ -113,6 +113,23 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void CreateRedGrayWall_ShouldCreateRedGrayWallOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.CreateRedGrayWall();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
+            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Wall>());
+            var wall = (Wall)level.GetTile(0, 0).TileObject!;
+            Assert.That(wall.Type, Is.EqualTo(WallType.RedGray));
+        }
+
+        [Test]
         public void CreateBrownCrate_ShouldCreateBrownCrateOnSelectedTile()
         {
             // Arrange
@@ -149,20 +166,18 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
-        public void CreateRedGrayWall_ShouldCreateRedGrayWallOnSelectedTile()
+        public void CreateBrownCrateSpot_ShouldCreateBrownCrateSpotOnSelectedTile()
         {
             // Arrange
             var level = new Level();
             var editMode = new EditMode(level);
 
             // Act
-            editMode.CreateRedGrayWall();
+            editMode.CreateBrownCrateSpot();
 
             // Assert
-            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
-            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Wall>());
-            var wall = (Wall)level.GetTile(0, 0).TileObject!;
-            Assert.That(wall.Type, Is.EqualTo(WallType.RedGray));
+            Assert.That(level.GetTile(0, 0).CrateSpot, Is.Not.Null);
+            Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(CrateSpotType.Brown));
         }
     }
 }

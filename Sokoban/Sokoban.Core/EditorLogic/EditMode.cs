@@ -52,6 +52,11 @@ namespace Sokoban.Core.EditorLogic
             SelectedTile.CrateSpot = null;
         }
 
+        public void CreateRedGrayWall()
+        {
+            SelectedTile.TileObject = new Wall { Type = WallType.RedGray };
+        }
+
         public void CreateBrownCrate()
         {
             SelectedTile.TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
@@ -62,9 +67,9 @@ namespace Sokoban.Core.EditorLogic
             SelectedTile.TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
         }
 
-        public void CreateRedGrayWall()
+        public void CreateBrownCrateSpot()
         {
-            SelectedTile.TileObject = new Wall { Type = WallType.RedGray };
+            SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
         }
 
         private void Move(int targetX, int targetY)
