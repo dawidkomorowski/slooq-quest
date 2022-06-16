@@ -46,6 +46,12 @@ namespace Sokoban.Core.EditorLogic
             Move(targetX, targetY);
         }
 
+        public void Delete()
+        {
+            SelectedTile.TileObject = null;
+            SelectedTile.CrateSpot = null;
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))

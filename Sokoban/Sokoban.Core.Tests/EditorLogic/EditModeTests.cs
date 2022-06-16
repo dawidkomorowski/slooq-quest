@@ -81,5 +81,35 @@ namespace Sokoban.Core.Tests.EditorLogic
             // Assert
             Assert.That(editMode.SelectedTile, Is.EqualTo(level.GetTile(9, 9)));
         }
+
+        [Test]
+        public void Delete_ShouldRemoveTileObjectFromSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            level.GetTile(0, 0).TileObject = new Wall();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.Delete();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).TileObject, Is.Null);
+        }
+
+        [Test]
+        public void Delete_ShouldRemoveCrateSpotFromSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            level.GetTile(0, 0).CrateSpot = new CrateSpot();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.Delete();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).CrateSpot, Is.Null);
+        }
     }
 }
