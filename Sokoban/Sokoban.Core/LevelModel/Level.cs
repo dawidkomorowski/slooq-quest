@@ -1,4 +1,8 @@
-﻿namespace Sokoban.Core.LevelModel
+﻿using System;
+using System.Reflection;
+using System.Text.Json.Nodes;
+
+namespace Sokoban.Core.LevelModel
 {
     public sealed class Level
     {
@@ -12,7 +16,8 @@
             {
                 for (var y = 0; y < Height; y++)
                 {
-                    SetTile(x, y, new Tile(x, y));
+                    var tile = new Tile(x, y);
+                    _tiles[y * Width + x] = tile;
                 }
             }
         }
@@ -28,6 +33,147 @@
         public bool IsOutsideOfLevel(int x, int y)
         {
             return x < 0 || y < 0 || x >= Width || y >= Height;
+        }
+
+        public string Serialize()
+        {
+            var tilesJsonArray = new JsonArray();
+            foreach (var tile in _tiles)
+            {
+                var tileJsonObject = new JsonObject
+                {
+                    { "X", tile.X },
+                    { "Y", tile.Y },
+                    { "Ground", tile.Ground.ToString() },
+                    { "CrateSpot", tile.CrateSpot?.Type.ToString() },
+                    {
+                        "TileObject", tile.TileObject switch
+                        {
+                            null => null,
+                            Crate crate => new JsonObject
+                            {
+                                { "ObjectType", "Crate" },
+                                { "Type", crate.Type.ToString() },
+                                { "CrateSpotType", crate.CrateSpotType.ToString() }
+                            },
+                            Player _ => new JsonObject
+                            {
+                                { "ObjectType", "Player" }
+                            },
+                            Wall wall => new JsonObject
+                            {
+                                { "ObjectType", "Wall" },
+                                { "Type", wall.Type.ToString() }
+                            },
+                            _ => throw new ArgumentOutOfRangeException($"Unsupported {nameof(Tile.TileObject)} type: {tile.TileObject.GetType()}")
+                        }
+                    }
+                };
+                tilesJsonArray.Add(tileJsonObject);
+            }
+
+            var levelJsonObject = new JsonObject
+            {
+                { "Version", Assembly.GetAssembly(typeof(Level))?.GetName().Version?.ToString(2) },
+                { "Width", Width },
+                { "Height", Height },
+                { "Tiles", tilesJsonArray }
+            };
+
+            return levelJsonObject.ToJsonString();
+        }
+
+        public static Level Deserialize(string serializedLevel)
+        {
+            try
+            {
+                var levelJsonNode = JsonNode.Parse(serializedLevel);
+                if (levelJsonNode is null)
+                {
+                    throw new LevelDataCorruptedException();
+                }
+
+                var levelJsonObject = levelJsonNode.AsObject();
+                var level = new Level();
+
+                var tilesJsonNode = GetNotNullPropertyValue(levelJsonObject, "Tiles");
+
+                foreach (var tileJsonNode in tilesJsonNode.AsArray())
+                {
+                    if (tileJsonNode is null)
+                    {
+                        throw new LevelDataCorruptedException();
+                    }
+
+                    var tileJsonObject = tileJsonNode.AsObject();
+
+                    var x = GetNotNullPropertyValue(tileJsonObject, "X").GetValue<int>();
+                    var y = GetNotNullPropertyValue(tileJsonObject, "Y").GetValue<int>();
+                    var ground = Enum.Parse<Ground>(GetNotNullPropertyValue(tileJsonObject, "Ground").GetValue<string>());
+
+                    var crateSpotJsonNode = GetPropertyValue(tileJsonObject, "CrateSpot");
+                    CrateSpot? crateSpot;
+                    if (crateSpotJsonNode is null)
+                    {
+                        crateSpot = null;
+                    }
+                    else
+                    {
+                        var crateSpotType = Enum.Parse<CrateSpotType>(crateSpotJsonNode.GetValue<string>());
+                        crateSpot = new CrateSpot { Type = crateSpotType };
+                    }
+
+
+                    var tileObjectJsonNode = GetPropertyValue(tileJsonObject, "TileObject");
+                    TileObject? tileObject;
+                    if (tileObjectJsonNode is null)
+                    {
+                        tileObject = null;
+                    }
+                    else
+                    {
+                        var tileObjectJsonObject = tileObjectJsonNode.AsObject();
+                        var objectType = GetNotNullPropertyValue(tileObjectJsonObject, "ObjectType").GetValue<string>();
+
+                        switch (objectType)
+                        {
+                            case "Wall":
+                            {
+                                var type = GetEnumPropertyValue<WallType>(tileObjectJsonObject, "Type");
+                                tileObject = new Wall { Type = type };
+                                break;
+                            }
+                            case "Crate":
+                            {
+                                var type = GetEnumPropertyValue<CrateType>(tileObjectJsonObject, "CrateSpotType");
+                                var crateSpotType = GetEnumPropertyValue<CrateSpotType>(tileObjectJsonObject, "CrateSpotType");
+                                tileObject = new Crate { Type = type, CrateSpotType = crateSpotType };
+                                break;
+                            }
+                            case "Player":
+                                tileObject = new Player();
+                                break;
+                            default:
+                                throw new LevelDataCorruptedException();
+                        }
+                    }
+
+                    var tile = level.GetTile(x, y);
+                    tile.Ground = ground;
+                    tile.CrateSpot = crateSpot;
+                    tile.TileObject = tileObject;
+                }
+
+                return level;
+            }
+            catch (LevelDataCorruptedException)
+            {
+                throw;
+            }
+            catch (Exception exception)
+            {
+                throw new LevelDataCorruptedException(exception);
+            }
         }
 
         public static Level CreateTestLevel()
@@ -62,9 +208,47 @@
             return level;
         }
 
-        private void SetTile(int x, int y, Tile tile)
+        private static JsonNode? GetPropertyValue(JsonObject jsonObject, string propertyName)
         {
-            _tiles[y * Width + x] = tile;
+            if (!jsonObject.TryGetPropertyValue(propertyName, out var jsonNode))
+            {
+                throw new LevelDataCorruptedException();
+            }
+
+            return jsonNode;
+        }
+
+        private static JsonNode GetNotNullPropertyValue(JsonObject jsonObject, string propertyName)
+        {
+            if (!jsonObject.TryGetPropertyValue(propertyName, out var jsonNode))
+            {
+                throw new LevelDataCorruptedException();
+            }
+
+            if (jsonNode is null)
+            {
+                throw new LevelDataCorruptedException();
+            }
+
+            return jsonNode;
+        }
+
+        private static TEnum GetEnumPropertyValue<TEnum>(JsonObject jsonObject, string propertyName) where TEnum : struct
+        {
+            return Enum.Parse<TEnum>(GetNotNullPropertyValue(jsonObject, propertyName).GetValue<string>());
+        }
+    }
+
+    public sealed class LevelDataCorruptedException : Exception
+    {
+        private const string ExceptionMessage = "Level data is corrupted.";
+
+        public LevelDataCorruptedException() : base(ExceptionMessage)
+        {
+        }
+
+        public LevelDataCorruptedException(Exception innerException) : base(ExceptionMessage, innerException)
+        {
         }
     }
 }

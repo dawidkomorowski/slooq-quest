@@ -120,8 +120,8 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "F9 - Create Brown Crate Spot", index++);
             AddHelpLabel(help, "F10 - Create Red Crate Spot", index++);
             AddHelpLabel(help, "P - Place Player", index++);
-            AddHelpLabel(help, "Delete - Remove object", index++);
-            AddHelpLabel(help, "Esc - Exit editor", index);
+            AddHelpLabel(help, "Delete - Remove Object", index++);
+            AddHelpLabel(help, "Esc - Exit Editor", index);
 
             return help;
         }
