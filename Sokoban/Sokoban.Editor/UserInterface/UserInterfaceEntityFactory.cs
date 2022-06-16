@@ -68,6 +68,11 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
+                        ActionName = "CreateRedCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F2) } }
+                    },
+                    new ActionMapping
+                    {
                         ActionName = "Exit",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Escape) } }
                     }
@@ -90,6 +95,7 @@ namespace Sokoban.Editor.UserInterface
             var index = 0;
             AddHelpLabel(help, "Arrows - Move Cursor", index++);
             AddHelpLabel(help, "F1 - Create Brown Crate", index++);
+            AddHelpLabel(help, "F2 - Create Red Crate", index++);
             AddHelpLabel(help, "Delete - Remove object", index++);
             AddHelpLabel(help, "Esc - Exit editor", index);
 

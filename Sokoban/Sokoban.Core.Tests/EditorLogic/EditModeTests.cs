@@ -129,5 +129,23 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(crate.Type, Is.EqualTo(CrateType.Brown));
             Assert.That(crate.CrateSpotType, Is.EqualTo(CrateSpotType.Brown));
         }
+
+        [Test]
+        public void CreateRedCrate_ShouldCreateRedCrateOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.CreateRedCrate();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
+            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Crate>());
+            var crate = (Crate)level.GetTile(0, 0).TileObject!;
+            Assert.That(crate.Type, Is.EqualTo(CrateType.Red));
+            Assert.That(crate.CrateSpotType, Is.EqualTo(CrateSpotType.Red));
+        }
     }
 }
