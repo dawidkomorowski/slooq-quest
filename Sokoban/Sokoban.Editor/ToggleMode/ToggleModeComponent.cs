@@ -32,6 +32,11 @@ namespace Sokoban.Editor.ToggleMode
         {
             if (_editorState.Mode is Mode.Game && _editorState.GameMode.IsLevelComplete())
             {
+                if (Scene.AllEntities.Any(e => e.HasComponent<EnterModeComponent>()))
+                {
+                    return;
+                }
+
                 _leaveGameModeTimer += gameTime.DeltaTime;
 
                 var playerControllerComponent = FindPlayerControllerComponent();
