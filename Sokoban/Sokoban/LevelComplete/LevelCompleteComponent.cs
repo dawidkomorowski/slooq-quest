@@ -116,8 +116,7 @@ namespace Sokoban.LevelComplete
 
         private PlayerControllerComponent FindPlayerControllerComponent()
         {
-            return Entity.Scene.AllEntities.Single(e => e.HasComponent<PlayerControllerComponent>())
-                .GetComponent<PlayerControllerComponent>();
+            return Scene.AllEntities.Single(e => e.HasComponent<PlayerControllerComponent>()).GetComponent<PlayerControllerComponent>();
         }
 
         private InGameMenuComponent FindInGameMenuComponent()

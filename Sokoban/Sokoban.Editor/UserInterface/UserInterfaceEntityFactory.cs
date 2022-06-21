@@ -8,7 +8,6 @@ using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Assets;
-using Sokoban.Core.EditorLogic;
 
 namespace Sokoban.Editor.UserInterface
 {
@@ -21,7 +20,7 @@ namespace Sokoban.Editor.UserInterface
             _assetStore = assetStore;
         }
 
-        public Entity CreateCursor(Scene scene, EditMode editMode)
+        public Entity CreateCursor(Scene scene)
         {
             var entity = scene.CreateEntity();
 
@@ -99,8 +98,7 @@ namespace Sokoban.Editor.UserInterface
                 }
             };
 
-            var cursorComponent = entity.CreateComponent<CursorComponent>();
-            cursorComponent.EditMode = editMode;
+            entity.CreateComponent<CursorComponent>();
 
             return entity;
         }
@@ -121,6 +119,7 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "F10 - Create Red Crate Spot", index++);
             AddHelpLabel(help, "P - Place Player", index++);
             AddHelpLabel(help, "Delete - Remove Object", index++);
+            AddHelpLabel(help, "Enter - Toggle Game/Edit Mode", index++);
             AddHelpLabel(help, "Esc - Exit Editor", index);
 
             return help;

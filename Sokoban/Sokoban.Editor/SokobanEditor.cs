@@ -2,6 +2,7 @@ using System.Reflection;
 using Autofac;
 using Geisha.Engine;
 using Sokoban.Core;
+using Sokoban.Editor.ToggleMode;
 using Sokoban.Editor.UserInterface;
 
 namespace Sokoban.Editor
@@ -17,10 +18,16 @@ namespace Sokoban.Editor
         {
             SokobanCoreModule.RegisterComponents(componentsRegistry);
 
+            // ToggleMode
+            componentsRegistry.AutofacContainerBuilder.RegisterType<ToggleModeEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<EnterModeComponentFactory>();
+            componentsRegistry.RegisterComponentFactory<ToggleModeComponentFactory>();
+
             // UserInterface
             componentsRegistry.AutofacContainerBuilder.RegisterType<UserInterfaceEntityFactory>().AsSelf().SingleInstance();
             componentsRegistry.RegisterComponentFactory<CursorComponentFactory>();
 
+            componentsRegistry.AutofacContainerBuilder.RegisterType<EditorState>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
         }
     }

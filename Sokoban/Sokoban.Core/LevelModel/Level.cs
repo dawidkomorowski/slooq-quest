@@ -176,6 +176,13 @@ namespace Sokoban.Core.LevelModel
             }
         }
 
+        public static Level CreateEmptyLevelValidForGameMode()
+        {
+            var level = new Level();
+            level.GetTile(0, 0).TileObject = new Player();
+            return level;
+        }
+
         public static Level CreateTestLevel()
         {
             var level = new Level();

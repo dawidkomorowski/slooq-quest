@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Geisha.Common.Math;
 using Geisha.Engine.Core;
@@ -8,7 +7,6 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Core;
-using Sokoban.Core.EditorLogic;
 using Sokoban.Core.Util;
 
 namespace Sokoban.Editor.UserInterface
@@ -17,46 +15,47 @@ namespace Sokoban.Editor.UserInterface
     {
         private readonly IEngineManager _engineManager;
         private readonly CoreEntityFactory _coreEntityFactory;
+        private readonly EditorState _editorState;
         private Transform2DComponent _transform = null!;
 
-        public CursorComponent(Entity entity, IEngineManager engineManager, CoreEntityFactory coreEntityFactory) : base(entity)
+        public CursorComponent(Entity entity, IEngineManager engineManager, CoreEntityFactory coreEntityFactory, EditorState editorState) : base(entity)
         {
             _engineManager = engineManager;
             _coreEntityFactory = coreEntityFactory;
+            _editorState = editorState;
         }
-
-        public EditMode? EditMode { get; set; }
 
         public override void OnStart()
         {
-            Debug.Assert(EditMode != null, nameof(EditMode) + " != null");
-
             _transform = Entity.GetComponent<Transform2DComponent>();
 
             var inputComponent = Entity.GetComponent<InputComponent>();
-            inputComponent.BindAction("MoveUp", EditMode.MoveUp);
-            inputComponent.BindAction("MoveDown", EditMode.MoveDown);
-            inputComponent.BindAction("MoveLeft", EditMode.MoveLeft);
-            inputComponent.BindAction("MoveRight", EditMode.MoveRight);
-            inputComponent.BindAction("Delete", EditMode.Delete);
-            inputComponent.BindAction("CreateRedGrayWall", EditMode.CreateRedGrayWall);
-            inputComponent.BindAction("CreateBrownCrate", EditMode.CreateBrownCrate);
-            inputComponent.BindAction("CreateRedCrate", EditMode.CreateRedCrate);
-            inputComponent.BindAction("CreateBrownCrateSpot", EditMode.CreateBrownCrateSpot);
-            inputComponent.BindAction("CreateRedCrateSpot", EditMode.CreateRedCrateSpot);
-            inputComponent.BindAction("PlacePlayer", EditMode.PlacePlayer);
+            inputComponent.BindAction("MoveUp", _editorState.EditMode.MoveUp);
+            inputComponent.BindAction("MoveDown", _editorState.EditMode.MoveDown);
+            inputComponent.BindAction("MoveLeft", _editorState.EditMode.MoveLeft);
+            inputComponent.BindAction("MoveRight", _editorState.EditMode.MoveRight);
+            inputComponent.BindAction("Delete", _editorState.EditMode.Delete);
+            inputComponent.BindAction("CreateRedGrayWall", _editorState.EditMode.CreateRedGrayWall);
+            inputComponent.BindAction("CreateBrownCrate", _editorState.EditMode.CreateBrownCrate);
+            inputComponent.BindAction("CreateRedCrate", _editorState.EditMode.CreateRedCrate);
+            inputComponent.BindAction("CreateBrownCrateSpot", _editorState.EditMode.CreateBrownCrateSpot);
+            inputComponent.BindAction("CreateRedCrateSpot", _editorState.EditMode.CreateRedCrateSpot);
+            inputComponent.BindAction("PlacePlayer", _editorState.EditMode.PlacePlayer);
             inputComponent.BindAction("Exit", _engineManager.ScheduleEngineShutdown);
 
-            EditMode.LevelModified += EditModeOnLevelModified;
+            _editorState.EditMode.LevelModified += EditModeOnLevelModified;
         }
 
         public override void OnUpdate(GameTime gameTime)
         {
-            Debug.Assert(EditMode != null, nameof(EditMode) + " != null");
-
-            _transform.Translation = EditMode.SelectedTile.GetTranslation();
+            _transform.Translation = _editorState.EditMode.SelectedTile.GetTranslation();
 
             AnimateCursor();
+
+            if (_editorState.Mode is Mode.Game)
+            {
+                _editorState.EditMode.LevelModified -= EditModeOnLevelModified;
+            }
         }
 
         private void AnimateCursor()
@@ -67,14 +66,12 @@ namespace Sokoban.Editor.UserInterface
 
         private void ReloadLevel()
         {
-            Debug.Assert(EditMode != null, nameof(EditMode) + " != null");
-
             var camera = Scene.RootEntities.Single(e => e.HasComponent<CameraComponent>());
 
             var currentLevelRoot = Scene.AllEntities.Single(e => e.Name == "Level");
             currentLevelRoot.RemoveAfterFullFrame();
 
-            var newLevelRoot = _coreEntityFactory.CreateLevel(Scene, EditMode.Level);
+            var newLevelRoot = _coreEntityFactory.CreateLevel(Scene, _editorState.EditMode.Level);
             newLevelRoot.Parent = camera;
 
             Entity.Parent = newLevelRoot;
@@ -90,13 +87,15 @@ namespace Sokoban.Editor.UserInterface
     {
         private readonly IEngineManager _engineManager;
         private readonly CoreEntityFactory _coreEntityFactory;
+        private readonly EditorState _editorState;
 
-        public CursorComponentFactory(IEngineManager engineManager, CoreEntityFactory coreEntityFactory)
+        public CursorComponentFactory(IEngineManager engineManager, CoreEntityFactory coreEntityFactory, EditorState editorState)
         {
             _engineManager = engineManager;
             _coreEntityFactory = coreEntityFactory;
+            _editorState = editorState;
         }
 
-        protected override CursorComponent CreateComponent(Entity entity) => new CursorComponent(entity, _engineManager, _coreEntityFactory);
+        protected override CursorComponent CreateComponent(Entity entity) => new CursorComponent(entity, _engineManager, _coreEntityFactory, _editorState);
     }
 }

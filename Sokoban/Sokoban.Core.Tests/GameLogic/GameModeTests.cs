@@ -13,7 +13,6 @@ namespace Sokoban.Core.Tests.GameLogic
         public void Constructor_ShouldThrowException_GivenLevelWithNoPlayer()
         {
             // Arrange
-
             var level = new Level();
 
             // Act
@@ -25,7 +24,6 @@ namespace Sokoban.Core.Tests.GameLogic
         public void Constructor_ShouldThrowException_GivenLevelWithMultiplePlayers()
         {
             // Arrange
-
             var level = new Level();
             level.GetTile(5, 5).TileObject = new Player();
             level.GetTile(6, 6).TileObject = new Player();
@@ -33,6 +31,17 @@ namespace Sokoban.Core.Tests.GameLogic
             // Act
             // Assert
             Assert.That(() => new GameMode(level), Throws.ArgumentException);
+        }
+
+        [Test]
+        public void Constructor_ShouldNotThrow_GivenEmptyLevelValidForGameMode()
+        {
+            // Arrange
+            var level = Level.CreateEmptyLevelValidForGameMode();
+
+            // Act
+            // Assert
+            Assert.That(() => new GameMode(level), Throws.Nothing);
         }
 
         [Test]

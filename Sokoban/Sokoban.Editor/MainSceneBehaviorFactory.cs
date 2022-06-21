@@ -1,10 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
-using Sokoban.Core.EditorLogic;
-using Sokoban.Core.LevelModel;
+using Sokoban.Editor.ToggleMode;
 using Sokoban.Editor.UserInterface;
 
 namespace Sokoban.Editor
@@ -14,26 +11,33 @@ namespace Sokoban.Editor
         private const string SceneBehaviorName = "Main";
         private readonly CoreEntityFactory _coreEntityFactory;
         private readonly UserInterfaceEntityFactory _userInterfaceEntityFactory;
+        private readonly ToggleModeEntityFactory _toggleModeEntityFactory;
 
-        public MainSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, UserInterfaceEntityFactory userInterfaceEntityFactory)
+        public MainSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, UserInterfaceEntityFactory userInterfaceEntityFactory,
+            ToggleModeEntityFactory toggleModeEntityFactory)
         {
             _coreEntityFactory = coreEntityFactory;
             _userInterfaceEntityFactory = userInterfaceEntityFactory;
+            _toggleModeEntityFactory = toggleModeEntityFactory;
         }
 
         public string BehaviorName => SceneBehaviorName;
-        public SceneBehavior Create(Scene scene) => new MainSceneBehavior(scene, _coreEntityFactory, _userInterfaceEntityFactory);
+
+        public SceneBehavior Create(Scene scene) =>
+            new MainSceneBehavior(scene, _coreEntityFactory, _userInterfaceEntityFactory, _toggleModeEntityFactory);
 
         private sealed class MainSceneBehavior : SceneBehavior
         {
             private readonly CoreEntityFactory _coreEntityFactory;
             private readonly UserInterfaceEntityFactory _userInterfaceEntityFactory;
-            private EditMode _editMode = null!;
+            private readonly ToggleModeEntityFactory _toggleModeEntityFactory;
 
-            public MainSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, UserInterfaceEntityFactory userInterfaceEntityFactory) : base(scene)
+            public MainSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory,
+                UserInterfaceEntityFactory userInterfaceEntityFactory, ToggleModeEntityFactory toggleModeEntityFactory) : base(scene)
             {
                 _coreEntityFactory = coreEntityFactory;
                 _userInterfaceEntityFactory = userInterfaceEntityFactory;
+                _toggleModeEntityFactory = toggleModeEntityFactory;
             }
 
             public override string Name => SceneBehaviorName;
@@ -47,36 +51,11 @@ namespace Sokoban.Editor
                 var background = _coreEntityFactory.CreateBackground(Scene);
                 background.Parent = cameraEntity;
 
-                _editMode = new EditMode(LoadDefaultLevel());
-                _editMode.LevelModified += EditModeOnLevelModified;
-
-                var levelEntity = _coreEntityFactory.CreateLevel(Scene, _editMode.Level);
-                levelEntity.Parent = cameraEntity;
-
-                var cursor = _userInterfaceEntityFactory.CreateCursor(Scene, _editMode);
-                cursor.Parent = levelEntity;
-
                 var help = _userInterfaceEntityFactory.CreateHelp(Scene);
                 help.Parent = cameraEntity;
-            }
 
-            private Level LoadDefaultLevel()
-            {
-                var defaultLevelPath = Path.Join("Levels", "NewLevel.sokoban-level");
-                if (File.Exists(defaultLevelPath))
-                {
-                    var serializedLevel = File.ReadAllText(defaultLevelPath);
-                    return Level.Deserialize(serializedLevel);
-                }
-                else
-                {
-                    return new Level();
-                }
-            }
-
-            private void EditModeOnLevelModified(object? sender, EventArgs e)
-            {
-                File.WriteAllText(Path.Join("Levels", "NewLevel.sokoban-level"), _editMode.Level.Serialize());
+                _toggleModeEntityFactory.CreateToggleModeEntity(Scene);
+                _toggleModeEntityFactory.CreateEnterModeEntity(Scene);
             }
         }
 
