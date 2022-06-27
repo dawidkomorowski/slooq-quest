@@ -62,8 +62,28 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
-                        ActionName = "CreateRedGrayWall",
+                        ActionName = "RemoveGround",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F1) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetBrownGround",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F2) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetGreenGround",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F3) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetGrayGround",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F4) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateRedGrayWall",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.A) } }
                     },
                     new ActionMapping
                     {
@@ -112,7 +132,11 @@ namespace Sokoban.Editor.UserInterface
 
             var index = 0;
             AddHelpLabel(help, "Arrows - Move Cursor", index++);
-            AddHelpLabel(help, "F1 - Create Red-Gray Wall", index++);
+            AddHelpLabel(help, "F1 - Remove Ground", index++);
+            AddHelpLabel(help, "F2 - Set Brown Ground", index++);
+            AddHelpLabel(help, "F3 - Set Green Ground", index++);
+            AddHelpLabel(help, "F4 - Set Gray Ground", index++);
+            AddHelpLabel(help, "A - Create Red-Gray Wall", index++);
             AddHelpLabel(help, "F5 - Create Brown Crate", index++);
             AddHelpLabel(help, "F6 - Create Red Crate", index++);
             AddHelpLabel(help, "F9 - Create Brown Crate Spot", index++);

@@ -9,6 +9,8 @@ namespace Sokoban.Assets
         {
             public static class Ground
             {
+                public static AssetId Brown { get; } = new AssetId(new Guid("cd5f29dc-091d-4788-ace4-327786fd6141"));
+                public static AssetId Green { get; } = new AssetId(new Guid("10fc274a-ce77-4897-a934-e6d9d9c0992a"));
                 public static AssetId Gray { get; } = new AssetId(new Guid("FFA50CAC-8C5B-4BB2-9E4A-C5D4FBBD8641"));
             }
 

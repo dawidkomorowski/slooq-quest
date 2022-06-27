@@ -56,34 +56,49 @@ namespace Sokoban.Core.EditorLogic
             OnLevelModified();
         }
 
+        public void SetGroundToNone()
+        {
+            SetGround(Ground.None);
+        }
+
+        public void SetGroundToBrown()
+        {
+            SetGround(Ground.Brown);
+        }
+
+        public void SetGroundToGreen()
+        {
+            SetGround(Ground.Green);
+        }
+
+        public void SetGroundToGray()
+        {
+            SetGround(Ground.Gray);
+        }
+
         public void CreateRedGrayWall()
         {
-            SelectedTile.TileObject = new Wall { Type = WallType.RedGray };
-            OnLevelModified();
+            SetTileObject(new Wall { Type = WallType.RedGray });
         }
 
         public void CreateBrownCrate()
         {
-            SelectedTile.TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
-            OnLevelModified();
+            SetTileObject(new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown });
         }
 
         public void CreateRedCrate()
         {
-            SelectedTile.TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
-            OnLevelModified();
+            SetTileObject(new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red });
         }
 
         public void CreateBrownCrateSpot()
         {
-            SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
-            OnLevelModified();
+            CreateCrateSpot(CrateSpotType.Brown);
         }
 
         public void CreateRedCrateSpot()
         {
-            SelectedTile.CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
-            OnLevelModified();
+            CreateCrateSpot(CrateSpotType.Red);
         }
 
         public void PlacePlayer()
@@ -100,8 +115,7 @@ namespace Sokoban.Core.EditorLogic
                 }
             }
 
-            SelectedTile.TileObject = new Player();
-            OnLevelModified();
+            SetTileObject(new Player());
         }
 
         private void Move(int targetX, int targetY)
@@ -112,6 +126,24 @@ namespace Sokoban.Core.EditorLogic
             }
 
             SelectedTile = Level.GetTile(targetX, targetY);
+        }
+
+        private void SetGround(Ground ground)
+        {
+            SelectedTile.Ground = ground;
+            OnLevelModified();
+        }
+
+        private void SetTileObject(TileObject tileObject)
+        {
+            SelectedTile.TileObject = tileObject;
+            OnLevelModified();
+        }
+
+        private void CreateCrateSpot(CrateSpotType type)
+        {
+            SelectedTile.CrateSpot = new CrateSpot { Type = type };
+            OnLevelModified();
         }
 
         private void OnLevelModified()

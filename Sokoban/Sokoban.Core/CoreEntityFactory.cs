@@ -108,14 +108,29 @@ namespace Sokoban.Core
 
         private void CreateGround(Entity levelEntity, Tile tile)
         {
+            if (tile.Ground is Ground.None)
+            {
+                return;
+            }
+
             var entity = levelEntity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Ground.Gray);
             spriteRendererComponent.SortingLayerName = "Ground";
+
+            var groundAssetId = tile.Ground switch
+            {
+                Ground.None => throw new ArgumentOutOfRangeException(),
+                Ground.Brown => SokobanAssetId.Sprites.Ground.Brown,
+                Ground.Green => SokobanAssetId.Sprites.Ground.Green,
+                Ground.Gray => SokobanAssetId.Sprites.Ground.Gray,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(groundAssetId);
         }
 
         private void CreateWall(Entity levelEntity, Wall wall)

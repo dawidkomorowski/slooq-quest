@@ -100,6 +100,24 @@
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.sprite.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

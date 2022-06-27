@@ -138,6 +138,154 @@ namespace Sokoban.Core.Tests.EditorLogic
         }
 
         [Test]
+        public void SetGroundToNone_ShouldSetGroundToNoneOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.SetGroundToNone();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).Ground, Is.EqualTo(Ground.None));
+        }
+
+        [Test]
+        public void SetGroundToNone_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.SetGroundToNone();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
+        public void SetGroundToBrown_ShouldSetGroundToBrownOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.SetGroundToBrown();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).Ground, Is.EqualTo(Ground.Brown));
+        }
+
+        [Test]
+        public void SetGroundToBrown_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.SetGroundToBrown();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
+        public void SetGroundToGreen_ShouldSetGroundToGreenOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.SetGroundToGreen();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).Ground, Is.EqualTo(Ground.Green));
+        }
+
+        [Test]
+        public void SetGroundToGreen_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.SetGroundToGreen();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
+        public void SetGroundToGray_ShouldSetGroundToGrayOnSelectedTile()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            editMode.SetGroundToGray();
+
+            // Assert
+            Assert.That(level.GetTile(0, 0).Ground, Is.EqualTo(Ground.Gray));
+        }
+
+        [Test]
+        public void SetGroundToGray_ShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.SetGroundToGray();
+
+            // Assert
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
+        [Test]
         public void CreateRedGrayWall_ShouldCreateRedGrayWallOnSelectedTile()
         {
             // Arrange

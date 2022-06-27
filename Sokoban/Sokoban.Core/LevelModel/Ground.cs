@@ -2,6 +2,9 @@
 {
     public enum Ground
     {
+        None,
+        Brown,
+        Green,
         Gray
     }
 }
