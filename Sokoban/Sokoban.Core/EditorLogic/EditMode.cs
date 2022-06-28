@@ -76,9 +76,44 @@ namespace Sokoban.Core.EditorLogic
             SetGround(Ground.Gray);
         }
 
+        public void CreateRedWall()
+        {
+            SetTileObject(new Wall { Type = WallType.Red });
+        }
+
         public void CreateRedGrayWall()
         {
             SetTileObject(new Wall { Type = WallType.RedGray });
+        }
+
+        public void CreateGrayWall()
+        {
+            SetTileObject(new Wall { Type = WallType.Gray });
+        }
+
+        public void CreateBrownWall()
+        {
+            SetTileObject(new Wall { Type = WallType.Brown });
+        }
+
+        public void CreateRedWallTop()
+        {
+            SetTileObject(new Wall { Type = WallType.TopRed });
+        }
+
+        public void CreateRedGrayWallTop()
+        {
+            SetTileObject(new Wall { Type = WallType.TopRedGray });
+        }
+
+        public void CreateGrayWallTop()
+        {
+            SetTileObject(new Wall { Type = WallType.TopGray });
+        }
+
+        public void CreateBrownWallTop()
+        {
+            SetTileObject(new Wall { Type = WallType.TopBrown });
         }
 
         public void CreateBrownCrate()

@@ -141,7 +141,21 @@ namespace Sokoban.Core
             transform2DComponent.Translation = wall.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Wall.RedGray);
+
+            var wallAssetId = wall.Type switch
+            {
+                WallType.Red => SokobanAssetId.Sprites.Wall.Red,
+                WallType.RedGray => SokobanAssetId.Sprites.Wall.RedGray,
+                WallType.Gray => SokobanAssetId.Sprites.Wall.Gray,
+                WallType.Brown => SokobanAssetId.Sprites.Wall.Brown,
+                WallType.TopRed => SokobanAssetId.Sprites.Wall.TopRed,
+                WallType.TopRedGray => SokobanAssetId.Sprites.Wall.TopRedGray,
+                WallType.TopGray => SokobanAssetId.Sprites.Wall.TopGray,
+                WallType.TopBrown => SokobanAssetId.Sprites.Wall.TopBrown,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(wallAssetId);
             spriteRendererComponent.SortingLayerName = "TileObject";
 
             var tileObjectPositionComponent = entity.CreateComponent<TileObjectPositionComponent>();

@@ -2,6 +2,13 @@
 {
     public enum WallType
     {
-        RedGray
+        Red,
+        RedGray,
+        Gray,
+        Brown,
+        TopRed,
+        TopRedGray,
+        TopGray,
+        TopBrown
     }
 }

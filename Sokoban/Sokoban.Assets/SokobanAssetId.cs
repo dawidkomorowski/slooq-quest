@@ -16,7 +16,14 @@ namespace Sokoban.Assets
 
             public static class Wall
             {
+                public static AssetId Red { get; } = new AssetId(new Guid("5231822a-ecdd-419d-a20a-c382850a73a0"));
                 public static AssetId RedGray { get; } = new AssetId(new Guid("0f721725-a418-4fd8-8243-0ae80db34b34"));
+                public static AssetId Gray { get; } = new AssetId(new Guid("4f414142-3100-42f6-aad3-4b3b7063f704"));
+                public static AssetId Brown { get; } = new AssetId(new Guid("cb6695fa-3d6e-443c-b221-0d6395d69bd6"));
+                public static AssetId TopRed { get; } = new AssetId(new Guid("9c3cf615-07ac-4c70-88b4-7d5a5c6172c8"));
+                public static AssetId TopRedGray { get; } = new AssetId(new Guid("a75af302-713c-4d0b-9e71-c57d2f86fb2d"));
+                public static AssetId TopGray { get; } = new AssetId(new Guid("d0175c71-7d34-48a4-adb8-4decb5b937a4"));
+                public static AssetId TopBrown { get; } = new AssetId(new Guid("84fb71b4-8ccd-49f2-a2dd-4db092666553"));
             }
 
             public static class Crate

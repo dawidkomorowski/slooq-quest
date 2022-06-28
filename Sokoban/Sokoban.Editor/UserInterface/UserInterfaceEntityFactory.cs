@@ -35,6 +35,7 @@ namespace Sokoban.Editor.UserInterface
             {
                 ActionMappings =
                 {
+                    // Main Controls
                     new ActionMapping
                     {
                         ActionName = "MoveUp",
@@ -62,6 +63,12 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
+                        ActionName = "Exit",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Escape) } }
+                    },
+                    // Ground
+                    new ActionMapping
+                    {
                         ActionName = "RemoveGround",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F1) } }
                     },
@@ -80,40 +87,73 @@ namespace Sokoban.Editor.UserInterface
                         ActionName = "SetGrayGround",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F4) } }
                     },
+                    // Walls
                     new ActionMapping
                     {
-                        ActionName = "CreateRedGrayWall",
-                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.A) } }
-                    },
-                    new ActionMapping
-                    {
-                        ActionName = "CreateBrownCrate",
+                        ActionName = "CreateRedWall",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F5) } }
                     },
                     new ActionMapping
                     {
-                        ActionName = "CreateRedCrate",
+                        ActionName = "CreateRedGrayWall",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F6) } }
                     },
                     new ActionMapping
                     {
-                        ActionName = "CreateBrownCrateSpot",
+                        ActionName = "CreateGrayWall",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F7) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateBrownWall",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F8) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateRedWallTop",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F9) } }
                     },
                     new ActionMapping
                     {
-                        ActionName = "CreateRedCrateSpot",
+                        ActionName = "CreateRedGrayWallTop",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F10) } }
                     },
                     new ActionMapping
                     {
-                        ActionName = "PlacePlayer",
-                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.P) } }
+                        ActionName = "CreateGrayWallTop",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F11) } }
                     },
                     new ActionMapping
                     {
-                        ActionName = "Exit",
-                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Escape) } }
+                        ActionName = "CreateBrownWallTop",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F12) } }
+                    },
+                    // Crates
+                    new ActionMapping
+                    {
+                        ActionName = "CreateBrownCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Q) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateRedCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.W) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateBrownCrateSpot",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.A) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateRedCrateSpot",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.S) } }
+                    },
+                    // Player
+                    new ActionMapping
+                    {
+                        ActionName = "PlacePlayer",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.P) } }
                     }
                 }
             };
@@ -128,23 +168,34 @@ namespace Sokoban.Editor.UserInterface
             var help = scene.CreateEntity();
 
             var transform2DComponent = help.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = new Vector2(-635, 0);
+            transform2DComponent.Translation = new Vector2(-635, 100);
 
             var index = 0;
             AddHelpLabel(help, "Arrows - Move Cursor", index++);
+            AddHelpLabel(help, "Delete - Remove Object", index++);
+            AddHelpLabel(help, "Enter - Toggle Game/Edit Mode", index++);
+            AddHelpLabel(help, "Esc - Exit Editor", index++);
+            AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "F1 - Remove Ground", index++);
             AddHelpLabel(help, "F2 - Set Brown Ground", index++);
             AddHelpLabel(help, "F3 - Set Green Ground", index++);
             AddHelpLabel(help, "F4 - Set Gray Ground", index++);
-            AddHelpLabel(help, "A - Create Red-Gray Wall", index++);
-            AddHelpLabel(help, "F5 - Create Brown Crate", index++);
-            AddHelpLabel(help, "F6 - Create Red Crate", index++);
-            AddHelpLabel(help, "F9 - Create Brown Crate Spot", index++);
-            AddHelpLabel(help, "F10 - Create Red Crate Spot", index++);
-            AddHelpLabel(help, "P - Place Player", index++);
-            AddHelpLabel(help, "Delete - Remove Object", index++);
-            AddHelpLabel(help, "Enter - Toggle Game/Edit Mode", index++);
-            AddHelpLabel(help, "Esc - Exit Editor", index);
+            AddHelpLabel(help, string.Empty, index++);
+            AddHelpLabel(help, "F5 - Create Red Wall", index++);
+            AddHelpLabel(help, "F6 - Create Red-Gray Wall", index++);
+            AddHelpLabel(help, "F7 - Create Gray Wall", index++);
+            AddHelpLabel(help, "F8 - Create Brown Wall", index++);
+            AddHelpLabel(help, "F9 - Create Red Wall Top", index++);
+            AddHelpLabel(help, "F10 - Create Red-Gray Wall Top", index++);
+            AddHelpLabel(help, "F11 - Create Gray Wall Top", index++);
+            AddHelpLabel(help, "F12 - Create Brown Wall Top", index++);
+            AddHelpLabel(help, string.Empty, index++);
+            AddHelpLabel(help, "Q - Create Brown Crate", index++);
+            AddHelpLabel(help, "W - Create Red Crate", index++);
+            AddHelpLabel(help, "A - Create Brown Crate Spot", index++);
+            AddHelpLabel(help, "S - Create Red Crate Spot", index++);
+            AddHelpLabel(help, string.Empty, index++);
+            AddHelpLabel(help, "P - Place Player", index);
 
             return help;
         }
