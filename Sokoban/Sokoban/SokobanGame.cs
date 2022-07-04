@@ -8,8 +8,6 @@ using Sokoban.RestartLevel;
 
 namespace Sokoban
 {
-    // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation>();
-    // TODO Feature Request: IComponentsRegistry.RegisterSingleInstance<TImplementation, TInterface>();
     // TODO Feature Request: Custom Window Icon?
     // TODO Better exception information when entity in hierarchy does not have Transform2DComponent.
     // TODO TextRendererComponent should support text alignment.
