@@ -12,8 +12,6 @@ namespace Sokoban
     // TODO Better exception information when entity in hierarchy does not have Transform2DComponent.
     // TODO TextRendererComponent should support text alignment.
     // TODO Ability to change visibility of whole hierarchy of renderers.
-    // BUG Cannot inject ISceneManager to component.
-    // BUG Cannot inject ISceneManager to scene behavior.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO BehaviorComponent.OnRemoved()?
 
