@@ -177,6 +177,16 @@ namespace Sokoban.Core
 
             var crateRendererComponent = entity.CreateComponent<CrateRendererComponent>();
             crateRendererComponent.Crate = crate;
+
+            var labelEntity = entity.CreateChildEntity();
+            var labelTransform2DComponent = labelEntity.CreateComponent<Transform2DComponent>();
+            labelTransform2DComponent.Translation = new Vector2(-9, 33);
+
+            var labelRendererComponent = labelEntity.CreateComponent<TextRendererComponent>();
+            labelRendererComponent.SortingLayerName = "TileObject";
+            labelRendererComponent.OrderInLayer = 1;
+            labelRendererComponent.FontSize = FontSize.FromDips(35);
+            labelRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
         }
 
         private void CreatePlayer(Entity levelEntity, Player player)

@@ -126,53 +126,12 @@ namespace Sokoban.Core.GameLogic
                     return;
                 }
 
-                if (StopBlueCrate_Mechanics(crate))
-                {
-                    return;
-                }
-
                 crateTargetTile.TileObject = crate;
 
                 crate.OnMove();
-
-                DecrementBlueCrateCounter(crate);
             }
 
             targetTile.TileObject = Player;
         }
-
-        #region Crate mechanics
-
-        private bool StopBlueCrate_Mechanics(Crate crate)
-        {
-            if (crate.Type != CrateType.Blue)
-            {
-                return false;
-            }
-
-            if (!_blueCrateMechanicsState.ContainsKey(crate))
-            {
-                _blueCrateMechanicsState.Add(crate, 5);
-            }
-
-            return _blueCrateMechanicsState[crate] == 0;
-        }
-
-        private void DecrementBlueCrateCounter(Crate crate)
-        {
-            if (crate.Type != CrateType.Blue)
-            {
-                return;
-            }
-
-            if (_blueCrateMechanicsState[crate] > 0)
-            {
-                _blueCrateMechanicsState[crate]--;
-            }
-        }
-
-        private readonly Dictionary<Crate, int> _blueCrateMechanicsState = new Dictionary<Crate, int>();
-
-        #endregion
     }
 }

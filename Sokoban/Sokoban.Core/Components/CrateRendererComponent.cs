@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
@@ -16,9 +17,11 @@ namespace Sokoban.Core.Components
         private readonly Sprite _red;
         private readonly Sprite _redGrayedOut;
         private readonly Sprite _blue;
+        private readonly Sprite _blueGrayedOut;
         private readonly Sprite _green;
         private readonly Sprite _gray;
         private SpriteRendererComponent _spriteRendererComponent = null!;
+        private TextRendererComponent _textRendererComponent = null!;
 
         public CrateRendererComponent(Entity entity, IAssetStore assetStore) : base(entity)
         {
@@ -26,6 +29,7 @@ namespace Sokoban.Core.Components
             _red = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Red);
             _redGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.RedGrayedOut);
             _blue = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Blue);
+            _blueGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.BlueGrayedOut);
             _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
             _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
         }
@@ -35,6 +39,7 @@ namespace Sokoban.Core.Components
         public override void OnStart()
         {
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
+            _textRendererComponent = Entity.Children.Single().GetComponent<TextRendererComponent>();
         }
 
         public override void OnUpdate(GameTime gameTime)
@@ -49,6 +54,7 @@ namespace Sokoban.Core.Components
                 _spriteRendererComponent.Sprite = Crate.Type switch
                 {
                     CrateType.Red => _redGrayedOut,
+                    CrateType.Blue => _blueGrayedOut,
                     _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
                 };
             }
@@ -63,6 +69,11 @@ namespace Sokoban.Core.Components
                     CrateType.Gray => _gray,
                     _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
                 };
+            }
+
+            if (Crate.Type is CrateType.Blue)
+            {
+                _textRendererComponent.Text = Crate.Counter > 0 ? Crate.Counter.ToString() : string.Empty;
             }
         }
     }

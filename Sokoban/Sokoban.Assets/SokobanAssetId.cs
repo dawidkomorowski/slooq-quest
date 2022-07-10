@@ -32,6 +32,7 @@ namespace Sokoban.Assets
                 public static AssetId Red { get; } = new AssetId(new Guid("a38a3dbf-9a1d-42bb-9312-813b7b5c38ad"));
                 public static AssetId RedGrayedOut { get; } = new AssetId(new Guid("f6e42816-6abb-40ce-a19b-3762b91287f1"));
                 public static AssetId Blue { get; } = new AssetId(new Guid("5a21aa82-4c12-4202-abdc-19657e477da7"));
+                public static AssetId BlueGrayedOut { get; } = new AssetId(new Guid("2f5428e4-1455-460b-a010-1d24c7e68ae1"));
                 public static AssetId Green { get; } = new AssetId(new Guid("78eb39ff-bdf3-4090-8342-8cae95d3bc7b"));
                 public static AssetId Gray { get; } = new AssetId(new Guid("3800e86b-d36a-45e0-8156-d3fa8f6a9f56"));
             }

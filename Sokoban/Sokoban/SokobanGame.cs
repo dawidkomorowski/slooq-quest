@@ -12,6 +12,7 @@ namespace Sokoban
     // TODO TextRendererComponent should support text alignment.
     // TODO Ability to change visibility of whole hierarchy of renderers.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
+    // TODO TextRendererComponent should have default font size (non zero) and default color (non transparent)?
 
     internal sealed class SokobanGame : IGame
     {
