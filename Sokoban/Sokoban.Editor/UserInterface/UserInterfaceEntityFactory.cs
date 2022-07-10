@@ -141,6 +141,21 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
+                        ActionName = "CreateBlueCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.E) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateGreenCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.R) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateGrayCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.T) } }
+                    },
+                    new ActionMapping
+                    {
                         ActionName = "CreateBrownCrateSpot",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.A) } }
                     },
@@ -148,6 +163,21 @@ namespace Sokoban.Editor.UserInterface
                     {
                         ActionName = "CreateRedCrateSpot",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.S) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateBlueCrateSpot",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateGreenCrateSpot",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "CreateGrayCrateSpot",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.G) } }
                     },
                     // Player
                     new ActionMapping
@@ -192,8 +222,14 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "Q - Create Brown Crate", index++);
             AddHelpLabel(help, "W - Create Red Crate", index++);
+            AddHelpLabel(help, "E - Create Blue Crate", index++);
+            AddHelpLabel(help, "R - Create Green Crate", index++);
+            AddHelpLabel(help, "T - Create Gray Crate", index++);
             AddHelpLabel(help, "A - Create Brown Crate Spot", index++);
             AddHelpLabel(help, "S - Create Red Crate Spot", index++);
+            AddHelpLabel(help, "D - Create Blue Crate Spot", index++);
+            AddHelpLabel(help, "F - Create Green Crate Spot", index++);
+            AddHelpLabel(help, "G - Create Gray Crate Spot", index++);
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "P - Place Player", index);
 

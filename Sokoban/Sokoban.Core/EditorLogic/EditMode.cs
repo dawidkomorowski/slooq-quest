@@ -126,6 +126,21 @@ namespace Sokoban.Core.EditorLogic
             SetTileObject(new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red });
         }
 
+        public void CreateBlueCrate()
+        {
+            SetTileObject(new Crate { Type = CrateType.Blue, CrateSpotType = CrateSpotType.Blue });
+        }
+
+        public void CreateGreenCrate()
+        {
+            SetTileObject(new Crate { Type = CrateType.Green, CrateSpotType = CrateSpotType.Green });
+        }
+
+        public void CreateGrayCrate()
+        {
+            SetTileObject(new Crate { Type = CrateType.Gray, CrateSpotType = CrateSpotType.Gray });
+        }
+
         public void CreateBrownCrateSpot()
         {
             CreateCrateSpot(CrateSpotType.Brown);
@@ -134,6 +149,21 @@ namespace Sokoban.Core.EditorLogic
         public void CreateRedCrateSpot()
         {
             CreateCrateSpot(CrateSpotType.Red);
+        }
+
+        public void CreateBlueCrateSpot()
+        {
+            CreateCrateSpot(CrateSpotType.Blue);
+        }
+
+        public void CreateGreenCrateSpot()
+        {
+            CreateCrateSpot(CrateSpotType.Green);
+        }
+
+        public void CreateGrayCrateSpot()
+        {
+            CreateCrateSpot(CrateSpotType.Gray);
         }
 
         public void PlacePlayer()

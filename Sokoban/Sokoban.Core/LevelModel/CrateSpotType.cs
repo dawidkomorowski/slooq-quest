@@ -3,6 +3,9 @@
     public enum CrateSpotType
     {
         Brown,
-        Red
+        Red,
+        Blue,
+        Green,
+        Gray
     }
 }

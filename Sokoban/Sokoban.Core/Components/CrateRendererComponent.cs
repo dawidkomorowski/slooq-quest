@@ -14,12 +14,18 @@ namespace Sokoban.Core.Components
     {
         private readonly Sprite _brown;
         private readonly Sprite _red;
+        private readonly Sprite _blue;
+        private readonly Sprite _green;
+        private readonly Sprite _gray;
         private SpriteRendererComponent _spriteRendererComponent = null!;
 
         public CrateRendererComponent(Entity entity, IAssetStore assetStore) : base(entity)
         {
             _brown = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
             _red = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Red);
+            _blue = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Blue);
+            _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
+            _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
         }
 
         public Crate? Crate { get; set; }
@@ -35,6 +41,9 @@ namespace Sokoban.Core.Components
             {
                 CrateType.Brown => _brown,
                 CrateType.Red => _red,
+                CrateType.Blue => _blue,
+                CrateType.Green => _green,
+                CrateType.Gray => _gray,
                 _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
             };
         }

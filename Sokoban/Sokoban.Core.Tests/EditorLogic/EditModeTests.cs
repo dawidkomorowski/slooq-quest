@@ -215,7 +215,10 @@ namespace Sokoban.Core.Tests.EditorLogic
         public static IEnumerable<TestCaseData> CreateCrateTestCases => new[]
         {
             new TestCaseData(MakeExpression(e => e.CreateBrownCrate()), CrateType.Brown, CrateSpotType.Brown),
-            new TestCaseData(MakeExpression(e => e.CreateRedCrate()), CrateType.Red, CrateSpotType.Red)
+            new TestCaseData(MakeExpression(e => e.CreateRedCrate()), CrateType.Red, CrateSpotType.Red),
+            new TestCaseData(MakeExpression(e => e.CreateBlueCrate()), CrateType.Blue, CrateSpotType.Blue),
+            new TestCaseData(MakeExpression(e => e.CreateGreenCrate()), CrateType.Green, CrateSpotType.Green),
+            new TestCaseData(MakeExpression(e => e.CreateGrayCrate()), CrateType.Gray, CrateSpotType.Gray)
         };
 
         [TestCaseSource(nameof(CreateCrateTestCases))]
@@ -251,7 +254,10 @@ namespace Sokoban.Core.Tests.EditorLogic
         public static IEnumerable<TestCaseData> CreateCrateSpotTestCases => new[]
         {
             new TestCaseData(MakeExpression(e => e.CreateBrownCrateSpot()), CrateSpotType.Brown),
-            new TestCaseData(MakeExpression(e => e.CreateRedCrateSpot()), CrateSpotType.Red)
+            new TestCaseData(MakeExpression(e => e.CreateRedCrateSpot()), CrateSpotType.Red),
+            new TestCaseData(MakeExpression(e => e.CreateBlueCrateSpot()), CrateSpotType.Blue),
+            new TestCaseData(MakeExpression(e => e.CreateGreenCrateSpot()), CrateSpotType.Green),
+            new TestCaseData(MakeExpression(e => e.CreateGrayCrateSpot()), CrateSpotType.Gray)
         };
 
         [TestCaseSource(nameof(CreateCrateSpotTestCases))]
