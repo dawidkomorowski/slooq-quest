@@ -190,7 +190,7 @@ namespace Sokoban.Core.LevelModel
             var version = Version.Parse(versionString);
 
             // Upgrade to v0.8
-            if (version < CurrentVersion)
+            if (version < new Version(0, 8))
             {
                 var tilesJsonNode = GetNotNullPropertyValue(levelJsonObject, "Tiles");
 
@@ -214,6 +214,8 @@ namespace Sokoban.Core.LevelModel
                         }
                     }
                 }
+
+                version = new Version(0, 8);
             }
         }
 
