@@ -179,6 +179,52 @@ namespace Sokoban.Editor.UserInterface
                         ActionName = "CreateGrayCrateSpot",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.G) } }
                     },
+                    // Crate Counter
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter1",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D1) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter2",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D2) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter3",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D3) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter4",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D4) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter5",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D5) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter6",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D6) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter7",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D7) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter8",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D8) } }
+                    },
+                    new ActionMapping
+                    {
+                        ActionName = "SetCrateCounter9",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D9) } }
+                    },
                     // Player
                     new ActionMapping
                     {
@@ -198,7 +244,7 @@ namespace Sokoban.Editor.UserInterface
             var help = scene.CreateEntity();
 
             var transform2DComponent = help.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = new Vector2(-635, 100);
+            transform2DComponent.Translation = new Vector2(-635, 200);
 
             var index = 0;
             AddHelpLabel(help, "Arrows - Move Cursor", index++);
@@ -230,6 +276,8 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "D - Create Blue Crate Spot", index++);
             AddHelpLabel(help, "F - Create Green Crate Spot", index++);
             AddHelpLabel(help, "G - Create Gray Crate Spot", index++);
+            AddHelpLabel(help, string.Empty, index++);
+            AddHelpLabel(help, "1-9 - Set Crate Move Counter", index++);
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "P - Place Player", index);
 

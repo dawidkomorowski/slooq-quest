@@ -22,6 +22,9 @@ namespace Sokoban.Core.LevelModel
             }
         }
 
+        private static Version CurrentVersion => Version.Parse(Assembly.GetAssembly(typeof(Level))?.GetName().Version?.ToString(2) ??
+                                                               throw new InvalidOperationException("Cannot get current version."));
+
         public int Width { get; } = 10;
         public int Height { get; } = 10;
 
@@ -54,7 +57,8 @@ namespace Sokoban.Core.LevelModel
                             {
                                 { "ObjectType", "Crate" },
                                 { "Type", crate.Type.ToString() },
-                                { "CrateSpotType", crate.CrateSpotType.ToString() }
+                                { "CrateSpotType", crate.CrateSpotType.ToString() },
+                                { "Counter", crate.Counter }
                             },
                             Player _ => new JsonObject
                             {
@@ -74,7 +78,7 @@ namespace Sokoban.Core.LevelModel
 
             var levelJsonObject = new JsonObject
             {
-                { "Version", Assembly.GetAssembly(typeof(Level))?.GetName().Version?.ToString(2) },
+                { "Version", CurrentVersion.ToString(2) },
                 { "Width", Width },
                 { "Height", Height },
                 { "Tiles", tilesJsonArray }
@@ -92,6 +96,8 @@ namespace Sokoban.Core.LevelModel
                 {
                     throw new LevelDataCorruptedException();
                 }
+
+                Upgrade(levelJsonNode);
 
                 var levelJsonObject = levelJsonNode.AsObject();
                 var level = new Level();
@@ -147,7 +153,8 @@ namespace Sokoban.Core.LevelModel
                             {
                                 var type = GetEnumPropertyValue<CrateType>(tileObjectJsonObject, "CrateSpotType");
                                 var crateSpotType = GetEnumPropertyValue<CrateSpotType>(tileObjectJsonObject, "CrateSpotType");
-                                tileObject = new Crate { Type = type, CrateSpotType = crateSpotType };
+                                var counter = GetNotNullPropertyValue(tileObjectJsonObject, "Counter").GetValue<int>();
+                                tileObject = new Crate { Type = type, CrateSpotType = crateSpotType, Counter = counter };
                                 break;
                             }
                             case "Player":
@@ -173,6 +180,40 @@ namespace Sokoban.Core.LevelModel
             catch (Exception exception)
             {
                 throw new LevelDataCorruptedException(exception);
+            }
+        }
+
+        private static void Upgrade(JsonNode levelJsonNode)
+        {
+            var levelJsonObject = levelJsonNode.AsObject();
+            var versionString = GetNotNullPropertyValue(levelJsonObject, "Version").GetValue<string>();
+            var version = Version.Parse(versionString);
+
+            // Upgrade to v0.8
+            if (version < CurrentVersion)
+            {
+                var tilesJsonNode = GetNotNullPropertyValue(levelJsonObject, "Tiles");
+
+                foreach (var tileJsonNode in tilesJsonNode.AsArray())
+                {
+                    if (tileJsonNode is null)
+                    {
+                        throw new LevelDataCorruptedException();
+                    }
+
+                    var tileJsonObject = tileJsonNode.AsObject();
+                    var tileObjectJsonNode = GetPropertyValue(tileJsonObject, "TileObject");
+                    if (tileObjectJsonNode != null)
+                    {
+                        var tileObjectJsonObject = tileObjectJsonNode.AsObject();
+                        var objectType = GetNotNullPropertyValue(tileObjectJsonObject, "ObjectType").GetValue<string>();
+
+                        if (objectType == "Crate")
+                        {
+                            tileObjectJsonObject.Add("Counter", 5);
+                        }
+                    }
+                }
             }
         }
 

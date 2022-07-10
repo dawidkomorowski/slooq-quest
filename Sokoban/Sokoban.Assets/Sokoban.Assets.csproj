@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.7</Version>
+		<Version>0.8</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
 		<Product>Sokoban.Assets</Product>
@@ -389,6 +389,9 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\NewLevel.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\topowinnobyctrudne.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

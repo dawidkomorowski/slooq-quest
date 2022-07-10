@@ -183,6 +183,16 @@ namespace Sokoban.Core.EditorLogic
             SetTileObject(new Player());
         }
 
+        public void SetCrateCounter(int counter)
+        {
+            if (SelectedTile.TileObject is Crate crate)
+            {
+                crate.Counter = counter;
+            }
+
+            OnLevelModified();
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))

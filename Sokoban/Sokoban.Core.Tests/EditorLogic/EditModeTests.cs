@@ -342,6 +342,45 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
+        [Test]
+        public void SetCrateCounter_ShouldNotThrow_WhenSelectedTileHasNoCrate()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            // Assert
+            Assert.That(() => editMode.SetCrateCounter(2), Throws.Nothing);
+        }
+
+        [Test]
+        public void SetCrateCounter_ShouldSetCounterOfCrate_AndShouldInvokeLevelModifiedEvent()
+        {
+            // Arrange
+            var level = new Level();
+            var crate = new Crate { Type = CrateType.Blue, CrateSpotType = CrateSpotType.Blue, Counter = 1 };
+            level.GetTile(0, 0).TileObject = crate;
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.SetCrateCounter(2);
+
+            // Assert
+            Assert.That(crate.Counter, Is.EqualTo(2));
+
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
         private static Expression<Action<EditMode>> MakeExpression(Expression<Action<EditMode>> expression) => expression;
     }
 }

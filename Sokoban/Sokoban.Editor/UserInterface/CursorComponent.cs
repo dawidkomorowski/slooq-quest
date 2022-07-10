@@ -62,6 +62,16 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("CreateBlueCrateSpot", _editorState.EditMode.CreateBlueCrateSpot);
             inputComponent.BindAction("CreateGreenCrateSpot", _editorState.EditMode.CreateGreenCrateSpot);
             inputComponent.BindAction("CreateGrayCrateSpot", _editorState.EditMode.CreateGrayCrateSpot);
+            // Crate Counter
+            inputComponent.BindAction("SetCrateCounter1", () => _editorState.EditMode.SetCrateCounter(1));
+            inputComponent.BindAction("SetCrateCounter2", () => _editorState.EditMode.SetCrateCounter(2));
+            inputComponent.BindAction("SetCrateCounter3", () => _editorState.EditMode.SetCrateCounter(3));
+            inputComponent.BindAction("SetCrateCounter4", () => _editorState.EditMode.SetCrateCounter(4));
+            inputComponent.BindAction("SetCrateCounter5", () => _editorState.EditMode.SetCrateCounter(5));
+            inputComponent.BindAction("SetCrateCounter6", () => _editorState.EditMode.SetCrateCounter(6));
+            inputComponent.BindAction("SetCrateCounter7", () => _editorState.EditMode.SetCrateCounter(7));
+            inputComponent.BindAction("SetCrateCounter8", () => _editorState.EditMode.SetCrateCounter(8));
+            inputComponent.BindAction("SetCrateCounter9", () => _editorState.EditMode.SetCrateCounter(9));
             // Player
             inputComponent.BindAction("PlacePlayer", _editorState.EditMode.PlacePlayer);
 

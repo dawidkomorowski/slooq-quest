@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NUnit.Framework;
 using Sokoban.Core.LevelModel;
 
@@ -55,6 +56,7 @@ namespace Sokoban.Core.Tests.LevelModel
 
             level.GetTile(2, 2).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
             level.GetTile(7, 7).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+            level.GetTile(4, 4).TileObject = new Crate { Type = CrateType.Blue, CrateSpotType = CrateSpotType.Blue, Counter = 2 };
 
             level.GetTile(5, 5).TileObject = new Player();
 
@@ -111,9 +113,27 @@ namespace Sokoban.Core.Tests.LevelModel
                     var actualCrate = (Crate)actual.TileObject!;
                     Assert.That(actualCrate.Type, Is.EqualTo(expectedCrate.Type), actual.ToString);
                     Assert.That(actualCrate.CrateSpotType, Is.EqualTo(expectedCrate.CrateSpotType), actual.ToString);
+                    Assert.That(actualCrate.Counter, Is.EqualTo(expectedCrate.Counter), actual.ToString);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unsupported {nameof(Tile.TileObject)} type: {expected.TileObject.GetType()}");
+            }
+        }
+
+        [Test]
+        public void Deserialize_ShouldBeSuccessful_ForAllCreatedLevels()
+        {
+            // Arrange
+            var levelFilePaths = Directory.GetFiles("Levels");
+
+            // Act
+            // Assert
+            foreach (var levelFilePath in levelFilePaths)
+            {
+                var levelData = File.ReadAllText(levelFilePath);
+                var level = Level.Deserialize(levelData);
+
+                Assert.That(level, Is.Not.Null);
             }
         }
     }
