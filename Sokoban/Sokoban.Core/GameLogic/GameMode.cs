@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sokoban.Core.LevelModel;
 
 namespace Sokoban.Core.GameLogic
@@ -120,10 +121,70 @@ namespace Sokoban.Core.GameLogic
                     return;
                 }
 
+                if (StopRedCrate_Mechanics(crate))
+                {
+                    return;
+                }
+
+                if (StopBlueCrate_Mechanics(crate))
+                {
+                    return;
+                }
+
+                if (StopAllButGreenCrate_Mechanics(crate, crateTargetTile))
+                {
+                    return;
+                }
+
                 crateTargetTile.TileObject = crate;
             }
 
             targetTile.TileObject = Player;
         }
+
+        #region Crate mechanics
+
+        private bool StopRedCrate_Mechanics(Crate crate)
+        {
+            if (crate.Type != CrateType.Red)
+            {
+                return false;
+            }
+
+            return crate.CrateSpotType == crate.Tile.CrateSpot?.Type;
+        }
+
+        private bool StopBlueCrate_Mechanics(Crate crate)
+        {
+            if (crate.Type != CrateType.Blue)
+            {
+                return false;
+            }
+
+            if (!_blueCrateMechanicsState.ContainsKey(crate))
+            {
+                _blueCrateMechanicsState.Add(crate, 5);
+            }
+            else
+            {
+                _blueCrateMechanicsState[crate]--;
+            }
+
+            return _blueCrateMechanicsState[crate] <= 0;
+        }
+
+        private readonly Dictionary<Crate, int> _blueCrateMechanicsState = new Dictionary<Crate, int>();
+
+        private bool StopAllButGreenCrate_Mechanics(Crate crate, Tile targetTile)
+        {
+            if (crate.Type is CrateType.Green)
+            {
+                return false;
+            }
+
+            return targetTile.Ground == Ground.Green;
+        }
+
+        #endregion
     }
 }
