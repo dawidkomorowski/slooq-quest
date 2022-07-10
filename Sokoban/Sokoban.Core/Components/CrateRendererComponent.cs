@@ -14,6 +14,7 @@ namespace Sokoban.Core.Components
     {
         private readonly Sprite _brown;
         private readonly Sprite _red;
+        private readonly Sprite _redGrayedOut;
         private readonly Sprite _blue;
         private readonly Sprite _green;
         private readonly Sprite _gray;
@@ -23,6 +24,7 @@ namespace Sokoban.Core.Components
         {
             _brown = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
             _red = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Red);
+            _redGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.RedGrayedOut);
             _blue = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Blue);
             _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
             _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
@@ -37,15 +39,31 @@ namespace Sokoban.Core.Components
 
         public override void OnUpdate(GameTime gameTime)
         {
-            _spriteRendererComponent.Sprite = Crate?.Type switch
+            if (Crate == null)
             {
-                CrateType.Brown => _brown,
-                CrateType.Red => _red,
-                CrateType.Blue => _blue,
-                CrateType.Green => _green,
-                CrateType.Gray => _gray,
-                _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
-            };
+                return;
+            }
+
+            if (Crate.IsLocked)
+            {
+                _spriteRendererComponent.Sprite = Crate.Type switch
+                {
+                    CrateType.Red => _redGrayedOut,
+                    _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
+                };
+            }
+            else
+            {
+                _spriteRendererComponent.Sprite = Crate.Type switch
+                {
+                    CrateType.Brown => _brown,
+                    CrateType.Red => _red,
+                    CrateType.Blue => _blue,
+                    CrateType.Green => _green,
+                    CrateType.Gray => _gray,
+                    _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
+                };
+            }
         }
     }
 

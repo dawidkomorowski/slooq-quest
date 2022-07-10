@@ -623,5 +623,51 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         #endregion
+
+        #region Rec Crate Mechanics
+
+        [Test]
+        public void RedCrate_ShouldBecomeLocked_WhenItEntersRedCrateSpot()
+        {
+            // Arrange
+            var crate = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = new Player();
+            level.GetTile(6, 5).TileObject = crate;
+            level.GetTile(7, 5).CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveRight();
+
+            // Assert
+            Assert.That(level.GetTile(7, 5).TileObject, Is.EqualTo(crate));
+            Assert.That(crate.IsLocked, Is.True);
+        }
+
+        [Test]
+        public void RedCrate_ShouldNotBeMoved_WhenItIsLocked()
+        {
+            // Arrange
+            var crate = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = new Player();
+            level.GetTile(6, 5).TileObject = crate;
+            level.GetTile(7, 5).CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.MoveRight();
+            gameMode.MoveRight();
+
+            // Assert
+            Assert.That(level.GetTile(7, 5).TileObject, Is.EqualTo(crate));
+        }
+
+        #endregion
     }
 }

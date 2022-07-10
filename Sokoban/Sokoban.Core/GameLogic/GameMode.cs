@@ -121,7 +121,7 @@ namespace Sokoban.Core.GameLogic
                     return;
                 }
 
-                if (StopRedCrate_Mechanics(crate))
+                if (crate.IsLocked)
                 {
                     return;
                 }
@@ -131,12 +131,9 @@ namespace Sokoban.Core.GameLogic
                     return;
                 }
 
-                if (StopAllButGreenCrate_Mechanics(crate, crateTargetTile))
-                {
-                    return;
-                }
-
                 crateTargetTile.TileObject = crate;
+
+                crate.OnMove();
 
                 DecrementBlueCrateCounter(crate);
             }
@@ -145,16 +142,6 @@ namespace Sokoban.Core.GameLogic
         }
 
         #region Crate mechanics
-
-        private bool StopRedCrate_Mechanics(Crate crate)
-        {
-            if (crate.Type != CrateType.Red)
-            {
-                return false;
-            }
-
-            return crate.CrateSpotType == crate.Tile.CrateSpot?.Type;
-        }
 
         private bool StopBlueCrate_Mechanics(Crate crate)
         {
@@ -185,16 +172,6 @@ namespace Sokoban.Core.GameLogic
         }
 
         private readonly Dictionary<Crate, int> _blueCrateMechanicsState = new Dictionary<Crate, int>();
-
-        private bool StopAllButGreenCrate_Mechanics(Crate crate, Tile targetTile)
-        {
-            if (crate.Type is CrateType.Green)
-            {
-                return false;
-            }
-
-            return targetTile.Ground == Ground.Green;
-        }
 
         #endregion
     }
