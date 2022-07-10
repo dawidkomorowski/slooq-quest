@@ -137,6 +137,8 @@ namespace Sokoban.Core.GameLogic
                 }
 
                 crateTargetTile.TileObject = crate;
+
+                DecrementBlueCrateCounter(crate);
             }
 
             targetTile.TileObject = Player;
@@ -165,12 +167,21 @@ namespace Sokoban.Core.GameLogic
             {
                 _blueCrateMechanicsState.Add(crate, 5);
             }
-            else
+
+            return _blueCrateMechanicsState[crate] == 0;
+        }
+
+        private void DecrementBlueCrateCounter(Crate crate)
+        {
+            if (crate.Type != CrateType.Blue)
+            {
+                return;
+            }
+
+            if (_blueCrateMechanicsState[crate] > 0)
             {
                 _blueCrateMechanicsState[crate]--;
             }
-
-            return _blueCrateMechanicsState[crate] <= 0;
         }
 
         private readonly Dictionary<Crate, int> _blueCrateMechanicsState = new Dictionary<Crate, int>();
