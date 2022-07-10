@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using NUnit.Framework;
 using Sokoban.Core.EditorLogic;
 using Sokoban.Core.LevelModel;
@@ -140,14 +141,14 @@ namespace Sokoban.Core.Tests.EditorLogic
 
         public static IEnumerable<TestCaseData> SetGroundTestCases => new[]
         {
-            new TestCaseData(new Action<EditMode>(e => e.SetGroundToNone()), Ground.None),
-            new TestCaseData(new Action<EditMode>(e => e.SetGroundToBrown()), Ground.Brown),
-            new TestCaseData(new Action<EditMode>(e => e.SetGroundToGreen()), Ground.Green),
-            new TestCaseData(new Action<EditMode>(e => e.SetGroundToGray()), Ground.Gray)
+            new TestCaseData(MakeExpression(e => e.SetGroundToNone()), Ground.None),
+            new TestCaseData(MakeExpression(e => e.SetGroundToBrown()), Ground.Brown),
+            new TestCaseData(MakeExpression(e => e.SetGroundToGreen()), Ground.Green),
+            new TestCaseData(MakeExpression(e => e.SetGroundToGray()), Ground.Gray)
         };
 
         [TestCaseSource(nameof(SetGroundTestCases))]
-        public void SetGroundXYZ_ShouldSetGroundXYZOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Action<EditMode> act, Ground expectedGround)
+        public void SetGroundToXXX_ShouldSetGroundXXXOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Expression<Action<EditMode>> act, Ground expectedGround)
         {
             // Arrange
             var level = new Level();
@@ -162,7 +163,7 @@ namespace Sokoban.Core.Tests.EditorLogic
             };
 
             // Act
-            act(editMode);
+            act.Compile().Invoke(editMode);
 
             // Assert
             Assert.That(level.GetTile(0, 0).Ground, Is.EqualTo(expectedGround));
@@ -172,18 +173,19 @@ namespace Sokoban.Core.Tests.EditorLogic
 
         public static IEnumerable<TestCaseData> CreateWallTestCases => new[]
         {
-            new TestCaseData(new Action<EditMode>(e => e.CreateRedWall()), WallType.Red),
-            new TestCaseData(new Action<EditMode>(e => e.CreateRedGrayWall()), WallType.RedGray),
-            new TestCaseData(new Action<EditMode>(e => e.CreateGrayWall()), WallType.Gray),
-            new TestCaseData(new Action<EditMode>(e => e.CreateBrownWall()), WallType.Brown),
-            new TestCaseData(new Action<EditMode>(e => e.CreateRedWallTop()), WallType.TopRed),
-            new TestCaseData(new Action<EditMode>(e => e.CreateRedGrayWallTop()), WallType.TopRedGray),
-            new TestCaseData(new Action<EditMode>(e => e.CreateGrayWallTop()), WallType.TopGray),
-            new TestCaseData(new Action<EditMode>(e => e.CreateBrownWallTop()), WallType.TopBrown)
+            new TestCaseData(MakeExpression(e => e.CreateRedWall()), WallType.Red),
+            new TestCaseData(MakeExpression(e => e.CreateRedGrayWall()), WallType.RedGray),
+            new TestCaseData(MakeExpression(e => e.CreateGrayWall()), WallType.Gray),
+            new TestCaseData(MakeExpression(e => e.CreateBrownWall()), WallType.Brown),
+            new TestCaseData(MakeExpression(e => e.CreateRedWallTop()), WallType.TopRed),
+            new TestCaseData(MakeExpression(e => e.CreateRedGrayWallTop()), WallType.TopRedGray),
+            new TestCaseData(MakeExpression(e => e.CreateGrayWallTop()), WallType.TopGray),
+            new TestCaseData(MakeExpression(e => e.CreateBrownWallTop()), WallType.TopBrown)
         };
 
         [TestCaseSource(nameof(CreateWallTestCases))]
-        public void CreateXYZWall_ShouldCreateXYZWallOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Action<EditMode> act, WallType expectedWallType)
+        public void CreateXXXWall_ShouldCreateXXXWallOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Expression<Action<EditMode>> act,
+            WallType expectedWallType)
         {
             // Arrange
             var level = new Level();
@@ -198,7 +200,7 @@ namespace Sokoban.Core.Tests.EditorLogic
             };
 
             // Act
-            act(editMode);
+            act.Compile().Invoke(editMode);
 
             // Assert
             Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
@@ -210,26 +212,51 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
-        [Test]
-        public void CreateBrownCrate_ShouldCreateBrownCrateOnSelectedTile()
+        public static IEnumerable<TestCaseData> CreateCrateTestCases => new[]
+        {
+            new TestCaseData(MakeExpression(e => e.CreateBrownCrate()), CrateType.Brown, CrateSpotType.Brown),
+            new TestCaseData(MakeExpression(e => e.CreateRedCrate()), CrateType.Red, CrateSpotType.Red)
+        };
+
+        [TestCaseSource(nameof(CreateCrateTestCases))]
+        public void CreateXXXCrate_ShouldCreateXXXCrateOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Expression<Action<EditMode>> act,
+            CrateType expectedCrateType, CrateSpotType expectedCrateSpotType)
         {
             // Arrange
             var level = new Level();
             var editMode = new EditMode(level);
 
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
             // Act
-            editMode.CreateBrownCrate();
+            act.Compile().Invoke(editMode);
 
             // Assert
             Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
             Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Crate>());
             var crate = (Crate)level.GetTile(0, 0).TileObject!;
-            Assert.That(crate.Type, Is.EqualTo(CrateType.Brown));
-            Assert.That(crate.CrateSpotType, Is.EqualTo(CrateSpotType.Brown));
+            Assert.That(crate.Type, Is.EqualTo(expectedCrateType));
+            Assert.That(crate.CrateSpotType, Is.EqualTo(expectedCrateSpotType));
+
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
-        [Test]
-        public void CreateBrownCrate_ShouldInvokeLevelModifiedEvent()
+        public static IEnumerable<TestCaseData> CreateCrateSpotTestCases => new[]
+        {
+            new TestCaseData(MakeExpression(e => e.CreateBrownCrateSpot()), CrateSpotType.Brown),
+            new TestCaseData(MakeExpression(e => e.CreateRedCrateSpot()), CrateSpotType.Red)
+        };
+
+        [TestCaseSource(nameof(CreateCrateSpotTestCases))]
+        public void CreateXXXCrateSpot_ShouldCreateXXXCrateSpotOnSelectedTile_AndShouldInvokeLevelModifiedEvent(Expression<Action<EditMode>> act,
+            CrateSpotType expectedCrateSpotType)
         {
             // Arrange
             var level = new Level();
@@ -244,126 +271,12 @@ namespace Sokoban.Core.Tests.EditorLogic
             };
 
             // Act
-            editMode.CreateBrownCrate();
-
-            // Assert
-            Assert.That(actualSender, Is.EqualTo(editMode));
-            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
-        }
-
-        [Test]
-        public void CreateRedCrate_ShouldCreateRedCrateOnSelectedTile()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            // Act
-            editMode.CreateRedCrate();
-
-            // Assert
-            Assert.That(level.GetTile(0, 0).TileObject, Is.Not.Null);
-            Assert.That(level.GetTile(0, 0).TileObject, Is.TypeOf<Crate>());
-            var crate = (Crate)level.GetTile(0, 0).TileObject!;
-            Assert.That(crate.Type, Is.EqualTo(CrateType.Red));
-            Assert.That(crate.CrateSpotType, Is.EqualTo(CrateSpotType.Red));
-        }
-
-        [Test]
-        public void CreateRedCrate_ShouldInvokeLevelModifiedEvent()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            object? actualSender = null;
-            EventArgs? actualArgs = null;
-            editMode.LevelModified += (sender, args) =>
-            {
-                actualSender = sender;
-                actualArgs = args;
-            };
-
-            // Act
-            editMode.CreateRedCrate();
-
-            // Assert
-            Assert.That(actualSender, Is.EqualTo(editMode));
-            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
-        }
-
-        [Test]
-        public void CreateBrownCrateSpot_ShouldCreateBrownCrateSpotOnSelectedTile()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            // Act
-            editMode.CreateBrownCrateSpot();
+            act.Compile().Invoke(editMode);
 
             // Assert
             Assert.That(level.GetTile(0, 0).CrateSpot, Is.Not.Null);
-            Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(CrateSpotType.Brown));
-        }
+            Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(expectedCrateSpotType));
 
-        [Test]
-        public void CreateBrownCrateSpot_ShouldInvokeLevelModifiedEvent()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            object? actualSender = null;
-            EventArgs? actualArgs = null;
-            editMode.LevelModified += (sender, args) =>
-            {
-                actualSender = sender;
-                actualArgs = args;
-            };
-
-            // Act
-            editMode.CreateBrownCrateSpot();
-
-            // Assert
-            Assert.That(actualSender, Is.EqualTo(editMode));
-            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
-        }
-
-        [Test]
-        public void CreateRedCrateSpot_ShouldCreateRedCrateSpotOnSelectedTile()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            // Act
-            editMode.CreateRedCrateSpot();
-
-            // Assert
-            Assert.That(level.GetTile(0, 0).CrateSpot, Is.Not.Null);
-            Assert.That(level.GetTile(0, 0).CrateSpot!.Type, Is.EqualTo(CrateSpotType.Red));
-        }
-
-        [Test]
-        public void CreateRedCrateSpot_ShouldInvokeLevelModifiedEvent()
-        {
-            // Arrange
-            var level = new Level();
-            var editMode = new EditMode(level);
-
-            object? actualSender = null;
-            EventArgs? actualArgs = null;
-            editMode.LevelModified += (sender, args) =>
-            {
-                actualSender = sender;
-                actualArgs = args;
-            };
-
-            // Act
-            editMode.CreateRedCrateSpot();
-
-            // Assert
             Assert.That(actualSender, Is.EqualTo(editMode));
             Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
@@ -422,5 +335,7 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(actualSender, Is.EqualTo(editMode));
             Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
+
+        private static Expression<Action<EditMode>> MakeExpression(Expression<Action<EditMode>> expression) => expression;
     }
 }
