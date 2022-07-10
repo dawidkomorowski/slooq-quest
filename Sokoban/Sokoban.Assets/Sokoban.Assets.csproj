@@ -355,6 +355,9 @@
 	  <None Update="Assets\KeyboardMapping.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Levels\demo1.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Levels\NewLevel.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

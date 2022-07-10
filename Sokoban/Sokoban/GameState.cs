@@ -1,4 +1,5 @@
-﻿using Sokoban.Core.GameLogic;
+﻿using System.IO;
+using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
 
 namespace Sokoban
@@ -7,7 +8,7 @@ namespace Sokoban
     {
         public GameState()
         {
-            var level = Level.CreateTestLevel();
+            var level = LoadLevel("demo1");
             GameMode = new GameMode(level);
         }
 
@@ -16,7 +17,7 @@ namespace Sokoban
 
         public void RecreateGameMode()
         {
-            var level = Level.CreateTestLevel();
+            var level = LoadLevel("demo1");
             GameMode = new GameMode(level);
             IsPendingRestart = false;
         }
@@ -24,6 +25,13 @@ namespace Sokoban
         public void AckComplete()
         {
             IsPendingRestart = true;
+        }
+
+        private static Level LoadLevel(string fileName)
+        {
+            var levelPath = Path.Join("Levels", $"{fileName}.sokoban-level");
+            var serializedLevel = File.ReadAllText(levelPath);
+            return Level.Deserialize(serializedLevel);
         }
     }
 }

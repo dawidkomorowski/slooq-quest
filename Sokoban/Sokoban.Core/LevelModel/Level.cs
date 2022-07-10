@@ -183,38 +183,6 @@ namespace Sokoban.Core.LevelModel
             return level;
         }
 
-        public static Level CreateTestLevel()
-        {
-            var level = new Level();
-
-            for (var x = 0; x < level.Width; x++)
-            {
-                for (var y = 0; y < level.Height; y++)
-                {
-                    if (x == 0 || y == 0 || x == level.Width - 1 || y == level.Height - 1)
-                    {
-                        level.GetTile(x, y).TileObject = new Wall();
-                    }
-                }
-            }
-
-            level.GetTile(4, 5).TileObject = new Wall();
-            level.GetTile(5, 5).TileObject = new Wall();
-            level.GetTile(6, 5).TileObject = new Wall();
-
-            level.GetTile(6, 7).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
-            level.GetTile(2, 4).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
-            level.GetTile(3, 6).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
-
-            level.GetTile(1, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
-            level.GetTile(8, 8).CrateSpot = new CrateSpot { Type = CrateSpotType.Brown };
-            level.GetTile(8, 1).CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
-
-            level.GetTile(3, 3).TileObject = new Player();
-
-            return level;
-        }
-
         private static JsonNode? GetPropertyValue(JsonObject jsonObject, string propertyName)
         {
             if (!jsonObject.TryGetPropertyValue(propertyName, out var jsonNode))
