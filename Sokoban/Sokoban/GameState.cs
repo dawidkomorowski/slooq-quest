@@ -8,7 +8,7 @@ namespace Sokoban
     {
         public GameState()
         {
-            var level = LoadLevel("demo1");
+            var level = LoadLevel("dotalevel1");
             GameMode = new GameMode(level);
         }
 
@@ -17,7 +17,7 @@ namespace Sokoban
 
         public void RecreateGameMode()
         {
-            var level = LoadLevel("demo1");
+            var level = LoadLevel("dotalevel1");
             GameMode = new GameMode(level);
             IsPendingRestart = false;
         }

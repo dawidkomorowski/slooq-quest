@@ -358,6 +358,9 @@
 	  <None Update="Levels\demo1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Levels\dotalevel1.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Levels\hello_slooq.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
