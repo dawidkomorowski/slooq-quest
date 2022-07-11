@@ -373,49 +373,46 @@
 	  <None Update="Assets\KeyboardMapping.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\10skrzynektest1.sokoban-level">
+	  <None Update="Levels\06_10skrzynektest1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\All3mechanics.sokoban-level">
+	  <None Update="Levels\15_All3mechanics.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\All3mechanics2.sokoban-level">
+	  <None Update="Levels\16_All3mechanics2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\Czerwonaskrzynka1.sokoban-level">
+	  <None Update="Levels\07_Czerwonaskrzynka1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\Czerwonaskrzynka2.sokoban-level">
+	  <None Update="Levels\10_Czerwonaskrzynka2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\demo1.sokoban-level">
+	  <None Update="Levels\01_dotalevel1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\dotalevel1.sokoban-level">
+	  <None Update="Levels\08_hello_slooq.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\hello_slooq.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Introductiontotimers.sokoban-level">
+	  <None Update="Levels\11_Introductiontotimers.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\NewLevel.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\onlyred.sokoban-level">
+	  <None Update="Levels\09_onlyred.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\onlytimers.sokoban-level">
+	  <None Update="Levels\12_onlytimers.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\onlytimers2.sokoban-level">
+	  <None Update="Levels\14_onlytimers2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\timers2.sokoban-level">
+	  <None Update="Levels\13_timers2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\topowinnobyctrudne.sokoban-level">
+	  <None Update="Levels\17_topowinnobyctrudne.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
