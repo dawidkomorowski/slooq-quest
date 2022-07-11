@@ -376,7 +376,16 @@
 	  <None Update="Levels\10skrzynektest1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Levels\All3mechanics.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\All3mechanics2.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Levels\Czerwonaskrzynka1.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\Czerwonaskrzynka2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\demo1.sokoban-level">
@@ -388,7 +397,22 @@
 	  <None Update="Levels\hello_slooq.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Levels\Introductiontotimers.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Levels\NewLevel.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\onlyred.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\onlytimers.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\onlytimers2.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\timers2.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\topowinnobyctrudne.sokoban-level">
