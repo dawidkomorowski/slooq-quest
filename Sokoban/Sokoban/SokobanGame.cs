@@ -13,6 +13,8 @@ namespace Sokoban
     // TODO Ability to change visibility of whole hierarchy of renderers.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO TextRendererComponent should have default font size (non zero) and default color (non transparent)?
+    // TODO Support for volume control for audio playback.
+    // TODO Ability to set opacity for sprite renderer.
 
     internal sealed class SokobanGame : IGame
     {
