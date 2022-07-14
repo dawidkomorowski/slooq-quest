@@ -121,7 +121,7 @@ namespace Sokoban.Core.Tests.LevelModel
         }
 
         [Test]
-        public void Deserialize_ShouldBeSuccessful_ForAllCreatedLevels()
+        public void Deserialize_ShouldBeSuccessful_ForAllGameLevels()
         {
             // Arrange
             var levelFilePaths = Directory.GetFiles("Levels");
