@@ -397,19 +397,19 @@
 	  <None Update="Levels\09_10skrzynektest1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\14_Level3.sokoban-level">
+	  <None Update="Levels\14_Emergencyround2.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\20_Level3.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\17_Emergencyround1.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\20_Level4.sokoban-level">
+	  <None Update="Levels\22_Level4.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\21_Emergencyround2.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\22_All3mechanics.sokoban-level">
+	  <None Update="Levels\21_All3mechanics.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Levels\23_All3mechanics2.sokoban-level">
