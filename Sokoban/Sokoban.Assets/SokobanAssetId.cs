@@ -35,6 +35,7 @@ namespace Sokoban.Assets
                 public static AssetId BlueGrayedOut { get; } = new AssetId(new Guid("2f5428e4-1455-460b-a010-1d24c7e68ae1"));
                 public static AssetId Green { get; } = new AssetId(new Guid("78eb39ff-bdf3-4090-8342-8cae95d3bc7b"));
                 public static AssetId Gray { get; } = new AssetId(new Guid("3800e86b-d36a-45e0-8156-d3fa8f6a9f56"));
+                public static AssetId GrayGrayedOut { get; } = new AssetId(new Guid("719823a9-8403-4f62-a0d4-e7a7d4997114"));
             }
 
             public static class CrateSpot
@@ -43,7 +44,6 @@ namespace Sokoban.Assets
                 public static AssetId Red { get; } = new AssetId(new Guid("553b77b6-d83e-4e05-8c35-e8b8229016d5"));
                 public static AssetId Blue { get; } = new AssetId(new Guid("d1b38cbe-3f8c-4e95-a0cd-c632f58eb8d4"));
                 public static AssetId Green { get; } = new AssetId(new Guid("0f46f1b0-6312-4f14-b3c4-db0d7371fb50"));
-                public static AssetId Gray { get; } = new AssetId(new Guid("c398b47d-681a-47e1-bb06-15abca078ab6"));
             }
 
             public static class Player

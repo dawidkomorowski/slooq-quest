@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Sokoban.Core;
 using Sokoban.Core.EditorLogic;
 using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
@@ -53,11 +54,5 @@ namespace Sokoban.Editor
         {
             File.WriteAllText(Path.Join("Levels", "NewLevel.sokoban-level"), EditMode.Level.Serialize());
         }
-    }
-
-    internal enum Mode
-    {
-        Edit,
-        Game
     }
 }

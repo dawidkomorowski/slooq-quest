@@ -215,6 +215,12 @@ namespace Sokoban.Editor.UserInterface
                         ActionName = "SetCrateCounter9",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.D9) } }
                     },
+                    // Normal/Hidden
+                    new ActionMapping
+                    {
+                        ActionName = "ToggleCrateNormalHidden",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.H) } }
+                    },
                     // Player
                     new ActionMapping
                     {
@@ -266,6 +272,7 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "F - Create Green Crate Spot", index++);
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "1-9 - Set Crate Move Counter", index++);
+            AddHelpLabel(help, "H - Toggle Crate Normal/Hidden", index++);
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "P - Place Player", index);
 

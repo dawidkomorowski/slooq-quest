@@ -29,6 +29,7 @@ namespace Sokoban.Editor
 
             componentsRegistry.AutofacContainerBuilder.RegisterType<EditorState>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();
         }
     }
 }

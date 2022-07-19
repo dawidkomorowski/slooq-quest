@@ -29,6 +29,7 @@ namespace Sokoban
 
             componentsRegistry.AutofacContainerBuilder.RegisterType<GameState>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
 
             // InGameMenu

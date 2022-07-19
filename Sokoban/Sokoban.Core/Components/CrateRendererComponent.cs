@@ -13,6 +13,7 @@ namespace Sokoban.Core.Components
 {
     public sealed class CrateRendererComponent : BehaviorComponent
     {
+        private readonly IModeInfo _modeInfo;
         private readonly Sprite _brown;
         private readonly Sprite _red;
         private readonly Sprite _redGrayedOut;
@@ -20,11 +21,15 @@ namespace Sokoban.Core.Components
         private readonly Sprite _blueGrayedOut;
         private readonly Sprite _green;
         private readonly Sprite _gray;
+        private readonly Sprite _grayGrayedOut;
         private SpriteRendererComponent _spriteRendererComponent = null!;
-        private TextRendererComponent _textRendererComponent = null!;
+        private TextRendererComponent _labelTextRendererComponent = null!;
+        private TextRendererComponent _editorLabelTextRendererComponent = null!;
 
-        public CrateRendererComponent(Entity entity, IAssetStore assetStore) : base(entity)
+        public CrateRendererComponent(Entity entity, IAssetStore assetStore, IModeInfo modeInfo) : base(entity)
         {
+            _modeInfo = modeInfo;
+
             _brown = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
             _red = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Red);
             _redGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.RedGrayedOut);
@@ -32,6 +37,7 @@ namespace Sokoban.Core.Components
             _blueGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.BlueGrayedOut);
             _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
             _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
+            _grayGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.GrayGrayedOut);
         }
 
         public Crate? Crate { get; set; }
@@ -39,7 +45,8 @@ namespace Sokoban.Core.Components
         public override void OnStart()
         {
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
-            _textRendererComponent = Entity.Children.Single().GetComponent<TextRendererComponent>();
+            _labelTextRendererComponent = Entity.Children.Single(e => e.Name == "Label").GetComponent<TextRendererComponent>();
+            _editorLabelTextRendererComponent = Entity.Children.Single(e => e.Name == "EditorLabel").GetComponent<TextRendererComponent>();
         }
 
         public override void OnUpdate(GameTime gameTime)
@@ -49,30 +56,41 @@ namespace Sokoban.Core.Components
                 return;
             }
 
-            if (Crate.IsLocked)
+            if (Crate.IsHidden && _modeInfo.Mode is Mode.Game)
             {
-                _spriteRendererComponent.Sprite = Crate.Type switch
-                {
-                    CrateType.Red => _redGrayedOut,
-                    CrateType.Blue => _blueGrayedOut,
-                    _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
-                };
+                _spriteRendererComponent.Sprite = Crate.IsLocked ? _grayGrayedOut : _gray;
+                _labelTextRendererComponent.Text = string.Empty;
+                _editorLabelTextRendererComponent.Visible = false;
             }
             else
             {
-                _spriteRendererComponent.Sprite = Crate.Type switch
+                if (Crate.IsLocked)
                 {
-                    CrateType.Brown => _brown,
-                    CrateType.Red => _red,
-                    CrateType.Blue => _blue,
-                    CrateType.Green => _green,
-                    _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
-                };
-            }
+                    _spriteRendererComponent.Sprite = Crate.Type switch
+                    {
+                        CrateType.Red => _redGrayedOut,
+                        CrateType.Blue => _blueGrayedOut,
+                        _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
+                    };
+                }
+                else
+                {
+                    _spriteRendererComponent.Sprite = Crate.Type switch
+                    {
+                        CrateType.Brown => _brown,
+                        CrateType.Red => _red,
+                        CrateType.Blue => _blue,
+                        CrateType.Green => _green,
+                        _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
+                    };
+                }
 
-            if (Crate.Type is CrateType.Blue)
-            {
-                _textRendererComponent.Text = Crate.Counter > 0 ? Crate.Counter.ToString() : string.Empty;
+                if (Crate.Type is CrateType.Blue)
+                {
+                    _labelTextRendererComponent.Text = Crate.Counter > 0 ? Crate.Counter.ToString() : string.Empty;
+                }
+
+                _editorLabelTextRendererComponent.Visible = Crate.IsHidden;
             }
         }
     }
@@ -80,12 +98,14 @@ namespace Sokoban.Core.Components
     public sealed class CrateRendererComponentFactory : ComponentFactory<CrateRendererComponent>
     {
         private readonly IAssetStore _assetStore;
+        private readonly IModeInfo _modeInfo;
 
-        public CrateRendererComponentFactory(IAssetStore assetStore)
+        public CrateRendererComponentFactory(IAssetStore assetStore, IModeInfo modeInfo)
         {
             _assetStore = assetStore;
+            _modeInfo = modeInfo;
         }
 
-        protected override CrateRendererComponent CreateComponent(Entity entity) => new CrateRendererComponent(entity, _assetStore);
+        protected override CrateRendererComponent CreateComponent(Entity entity) => new CrateRendererComponent(entity, _assetStore, _modeInfo);
     }
 }

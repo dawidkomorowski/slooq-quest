@@ -183,6 +183,16 @@ namespace Sokoban.Core.EditorLogic
             OnLevelModified();
         }
 
+        public void ToggleCrateNormalHidden()
+        {
+            if (SelectedTile.TileObject is Crate crate)
+            {
+                crate.IsHidden = !crate.IsHidden;
+            }
+
+            OnLevelModified();
+        }
+
         private void Move(int targetX, int targetY)
         {
             if (Level.IsOutsideOfLevel(targetX, targetY))

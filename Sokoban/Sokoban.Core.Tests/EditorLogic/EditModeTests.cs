@@ -379,6 +379,46 @@ namespace Sokoban.Core.Tests.EditorLogic
             Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
         }
 
+        [Test]
+        public void ToggleCrateNormalHidden_ShouldNotThrow_WhenSelectedTileHasNoCrate()
+        {
+            // Arrange
+            var level = new Level();
+            var editMode = new EditMode(level);
+
+            // Act
+            // Assert
+            Assert.That(() => editMode.ToggleCrateNormalHidden(), Throws.Nothing);
+        }
+
+        [TestCase(false, true)]
+        [TestCase(true, false)]
+        public void ToggleCrateNormalHidden_ShouldToggleCrateAsNormalOrAsHidden_AndShouldInvokeLevelModifiedEvent(bool initialIsHidden, bool expectedIsHidden)
+        {
+            // Arrange
+            var level = new Level();
+            var crate = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown, IsHidden = initialIsHidden };
+            level.GetTile(0, 0).TileObject = crate;
+            var editMode = new EditMode(level);
+
+            object? actualSender = null;
+            EventArgs? actualArgs = null;
+            editMode.LevelModified += (sender, args) =>
+            {
+                actualSender = sender;
+                actualArgs = args;
+            };
+
+            // Act
+            editMode.ToggleCrateNormalHidden();
+
+            // Assert
+            Assert.That(crate.IsHidden, Is.EqualTo(expectedIsHidden));
+
+            Assert.That(actualSender, Is.EqualTo(editMode));
+            Assert.That(actualArgs, Is.EqualTo(EventArgs.Empty));
+        }
+
         private static Expression<Action<EditMode>> MakeExpression(Expression<Action<EditMode>> expression) => expression;
     }
 }

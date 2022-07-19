@@ -179,6 +179,8 @@ namespace Sokoban.Core
             crateRendererComponent.Crate = crate;
 
             var labelEntity = entity.CreateChildEntity();
+            labelEntity.Name = "Label";
+
             var labelTransform2DComponent = labelEntity.CreateComponent<Transform2DComponent>();
             labelTransform2DComponent.Translation = new Vector2(-9, 33);
 
@@ -187,6 +189,19 @@ namespace Sokoban.Core
             labelRendererComponent.OrderInLayer = 1;
             labelRendererComponent.FontSize = FontSize.FromDips(35);
             labelRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
+
+            var editorLabelEntity = entity.CreateChildEntity();
+            editorLabelEntity.Name = "EditorLabel";
+
+            var editorLabelTransform2DComponent = editorLabelEntity.CreateComponent<Transform2DComponent>();
+            editorLabelTransform2DComponent.Translation = new Vector2(-27, -10);
+
+            var editorLabelRendererComponent = editorLabelEntity.CreateComponent<TextRendererComponent>();
+            editorLabelRendererComponent.SortingLayerName = "TileObject";
+            editorLabelRendererComponent.OrderInLayer = 1;
+            editorLabelRendererComponent.FontSize = FontSize.FromDips(15);
+            editorLabelRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
+            editorLabelRendererComponent.Text = "Hidden";
         }
 
         private void CreatePlayer(Entity levelEntity, Player player)

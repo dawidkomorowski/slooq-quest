@@ -70,6 +70,8 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("SetCrateCounter7", () => _editorState.EditMode.SetCrateCounter(7));
             inputComponent.BindAction("SetCrateCounter8", () => _editorState.EditMode.SetCrateCounter(8));
             inputComponent.BindAction("SetCrateCounter9", () => _editorState.EditMode.SetCrateCounter(9));
+            // Normal/Hidden
+            inputComponent.BindAction("ToggleCrateNormalHidden", _editorState.EditMode.ToggleCrateNormalHidden);
             // Player
             inputComponent.BindAction("PlacePlayer", _editorState.EditMode.PlacePlayer);
 

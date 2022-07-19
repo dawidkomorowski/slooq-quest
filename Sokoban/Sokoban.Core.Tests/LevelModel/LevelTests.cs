@@ -57,6 +57,7 @@ namespace Sokoban.Core.Tests.LevelModel
             level.GetTile(2, 2).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
             level.GetTile(7, 7).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
             level.GetTile(4, 4).TileObject = new Crate { Type = CrateType.Blue, CrateSpotType = CrateSpotType.Blue, Counter = 2 };
+            level.GetTile(4, 4).TileObject = new Crate { Type = CrateType.Green, CrateSpotType = CrateSpotType.Green, IsHidden = true };
 
             level.GetTile(5, 5).TileObject = new Player();
 
@@ -114,6 +115,7 @@ namespace Sokoban.Core.Tests.LevelModel
                     Assert.That(actualCrate.Type, Is.EqualTo(expectedCrate.Type), actual.ToString);
                     Assert.That(actualCrate.CrateSpotType, Is.EqualTo(expectedCrate.CrateSpotType), actual.ToString);
                     Assert.That(actualCrate.Counter, Is.EqualTo(expectedCrate.Counter), actual.ToString);
+                    Assert.That(actualCrate.IsHidden, Is.EqualTo(expectedCrate.IsHidden), actual.ToString);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unsupported {nameof(Tile.TileObject)} type: {expected.TileObject.GetType()}");

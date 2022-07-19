@@ -58,7 +58,8 @@ namespace Sokoban.Core.LevelModel
                                 { "ObjectType", "Crate" },
                                 { "Type", crate.Type.ToString() },
                                 { "CrateSpotType", crate.CrateSpotType.ToString() },
-                                { "Counter", crate.Counter }
+                                { "Counter", crate.Counter },
+                                { "IsHidden", crate.IsHidden }
                             },
                             Player _ => new JsonObject
                             {
@@ -154,7 +155,8 @@ namespace Sokoban.Core.LevelModel
                                 var type = GetEnumPropertyValue<CrateType>(tileObjectJsonObject, "CrateSpotType");
                                 var crateSpotType = GetEnumPropertyValue<CrateSpotType>(tileObjectJsonObject, "CrateSpotType");
                                 var counter = GetNotNullPropertyValue(tileObjectJsonObject, "Counter").GetValue<int>();
-                                tileObject = new Crate { Type = type, CrateSpotType = crateSpotType, Counter = counter };
+                                var isHidden = GetNotNullPropertyValue(tileObjectJsonObject, "IsHidden").GetValue<bool>();
+                                tileObject = new Crate { Type = type, CrateSpotType = crateSpotType, Counter = counter, IsHidden = isHidden };
                                 break;
                             }
                             case "Player":
@@ -216,6 +218,35 @@ namespace Sokoban.Core.LevelModel
                 }
 
                 version = new Version(0, 8);
+            }
+
+            // Upgrade to v0.9
+            if (version < new Version(0, 9))
+            {
+                var tilesJsonNode = GetNotNullPropertyValue(levelJsonObject, "Tiles");
+
+                foreach (var tileJsonNode in tilesJsonNode.AsArray())
+                {
+                    if (tileJsonNode is null)
+                    {
+                        throw new LevelDataCorruptedException();
+                    }
+
+                    var tileJsonObject = tileJsonNode.AsObject();
+                    var tileObjectJsonNode = GetPropertyValue(tileJsonObject, "TileObject");
+                    if (tileObjectJsonNode != null)
+                    {
+                        var tileObjectJsonObject = tileObjectJsonNode.AsObject();
+                        var objectType = GetNotNullPropertyValue(tileObjectJsonObject, "ObjectType").GetValue<string>();
+
+                        if (objectType == "Crate")
+                        {
+                            tileObjectJsonObject.Add("IsHidden", false);
+                        }
+                    }
+                }
+
+                version = new Version(0, 9);
             }
         }
 

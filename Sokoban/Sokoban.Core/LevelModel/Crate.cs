@@ -4,6 +4,7 @@
     {
         public CrateType Type { get; set; } = CrateType.Brown;
         public CrateSpotType CrateSpotType { get; set; } = CrateSpotType.Brown;
+        public bool IsHidden { get; set; } = false;
         public bool IsLocked { get; private set; } = false;
         public int Counter { get; set; } = 5;
 
