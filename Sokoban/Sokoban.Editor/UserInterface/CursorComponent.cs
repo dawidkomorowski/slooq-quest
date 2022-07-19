@@ -56,12 +56,10 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("CreateRedCrate", _editorState.EditMode.CreateRedCrate);
             inputComponent.BindAction("CreateBlueCrate", _editorState.EditMode.CreateBlueCrate);
             inputComponent.BindAction("CreateGreenCrate", _editorState.EditMode.CreateGreenCrate);
-            inputComponent.BindAction("CreateGrayCrate", _editorState.EditMode.CreateGrayCrate);
             inputComponent.BindAction("CreateBrownCrateSpot", _editorState.EditMode.CreateBrownCrateSpot);
             inputComponent.BindAction("CreateRedCrateSpot", _editorState.EditMode.CreateRedCrateSpot);
             inputComponent.BindAction("CreateBlueCrateSpot", _editorState.EditMode.CreateBlueCrateSpot);
             inputComponent.BindAction("CreateGreenCrateSpot", _editorState.EditMode.CreateGreenCrateSpot);
-            inputComponent.BindAction("CreateGrayCrateSpot", _editorState.EditMode.CreateGrayCrateSpot);
             // Crate Counter
             inputComponent.BindAction("SetCrateCounter1", () => _editorState.EditMode.SetCrateCounter(1));
             inputComponent.BindAction("SetCrateCounter2", () => _editorState.EditMode.SetCrateCounter(2));

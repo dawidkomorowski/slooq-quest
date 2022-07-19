@@ -234,7 +234,6 @@ namespace Sokoban.Core
                 CrateSpotType.Red => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Red),
                 CrateSpotType.Blue => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Blue),
                 CrateSpotType.Green => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Green),
-                CrateSpotType.Gray => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Gray),
                 _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate spot type: {crateSpot.Type}")
             };
         }

@@ -151,11 +151,6 @@ namespace Sokoban.Editor.UserInterface
                     },
                     new ActionMapping
                     {
-                        ActionName = "CreateGrayCrate",
-                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.T) } }
-                    },
-                    new ActionMapping
-                    {
                         ActionName = "CreateBrownCrateSpot",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.A) } }
                     },
@@ -173,11 +168,6 @@ namespace Sokoban.Editor.UserInterface
                     {
                         ActionName = "CreateGreenCrateSpot",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.F) } }
-                    },
-                    new ActionMapping
-                    {
-                        ActionName = "CreateGrayCrateSpot",
-                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.G) } }
                     },
                     // Crate Counter
                     new ActionMapping
@@ -270,12 +260,10 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "W - Create Red Crate", index++);
             AddHelpLabel(help, "E - Create Blue Crate", index++);
             AddHelpLabel(help, "R - Create Green Crate", index++);
-            AddHelpLabel(help, "T - Create Gray Crate", index++);
             AddHelpLabel(help, "A - Create Brown Crate Spot", index++);
             AddHelpLabel(help, "S - Create Red Crate Spot", index++);
             AddHelpLabel(help, "D - Create Blue Crate Spot", index++);
             AddHelpLabel(help, "F - Create Green Crate Spot", index++);
-            AddHelpLabel(help, "G - Create Gray Crate Spot", index++);
             AddHelpLabel(help, string.Empty, index++);
             AddHelpLabel(help, "1-9 - Set Crate Move Counter", index++);
             AddHelpLabel(help, string.Empty, index++);

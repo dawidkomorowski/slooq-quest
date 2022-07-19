@@ -66,7 +66,6 @@ namespace Sokoban.Core.Components
                     CrateType.Red => _red,
                     CrateType.Blue => _blue,
                     CrateType.Green => _green,
-                    CrateType.Gray => _gray,
                     _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate type: {Crate?.Type}")
                 };
             }
