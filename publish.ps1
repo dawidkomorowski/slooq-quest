@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 Remove-Item -Path .\publish -Recurse
 dotnet publish .\Sokoban\Sokoban\Sokoban.csproj --configuration Release --runtime win-x64 --output publish\bin
 dotnet publish .\Sokoban\Sokoban.Editor\Sokoban.Editor.csproj --configuration Release --runtime win-x64 --output publish\bin

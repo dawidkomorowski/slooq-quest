@@ -15,6 +15,7 @@ namespace Sokoban
     // TODO TextRendererComponent should have default font size (non zero) and default color (non transparent)?
     // TODO Support for volume control for audio playback.
     // TODO Ability to set opacity for sprite renderer.
+    // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
 
     internal sealed class SokobanGame : IGame
     {

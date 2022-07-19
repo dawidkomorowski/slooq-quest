@@ -53,6 +53,11 @@ namespace Sokoban.Editor.ToggleMode
 
         private void ToggleMode()
         {
+            if (Scene.AllEntities.Any(e => e.HasComponent<EnterModeComponent>()))
+            {
+                return;
+            }
+
             _editorState.ToggleMode();
             _toggleModeEntityFactory.CreateEnterModeEntity(Scene);
         }
