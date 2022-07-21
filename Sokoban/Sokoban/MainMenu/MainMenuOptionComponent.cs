@@ -17,6 +17,7 @@ namespace Sokoban.MainMenu
         }
 
         public MainMenuOption? MainMenuOption { get; set; }
+        public MainMenuModel? MainMenuModel { get; set; }
 
         public override void OnStart()
         {
@@ -41,15 +42,28 @@ namespace Sokoban.MainMenu
                 return;
             }
 
+            if (MainMenuModel is null)
+            {
+                return;
+            }
+
             if (MainMenuOption.IsSelected)
             {
-                _transform2DComponent.Translation = new Vector2(-600, 50 - MainMenuOption.Index * 100);
+                _transform2DComponent.Translation = new Vector2(-MainMenuOption.Text.Length * 28, 50 - MainMenuOption.Index * 60);
                 _textRendererComponent.FontSize = FontSize.FromDips(100);
             }
             else
             {
-                _transform2DComponent.Translation = new Vector2(-600, 50 - MainMenuOption.Index * 100);
                 _textRendererComponent.FontSize = FontSize.FromDips(60);
+
+                if (MainMenuOption.Index < MainMenuModel.GetSelectedOption().Index)
+                {
+                    _transform2DComponent.Translation = new Vector2(-MainMenuOption.Text.Length * 18, 50 - MainMenuOption.Index * 60);
+                }
+                else
+                {
+                    _transform2DComponent.Translation = new Vector2(-MainMenuOption.Text.Length * 18, 50 - 50 - MainMenuOption.Index * 60);
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Sokoban.MainMenu
@@ -22,7 +23,7 @@ namespace Sokoban.MainMenu
             var selectedOption = GetSelectedOption();
             selectedOption.IsSelected = false;
 
-            var optionToSelect = GetOption((selectedOption.Index - 1) % _options.Count);
+            var optionToSelect = GetOption((selectedOption.Index - 1 + _options.Count) % _options.Count);
             optionToSelect.IsSelected = true;
         }
 
@@ -31,11 +32,11 @@ namespace Sokoban.MainMenu
             var selectedOption = GetSelectedOption();
             selectedOption.IsSelected = false;
 
-            var optionToSelect = GetOption((selectedOption.Index + 1) % _options.Count);
+            var optionToSelect = GetOption((selectedOption.Index + 1 + _options.Count) % _options.Count);
             optionToSelect.IsSelected = true;
         }
 
-        private MainMenuOption GetSelectedOption()
+        public MainMenuOption GetSelectedOption()
         {
             return _options.Single(o => o.IsSelected);
         }

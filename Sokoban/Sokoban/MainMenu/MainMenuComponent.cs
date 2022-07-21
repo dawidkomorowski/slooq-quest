@@ -42,6 +42,7 @@ namespace Sokoban.MainMenu
             var entity = Entity.CreateChildEntity();
             var mainMenuOptionComponent = entity.CreateComponent<MainMenuOptionComponent>();
             mainMenuOptionComponent.MainMenuOption = mainMenuOption;
+            mainMenuOptionComponent.MainMenuModel = MainMenuModel;
         }
     }
 
