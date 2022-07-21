@@ -25,7 +25,8 @@
       "Ground",
       "CrateSpot",
       "TileObject",
-      "UI"
+      "UI",
+      "VFX"
     ]
   }
 }

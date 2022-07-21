@@ -6,6 +6,7 @@ using Sokoban.InGameMenu;
 using Sokoban.LevelComplete;
 using Sokoban.MainMenu;
 using Sokoban.RestartLevel;
+using Sokoban.VisualEffects;
 
 namespace Sokoban
 {
@@ -44,11 +45,15 @@ namespace Sokoban
             componentsRegistry.AutofacContainerBuilder.RegisterType<LevelCompleteEntityFactory>().AsSelf().SingleInstance();
 
             // MainMenu
+            componentsRegistry.AutofacContainerBuilder.RegisterType<MainMenuEntityFactory>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainMenuSceneBehaviorFactory>();
 
             // RestartLevel
             componentsRegistry.RegisterComponentFactory<RestartLevelComponentFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<RestartLevelEntityFactory>().AsSelf().SingleInstance();
+
+            // Visual Effects
+            componentsRegistry.RegisterComponentFactory<FadeInOutComponentFactory>();
         }
     }
 }
