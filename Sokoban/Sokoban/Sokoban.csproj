@@ -23,4 +23,8 @@
 	  <ProjectReference Include="..\Sokoban.Core\Sokoban.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="MainMenu\" />
+	</ItemGroup>
+
 </Project>

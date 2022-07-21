@@ -22,7 +22,7 @@ namespace Sokoban
             {
                 var entity = Scene.CreateEntity();
                 var loadSceneComponent = entity.CreateComponent<LoadSceneComponent>();
-                loadSceneComponent.SceneBehaviorName = "SokobanGame";
+                loadSceneComponent.SceneBehaviorName = "MainMenu";
             }
         }
     }
