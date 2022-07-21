@@ -49,6 +49,9 @@ namespace Sokoban.MainMenu
                 var title = _mainMenuEntityFactory.CreateTitle(Scene);
                 title.Parent = cameraEntity;
 
+                var mainMenu = _mainMenuEntityFactory.CreateMainMenu(Scene);
+                mainMenu.Parent = cameraEntity;
+
                 var fadeInOutEntity = Scene.CreateEntity();
                 var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
                 fadeInOutComponent.Duration = TimeSpan.FromSeconds(1);

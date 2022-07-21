@@ -47,6 +47,8 @@ namespace Sokoban
             componentsRegistry.AutofacContainerBuilder.RegisterType<LevelCompleteEntityFactory>().AsSelf().SingleInstance();
 
             // MainMenu
+            componentsRegistry.RegisterComponentFactory<MainMenuComponentFactory>();
+            componentsRegistry.RegisterComponentFactory<MainMenuOptionComponentFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<MainMenuEntityFactory>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainMenuSceneBehaviorFactory>();
 
