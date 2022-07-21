@@ -77,6 +77,11 @@ namespace Sokoban.Assets
             }
         }
 
+        public static class Music
+        {
+            public static AssetId MainMenu { get; } = new AssetId(new Guid("4362f25e-0e7a-407c-80f4-dd3418b85639"));
+        }
+
         public static class InputMapping
         {
             public static AssetId Default { get; } = new AssetId(new Guid("e38ecd7d-cf5c-4399-8ef7-ef2d3f497e22"));

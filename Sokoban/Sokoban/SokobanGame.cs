@@ -16,6 +16,7 @@ namespace Sokoban
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO TextRendererComponent should have default font size (non zero) and default color (non transparent)?
     // TODO Support for volume control for audio playback.
+    // TODO Native support for looped sound playback.
     // TODO Ability to set opacity for sprite renderer.
     // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
 
@@ -30,6 +31,7 @@ namespace Sokoban
         {
             SokobanCoreModule.RegisterComponents(componentsRegistry);
 
+            componentsRegistry.AutofacContainerBuilder.RegisterType<GameAudio>().AsSelf().SingleInstance();
             componentsRegistry.AutofacContainerBuilder.RegisterType<GameState>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();

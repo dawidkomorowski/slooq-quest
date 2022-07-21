@@ -11,25 +11,30 @@ namespace Sokoban.MainMenu
 
         private readonly CoreEntityFactory _coreEntityFactory;
         private readonly MainMenuEntityFactory _mainMenuEntityFactory;
+        private readonly GameAudio _gameAudio;
 
-        public MainMenuSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, MainMenuEntityFactory mainMenuEntityFactory)
+        public MainMenuSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, MainMenuEntityFactory mainMenuEntityFactory, GameAudio gameAudio)
         {
             _coreEntityFactory = coreEntityFactory;
             _mainMenuEntityFactory = mainMenuEntityFactory;
+            _gameAudio = gameAudio;
         }
 
         public string BehaviorName => SceneBehaviorName;
-        public SceneBehavior Create(Scene scene) => new MainMenuSceneBehavior(scene, _coreEntityFactory, _mainMenuEntityFactory);
+        public SceneBehavior Create(Scene scene) => new MainMenuSceneBehavior(scene, _coreEntityFactory, _mainMenuEntityFactory, _gameAudio);
 
         private sealed class MainMenuSceneBehavior : SceneBehavior
         {
             private readonly CoreEntityFactory _coreEntityFactory;
             private readonly MainMenuEntityFactory _mainMenuEntityFactory;
+            private readonly GameAudio _gameAudio;
 
-            public MainMenuSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, MainMenuEntityFactory mainMenuEntityFactory) : base(scene)
+            public MainMenuSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, MainMenuEntityFactory mainMenuEntityFactory,
+                GameAudio gameAudio) : base(scene)
             {
                 _coreEntityFactory = coreEntityFactory;
                 _mainMenuEntityFactory = mainMenuEntityFactory;
+                _gameAudio = gameAudio;
             }
 
             public override string Name => SceneBehaviorName;
@@ -47,6 +52,8 @@ namespace Sokoban.MainMenu
                 var fadeInOutEntity = Scene.CreateEntity();
                 var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
                 fadeInOutComponent.Duration = TimeSpan.FromSeconds(1);
+
+                _gameAudio.PlayMainMenuMusic();
             }
         }
     }
