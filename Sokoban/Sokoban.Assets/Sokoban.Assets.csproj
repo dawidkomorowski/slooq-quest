@@ -391,76 +391,79 @@
 	  <None Update="Assets\Music\awesomeness.wav">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\02_easy2.sokoban-level">
+	  <None Update="Levels\Level02.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\03_easy3.sokoban-level">
+	  <None Update="Levels\Level03.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\04_easy4.sokoban-level">
+	  <None Update="Levels\Level04.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\05_Introductiontogreen.sokoban-level">
+	  <None Update="Levels\Level05.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\06_Level6.sokoban-level">
+	  <None Update="Levels\Level06.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\07_Level2.sokoban-level">
+	  <None Update="Levels\Level07.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\08_Level7.sokoban-level">
+	  <None Update="Levels\Level08.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\09_10skrzynektest1.sokoban-level">
+	  <None Update="Levels\Level09.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\14_Emergencyround2.sokoban-level">
+	  <None Update="Levels\Level14.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\20_Level3.sokoban-level">
+	  <None Update="Levels\Level20.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\17_Emergencyround1.sokoban-level">
+	  <None Update="Levels\Level17.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\22_Level4.sokoban-level">
+	  <None Update="Levels\Level22.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\21_All3mechanics.sokoban-level">
+	  <None Update="Levels\Level21.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\23_All3mechanics2.sokoban-level">
+	  <None Update="Levels\Level23.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\10_Czerwonaskrzynka1.sokoban-level">
+	  <None Update="Levels\Level10.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\13_Czerwonaskrzynka2.sokoban-level">
+	  <None Update="Levels\Level13.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\01_dotalevel1.sokoban-level">
+	  <None Update="Levels\Level01.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\11_hello_slooq.sokoban-level">
+	  <None Update="Levels\Level11.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\15_Introductiontotimers.sokoban-level">
+	  <None Update="Levels\Level15.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\12_onlyred.sokoban-level">
+	  <None Update="Levels\Level12.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\16_onlytimers.sokoban-level">
+	  <None Update="Levels\Level16.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\19_onlytimers2.sokoban-level">
+	  <None Update="Levels\Level19.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\18_timers2.sokoban-level">
+	  <None Update="Levels\Level18.sokoban-level">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Levels\24_topowinnobyctrudne.sokoban-level">
+	  <None Update="Levels\Level24.sokoban-level">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Levels\Levels.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

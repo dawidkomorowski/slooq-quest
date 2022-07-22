@@ -1,16 +1,20 @@
-﻿using Geisha.Common.Math;
-using Geisha.Engine.Core.Components;
+﻿using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
-using Geisha.Engine.Rendering;
-using Geisha.Engine.Rendering.Components;
 
 namespace Sokoban.LevelSelectionMenu
 {
     internal sealed class LevelSelectionMenuEntityFactory
     {
+        private readonly GameState _gameState;
+
+        public LevelSelectionMenuEntityFactory(GameState gameState)
+        {
+            _gameState = gameState;
+        }
+
         public Entity CreateLevelSelectionMenu(Scene scene)
         {
             var entity = scene.CreateEntity();
@@ -46,7 +50,7 @@ namespace Sokoban.LevelSelectionMenu
             };
 
             var levelSelectionMenuComponent = entity.CreateComponent<LevelSelectionMenuComponent>();
-            levelSelectionMenuComponent.LevelSelectionModel = new LevelSelectionModel();
+            levelSelectionMenuComponent.LevelSelectionModel = new LevelSelectionModel(_gameState.Levels);
 
             return entity;
         }

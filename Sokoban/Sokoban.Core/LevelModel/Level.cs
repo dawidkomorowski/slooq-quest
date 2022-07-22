@@ -254,6 +254,7 @@ namespace Sokoban.Core.LevelModel
         {
             var level = new Level();
             level.GetTile(0, 0).TileObject = new Player();
+            level.GetTile(1, 0).CrateSpot = new CrateSpot();
             return level;
         }
 

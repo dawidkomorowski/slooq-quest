@@ -16,11 +16,13 @@ namespace Sokoban.LevelSelectionMenu
     internal sealed class LevelSelectionMenuComponent : BehaviorComponent
     {
         private const int Middle = 4;
+        private readonly GameState _gameState;
+        private readonly List<TextRendererComponent> _labels = new List<TextRendererComponent>();
         private InputComponent _inputComponent = null!;
-        private List<TextRendererComponent> _labels = new List<TextRendererComponent>();
 
-        public LevelSelectionMenuComponent(Entity entity) : base(entity)
+        public LevelSelectionMenuComponent(Entity entity, GameState gameState) : base(entity)
         {
+            _gameState = gameState;
         }
 
         public LevelSelectionModel? LevelSelectionModel { get; set; }
@@ -36,6 +38,23 @@ namespace Sokoban.LevelSelectionMenu
 
             _inputComponent.BindAction("SelectPreviousLevel", LevelSelectionModel.SelectPreviousLevel);
             _inputComponent.BindAction("SelectNextLevel", LevelSelectionModel.SelectNextLevel);
+            _inputComponent.BindAction("SelectLevel", () =>
+            {
+                _inputComponent.InputMapping = null;
+
+                _gameState.CurrentLevel = LevelSelectionModel.SelectedLevel;
+
+                var fadeInOutEntity = Scene.CreateEntity();
+                var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                fadeInOutComponent.Action = () =>
+                {
+                    var e = Scene.CreateEntity();
+                    var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                    loadSceneComponent.SceneBehaviorName = "SokobanGame";
+                };
+            });
             _inputComponent.BindAction("Back", () =>
             {
                 _inputComponent.InputMapping = null;
@@ -54,14 +73,14 @@ namespace Sokoban.LevelSelectionMenu
 
             for (var i = 0; i < Middle; i++)
             {
-                _labels.Add(CreateLabel(300 - i * 60, 60));
+                _labels.Add(CreateLabel(300 - i * 60, 40));
             }
 
-            _labels.Add(CreateLabel(450 - Middle * 100, 100));
+            _labels.Add(CreateLabel(450 - Middle * 100, 70));
 
             for (var i = Middle + 1; i < 2 * Middle + 1; i++)
             {
-                _labels.Add(CreateLabel(225 - i * 60, 60));
+                _labels.Add(CreateLabel(225 - i * 60, 40));
             }
         }
 
@@ -99,7 +118,7 @@ namespace Sokoban.LevelSelectionMenu
             var entity = Entity.CreateChildEntity();
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
-            transform2DComponent.Translation = new Vector2(-300, y);
+            transform2DComponent.Translation = new Vector2(-600, y);
 
             var textRendererComponent = entity.CreateComponent<TextRendererComponent>();
             textRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
@@ -112,6 +131,13 @@ namespace Sokoban.LevelSelectionMenu
 
     internal sealed class LevelSelectionMenuComponentFactory : ComponentFactory<LevelSelectionMenuComponent>
     {
-        protected override LevelSelectionMenuComponent CreateComponent(Entity entity) => new LevelSelectionMenuComponent(entity);
+        private readonly GameState _gameState;
+
+        public LevelSelectionMenuComponentFactory(GameState gameState)
+        {
+            _gameState = gameState;
+        }
+
+        protected override LevelSelectionMenuComponent CreateComponent(Entity entity) => new LevelSelectionMenuComponent(entity, _gameState);
     }
 }
