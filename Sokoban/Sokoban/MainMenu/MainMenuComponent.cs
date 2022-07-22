@@ -31,6 +31,7 @@ namespace Sokoban.MainMenu
 
             _inputComponent.BindAction("OptionUp", MainMenuModel.OptionUp);
             _inputComponent.BindAction("OptionDown", MainMenuModel.OptionDown);
+            _inputComponent.BindAction("SelectOption", MainMenuModel.SelectOption);
         }
 
         public override void OnUpdate(GameTime gameTime)

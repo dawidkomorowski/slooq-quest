@@ -8,12 +8,9 @@ namespace Sokoban.MainMenu
     {
         private readonly List<MainMenuOption> _options = new List<MainMenuOption>();
 
-        public MainMenuModel()
+        public MainMenuModel(IEnumerable<MainMenuOption> options)
         {
-            _options.Add(new MainMenuOption { Index = 0, Text = "Continue", IsSelected = true, IsVisible = true });
-            _options.Add(new MainMenuOption { Index = 1, Text = "New Game", IsSelected = false, IsVisible = true });
-            _options.Add(new MainMenuOption { Index = 2, Text = "Credits", IsSelected = false, IsVisible = true });
-            _options.Add(new MainMenuOption { Index = 3, Text = "Exit", IsSelected = false, IsVisible = true });
+            _options.AddRange(options);
         }
 
         public IReadOnlyList<MainMenuOption> Options => _options.AsReadOnly();
@@ -36,6 +33,12 @@ namespace Sokoban.MainMenu
             optionToSelect.IsSelected = true;
         }
 
+        public void SelectOption()
+        {
+            var option = GetSelectedOption();
+            option.Action?.Invoke();
+        }
+
         public MainMenuOption GetSelectedOption()
         {
             return _options.Single(o => o.IsSelected);
@@ -51,7 +54,7 @@ namespace Sokoban.MainMenu
     {
         public int Index { get; set; }
         public string Text { get; set; } = string.Empty;
-        public bool IsVisible { get; set; }
         public bool IsSelected { get; set; }
+        public Action? Action { get; set; }
     }
 }

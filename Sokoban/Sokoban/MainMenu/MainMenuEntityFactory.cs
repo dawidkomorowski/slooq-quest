@@ -1,4 +1,5 @@
 ﻿using Geisha.Common.Math;
+using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -14,10 +15,12 @@ namespace Sokoban.MainMenu
     internal sealed class MainMenuEntityFactory
     {
         private readonly IAssetStore _assetStore;
+        private readonly IEngineManager _engineManager;
 
-        public MainMenuEntityFactory(IAssetStore assetStore)
+        public MainMenuEntityFactory(IAssetStore assetStore, IEngineManager engineManager)
         {
             _assetStore = assetStore;
+            _engineManager = engineManager;
         }
 
         public Entity CreateMainMenu(Scene scene)
@@ -27,7 +30,16 @@ namespace Sokoban.MainMenu
             entity.CreateComponent<Transform2DComponent>();
 
             var mainMenuComponent = entity.CreateComponent<MainMenuComponent>();
-            mainMenuComponent.MainMenuModel = new MainMenuModel();
+
+            var options = new[]
+            {
+                new MainMenuOption { Index = 0, Text = "Continue", IsSelected = true },
+                new MainMenuOption { Index = 1, Text = "New Game", IsSelected = false },
+                new MainMenuOption { Index = 2, Text = "Credits", IsSelected = false },
+                new MainMenuOption { Index = 3, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() }
+            };
+
+            mainMenuComponent.MainMenuModel = new MainMenuModel(options);
 
             var inputComponent = entity.CreateComponent<InputComponent>();
             inputComponent.InputMapping = new InputMapping
