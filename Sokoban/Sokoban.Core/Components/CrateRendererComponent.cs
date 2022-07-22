@@ -67,13 +67,7 @@ namespace Sokoban.Core.Components
                 _labelTextRendererComponent.Text = string.Empty;
                 _editorLabelTextRendererComponent.Visible = false;
 
-                _transform2DComponent.Scale = new Vector2(0.22, 0.22);
-
                 return;
-            }
-            else
-            {
-                _transform2DComponent.Scale = Vector2.One;
             }
 
 

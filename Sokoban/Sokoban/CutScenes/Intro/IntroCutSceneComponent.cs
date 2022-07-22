@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -15,6 +16,7 @@ namespace Sokoban.CutScenes.Intro
     {
         private int _stage = 0;
         private TileObjectPositionComponent _playerTileObjectPositionComponent = null!;
+        private Transform2DComponent _slooqTransform2DComponent = null!;
         private SpeechBalloonComponent _speechBalloonComponent = null!;
         private Wait _wait = new Wait(TimeSpan.Zero);
 
@@ -27,8 +29,17 @@ namespace Sokoban.CutScenes.Intro
         public override void OnStart()
         {
             _playerTileObjectPositionComponent = Entity.Scene.AllEntities
-                .Single(e => e.HasComponent<TileObjectPositionComponent>() && e.GetComponent<TileObjectPositionComponent>().TileObject is Player)
+                .Single(e =>
+                    e.HasComponent<TileObjectPositionComponent>() &&
+                    e.GetComponent<TileObjectPositionComponent>().TileObject is Player)
                 .GetComponent<TileObjectPositionComponent>();
+
+            _slooqTransform2DComponent = Entity.Scene.AllEntities
+                .Single(e =>
+                    e.HasComponent<TileObjectPositionComponent>() &&
+                    e.GetComponent<TileObjectPositionComponent>().TileObject is Crate &&
+                    ((Crate)e.GetComponent<TileObjectPositionComponent>().TileObject!).Type is CrateType.Slooq)
+                .GetComponent<Transform2DComponent>();
 
             var speechBalloonEntity = Scene.CreateEntity();
             _speechBalloonComponent = speechBalloonEntity.CreateComponent<SpeechBalloonComponent>();
@@ -44,6 +55,7 @@ namespace Sokoban.CutScenes.Intro
             switch (_stage)
             {
                 case 0:
+                    _slooqTransform2DComponent.Scale = Vector2.Zero;
                     _wait = new Wait(TimeSpan.FromSeconds(2));
                     _stage = 1;
                     break;

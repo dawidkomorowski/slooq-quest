@@ -1,1 +1,12 @@
-{"AssetId":"f2f04dab-8d22-4773-be1b-766173597de4","AssetType":"Geisha.Engine.Rendering.Sprite","ContentFormat":"Json","Content":{"TextureAssetId":"09c7da5d-6674-49a6-96cf-a234d4e33019","SourceUV":{"X":0,"Y":0},"SourceDimensions":{"X":256,"Y":291},"Pivot":{"X":128,"Y":145.5},"PixelsPerUnit":1}}
+{
+  "AssetId": "f2f04dab-8d22-4773-be1b-766173597de4",
+  "AssetType": "Geisha.Engine.Rendering.Sprite",
+  "ContentFormat": "Json",
+  "Content": {
+    "TextureAssetId": "09c7da5d-6674-49a6-96cf-a234d4e33019",
+    "SourceUV": { "X": 0, "Y": 0 },
+    "SourceDimensions": { "X": 256, "Y": 291 },
+    "Pivot": { "X": 128, "Y": 145.5 },
+    "PixelsPerUnit": 4.6
+  }
+}
