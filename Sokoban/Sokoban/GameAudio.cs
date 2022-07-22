@@ -10,6 +10,7 @@ namespace Sokoban
         private readonly IAudioPlayer _audioPlayer;
         private readonly IAssetStore _assetStore;
 
+        private AssetId _currentMusic;
         private IPlayback? _musicPlayback;
 
         public GameAudio(IAudioBackend audioBackend, IAssetStore assetStore)
@@ -25,6 +26,13 @@ namespace Sokoban
 
         private void PlayMusicLoop(AssetId assetId)
         {
+            if (_currentMusic == assetId)
+            {
+                return;
+            }
+
+            _currentMusic = assetId;
+
             _musicPlayback?.Dispose();
 
             _musicPlayback = _audioPlayer.Play(_assetStore.GetAsset<ISound>(assetId));
