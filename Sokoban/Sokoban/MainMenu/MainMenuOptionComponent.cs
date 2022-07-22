@@ -31,7 +31,6 @@ namespace Sokoban.MainMenu
             _textRendererComponent = Entity.CreateComponent<TextRendererComponent>();
             _textRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
             _textRendererComponent.Text = MainMenuOption.Text;
-            _textRendererComponent.FontSize = FontSize.FromDips(60);
             _textRendererComponent.SortingLayerName = "UI";
         }
 

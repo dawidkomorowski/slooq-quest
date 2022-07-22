@@ -4,6 +4,7 @@ using Geisha.Engine;
 using Sokoban.Core;
 using Sokoban.InGameMenu;
 using Sokoban.LevelComplete;
+using Sokoban.LevelSelectionMenu;
 using Sokoban.MainMenu;
 using Sokoban.RestartLevel;
 using Sokoban.VisualEffects;
@@ -47,6 +48,11 @@ namespace Sokoban
             // LevelComplete
             componentsRegistry.RegisterComponentFactory<LevelCompleteComponentFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<LevelCompleteEntityFactory>().AsSelf().SingleInstance();
+
+            // LevelSelectionMenu
+            componentsRegistry.RegisterComponentFactory<LevelSelectionMenuComponentFactory>();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<LevelSelectionMenuEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterSceneBehaviorFactory<LevelSelectionMenuSceneBehaviorFactory>();
 
             // MainMenu
             componentsRegistry.RegisterComponentFactory<MainMenuComponentFactory>();

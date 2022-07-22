@@ -25,6 +25,7 @@
 
 	<ItemGroup>
 	  <Folder Include="MainMenu\" />
+	  <Folder Include="LevelSelectionMenu\" />
 	  <Folder Include="VisualEffects\" />
 	</ItemGroup>
 

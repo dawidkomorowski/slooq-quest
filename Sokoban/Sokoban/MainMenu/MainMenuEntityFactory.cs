@@ -59,7 +59,24 @@ namespace Sokoban.MainMenu
 
             var options = new[]
             {
-                new MainMenuOption { Index = 0, Text = "Continue", IsSelected = true },
+                new MainMenuOption
+                {
+                    Index = 0, Text = "Continue", IsSelected = true, Action = () =>
+                    {
+                        inputComponent.InputMapping = null;
+
+                        var fadeInOutEntity = scene.CreateEntity();
+                        var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                        fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                        fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                        fadeInOutComponent.Action = () =>
+                        {
+                            var e = scene.CreateEntity();
+                            var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                            loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+                        };
+                    }
+                },
                 new MainMenuOption
                 {
                     Index = 1, Text = "New Game", IsSelected = false, Action = () =>
