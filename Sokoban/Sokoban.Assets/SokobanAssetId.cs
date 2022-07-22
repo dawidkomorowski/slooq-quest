@@ -51,6 +51,11 @@ namespace Sokoban.Assets
                 public static AssetId Default { get; } = new AssetId(new Guid("a98d0e5d-1046-4aff-a958-017fcd307352"));
             }
 
+            public static class Slooq
+            {
+                public static AssetId Default { get; } = new AssetId(new Guid("f2f04dab-8d22-4773-be1b-766173597de4"));
+            }
+
             public static class MainMenu
             {
                 public static AssetId Title { get; } = new AssetId(new Guid("a35428be-a2e0-4c97-aecc-b334bb5cd231"));

@@ -5,6 +5,7 @@
         Brown,
         Red,
         Blue,
-        Green
+        Green,
+        Slooq
     }
 }

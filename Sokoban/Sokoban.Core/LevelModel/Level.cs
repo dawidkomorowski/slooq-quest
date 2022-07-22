@@ -152,7 +152,7 @@ namespace Sokoban.Core.LevelModel
                             }
                             case "Crate":
                             {
-                                var type = GetEnumPropertyValue<CrateType>(tileObjectJsonObject, "CrateSpotType");
+                                var type = GetEnumPropertyValue<CrateType>(tileObjectJsonObject, "Type");
                                 var crateSpotType = GetEnumPropertyValue<CrateSpotType>(tileObjectJsonObject, "CrateSpotType");
                                 var counter = GetNotNullPropertyValue(tileObjectJsonObject, "Counter").GetValue<int>();
                                 var isHidden = GetNotNullPropertyValue(tileObjectJsonObject, "IsHidden").GetValue<bool>();

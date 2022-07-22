@@ -217,7 +217,8 @@ namespace Sokoban.Core.Tests.EditorLogic
             new TestCaseData(MakeExpression(e => e.CreateBrownCrate()), CrateType.Brown, CrateSpotType.Brown),
             new TestCaseData(MakeExpression(e => e.CreateRedCrate()), CrateType.Red, CrateSpotType.Red),
             new TestCaseData(MakeExpression(e => e.CreateBlueCrate()), CrateType.Blue, CrateSpotType.Blue),
-            new TestCaseData(MakeExpression(e => e.CreateGreenCrate()), CrateType.Green, CrateSpotType.Green)
+            new TestCaseData(MakeExpression(e => e.CreateGreenCrate()), CrateType.Green, CrateSpotType.Green),
+            new TestCaseData(MakeExpression(e => e.CreateSlooqCrate()), CrateType.Slooq, CrateSpotType.Brown)
         };
 
         [TestCaseSource(nameof(CreateCrateTestCases))]

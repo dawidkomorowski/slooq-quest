@@ -74,6 +74,8 @@ namespace Sokoban.Editor.UserInterface
             inputComponent.BindAction("ToggleCrateNormalHidden", _editorState.EditMode.ToggleCrateNormalHidden);
             // Player
             inputComponent.BindAction("PlacePlayer", _editorState.EditMode.PlacePlayer);
+            // Slooq
+            inputComponent.BindAction("CreateSlooqCrate", _editorState.EditMode.CreateSlooqCrate);
 
             _editorState.EditMode.LevelModified += EditModeOnLevelModified;
         }

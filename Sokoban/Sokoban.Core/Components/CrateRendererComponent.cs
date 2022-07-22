@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
@@ -22,6 +23,8 @@ namespace Sokoban.Core.Components
         private readonly Sprite _green;
         private readonly Sprite _gray;
         private readonly Sprite _grayGrayedOut;
+        private readonly Sprite _slooq;
+        private Transform2DComponent _transform2DComponent = null!;
         private SpriteRendererComponent _spriteRendererComponent = null!;
         private TextRendererComponent _labelTextRendererComponent = null!;
         private TextRendererComponent _editorLabelTextRendererComponent = null!;
@@ -38,12 +41,14 @@ namespace Sokoban.Core.Components
             _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
             _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
             _grayGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.GrayGrayedOut);
+            _slooq = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Slooq.Default);
         }
 
         public Crate? Crate { get; set; }
 
         public override void OnStart()
         {
+            _transform2DComponent = Entity.GetComponent<Transform2DComponent>();
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
             _labelTextRendererComponent = Entity.Children.Single(e => e.Name == "Label").GetComponent<TextRendererComponent>();
             _editorLabelTextRendererComponent = Entity.Children.Single(e => e.Name == "EditorLabel").GetComponent<TextRendererComponent>();
@@ -55,6 +60,22 @@ namespace Sokoban.Core.Components
             {
                 return;
             }
+
+            if (Crate.Type is CrateType.Slooq)
+            {
+                _spriteRendererComponent.Sprite = _slooq;
+                _labelTextRendererComponent.Text = string.Empty;
+                _editorLabelTextRendererComponent.Visible = false;
+
+                _transform2DComponent.Scale = new Vector2(0.22, 0.22);
+
+                return;
+            }
+            else
+            {
+                _transform2DComponent.Scale = Vector2.One;
+            }
+
 
             if (Crate.IsHidden && _modeInfo.Mode is Mode.Game)
             {

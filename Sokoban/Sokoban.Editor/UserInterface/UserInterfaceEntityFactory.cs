@@ -226,6 +226,12 @@ namespace Sokoban.Editor.UserInterface
                     {
                         ActionName = "PlacePlayer",
                         HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.P) } }
+                    },
+                    // Slooq
+                    new ActionMapping
+                    {
+                        ActionName = "CreateSlooqCrate",
+                        HardwareActions = { new HardwareAction { HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.O) } }
                     }
                 }
             };
@@ -274,7 +280,8 @@ namespace Sokoban.Editor.UserInterface
             AddHelpLabel(help, "1-9 - Set Crate Move Counter", index++);
             AddHelpLabel(help, "H - Toggle Crate Normal/Hidden", index++);
             AddHelpLabel(help, string.Empty, index++);
-            AddHelpLabel(help, "P - Place Player", index);
+            AddHelpLabel(help, "P - Place Player", index++);
+            AddHelpLabel(help, "O - Create Slooq", index);
 
             return help;
         }

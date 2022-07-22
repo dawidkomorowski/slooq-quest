@@ -136,6 +136,11 @@ namespace Sokoban.Core.EditorLogic
             SetTileObject(new Crate { Type = CrateType.Green, CrateSpotType = CrateSpotType.Green });
         }
 
+        public void CreateSlooqCrate()
+        {
+            SetTileObject(new Crate { Type = CrateType.Slooq, CrateSpotType = CrateSpotType.Brown });
+        }
+
         public void CreateBrownCrateSpot()
         {
             CreateCrateSpot(CrateSpotType.Brown);

@@ -55,11 +55,12 @@ namespace Sokoban.Core.Tests.LevelModel
             level.GetTile(8, 8).CrateSpot = new CrateSpot { Type = CrateSpotType.Red };
 
             level.GetTile(2, 2).TileObject = new Crate { Type = CrateType.Brown, CrateSpotType = CrateSpotType.Brown };
-            level.GetTile(7, 7).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
+            level.GetTile(3, 3).TileObject = new Crate { Type = CrateType.Red, CrateSpotType = CrateSpotType.Red };
             level.GetTile(4, 4).TileObject = new Crate { Type = CrateType.Blue, CrateSpotType = CrateSpotType.Blue, Counter = 2 };
-            level.GetTile(4, 4).TileObject = new Crate { Type = CrateType.Green, CrateSpotType = CrateSpotType.Green, IsHidden = true };
+            level.GetTile(5, 5).TileObject = new Crate { Type = CrateType.Green, CrateSpotType = CrateSpotType.Green, IsHidden = true };
+            level.GetTile(6, 6).TileObject = new Crate { Type = CrateType.Slooq, CrateSpotType = CrateSpotType.Brown };
 
-            level.GetTile(5, 5).TileObject = new Player();
+            level.GetTile(7, 7).TileObject = new Player();
 
             // Act
             var serializedLevel = level.Serialize();

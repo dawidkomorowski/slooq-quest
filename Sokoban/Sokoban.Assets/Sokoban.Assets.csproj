@@ -49,6 +49,15 @@
 	  <None Update="Assets\Graphics\slooqquest6.sprite.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.sprite.geisha-asset">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.geisha-asset">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
