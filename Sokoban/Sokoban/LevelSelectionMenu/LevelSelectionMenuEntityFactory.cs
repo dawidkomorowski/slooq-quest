@@ -50,7 +50,7 @@ namespace Sokoban.LevelSelectionMenu
             };
 
             var levelSelectionMenuComponent = entity.CreateComponent<LevelSelectionMenuComponent>();
-            levelSelectionMenuComponent.LevelSelectionModel = new LevelSelectionModel(_gameState.Levels);
+            levelSelectionMenuComponent.LevelSelectionModel = new LevelSelectionModel(_gameState.Levels, _gameState.CurrentLevel);
 
             return entity;
         }

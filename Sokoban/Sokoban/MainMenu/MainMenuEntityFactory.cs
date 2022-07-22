@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
@@ -19,11 +20,13 @@ namespace Sokoban.MainMenu
     {
         private readonly IAssetStore _assetStore;
         private readonly IEngineManager _engineManager;
+        private readonly GameState _gameState;
 
-        public MainMenuEntityFactory(IAssetStore assetStore, IEngineManager engineManager)
+        public MainMenuEntityFactory(IAssetStore assetStore, IEngineManager engineManager, GameState gameState)
         {
             _assetStore = assetStore;
             _engineManager = engineManager;
+            _gameState = gameState;
         }
 
         public Entity CreateMainMenu(Scene scene)
@@ -57,11 +60,17 @@ namespace Sokoban.MainMenu
 
             var mainMenuComponent = entity.CreateComponent<MainMenuComponent>();
 
-            var options = new[]
+            var options = new List<MainMenuOption>();
+            var index = 0;
+
+            if (_gameState.SavedGame != null)
             {
-                new MainMenuOption
+                options.Add(new MainMenuOption
                 {
-                    Index = 0, Text = "Continue", IsSelected = true, Action = () =>
+                    Index = index,
+                    Text = "Continue",
+                    IsSelected = true,
+                    Action = () =>
                     {
                         inputComponent.InputMapping = null;
 
@@ -75,29 +84,42 @@ namespace Sokoban.MainMenu
                             var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
                             loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
                         };
-                    }
-                },
-                new MainMenuOption
-                {
-                    Index = 1, Text = "New Game", IsSelected = false, Action = () =>
-                    {
-                        inputComponent.InputMapping = null;
 
-                        var fadeInOutEntity = scene.CreateEntity();
-                        var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
-                        fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
-                        fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
-                        fadeInOutComponent.Action = () =>
-                        {
-                            var e = scene.CreateEntity();
-                            var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                            loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
-                        };
+                        _gameState.Continue();
                     }
-                },
-                new MainMenuOption { Index = 2, Text = "Credits", IsSelected = false },
-                new MainMenuOption { Index = 3, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() }
-            };
+                });
+                index++;
+            }
+
+            options.Add(new MainMenuOption
+            {
+                Index = index,
+                Text = "New Game",
+                IsSelected = index == 0,
+                Action = () =>
+                {
+                    inputComponent.InputMapping = null;
+
+                    var fadeInOutEntity = scene.CreateEntity();
+                    var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                    fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                    fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                    fadeInOutComponent.Action = () =>
+                    {
+                        var e = scene.CreateEntity();
+                        var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                        loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+                    };
+
+                    _gameState.NewGame();
+                }
+            });
+            index++;
+
+            options.Add(new MainMenuOption { Index = index, Text = "Credits", IsSelected = false });
+            index++;
+
+            options.Add(new MainMenuOption { Index = index, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() });
 
             mainMenuComponent.MainMenuModel = new MainMenuModel(options);
 

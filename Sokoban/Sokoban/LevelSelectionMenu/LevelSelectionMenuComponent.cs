@@ -40,6 +40,11 @@ namespace Sokoban.LevelSelectionMenu
             _inputComponent.BindAction("SelectNextLevel", LevelSelectionModel.SelectNextLevel);
             _inputComponent.BindAction("SelectLevel", () =>
             {
+                if (!LevelSelectionModel.SelectedLevel.IsUnlocked)
+                {
+                    return;
+                }
+
                 _inputComponent.InputMapping = null;
 
                 _gameState.CurrentLevel = LevelSelectionModel.SelectedLevel;
@@ -97,11 +102,13 @@ namespace Sokoban.LevelSelectionMenu
             }
 
             _labels[Middle].Text = LevelSelectionModel.SelectedLevel.Name;
+            _labels[Middle].Color = GetLabelColor(LevelSelectionModel.SelectedLevel.IsUnlocked);
 
             var i = 0;
             foreach (var levelInfo in LevelSelectionModel.PreviousLevels.Reverse().Take(Middle))
             {
                 _labels[Middle - 1 - i].Text = levelInfo.Name;
+                _labels[Middle - 1 - i].Color = GetLabelColor(levelInfo.IsUnlocked);
                 i++;
             }
 
@@ -109,6 +116,7 @@ namespace Sokoban.LevelSelectionMenu
             foreach (var levelInfo in LevelSelectionModel.NextLevels.Take(Middle))
             {
                 _labels[i].Text = levelInfo.Name;
+                _labels[i].Color = GetLabelColor(levelInfo.IsUnlocked);
                 i++;
             }
         }
@@ -126,6 +134,11 @@ namespace Sokoban.LevelSelectionMenu
             textRendererComponent.SortingLayerName = "UI";
 
             return textRendererComponent;
+        }
+
+        private static Color GetLabelColor(bool isUnlocked)
+        {
+            return isUnlocked ? Color.FromArgb(255, 255, 255, 255) : Color.FromArgb(255, 150, 150, 150);
         }
     }
 

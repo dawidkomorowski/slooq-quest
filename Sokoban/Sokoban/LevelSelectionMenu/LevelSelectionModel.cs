@@ -9,12 +9,17 @@ namespace Sokoban.LevelSelectionMenu
         private readonly List<LevelInfo> _previousLevels = new List<LevelInfo>();
         private readonly List<LevelInfo> _nextLevels = new List<LevelInfo>();
 
-        public LevelSelectionModel(IEnumerable<LevelInfo> levels)
+        public LevelSelectionModel(IEnumerable<LevelInfo> levels, LevelInfo selectedLevel)
         {
             _levels.AddRange(levels);
 
             SelectedLevel = _levels.First();
             _nextLevels.AddRange(_levels.Skip(1));
+
+            while (SelectedLevel != selectedLevel)
+            {
+                SelectNextLevel();
+            }
         }
 
         public LevelInfo SelectedLevel { get; private set; }

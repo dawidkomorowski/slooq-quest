@@ -6,15 +6,15 @@ using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Core.Components;
+using Sokoban.Core.SceneLoading;
 using Sokoban.InGameMenu;
-using Sokoban.RestartLevel;
+using Sokoban.VisualEffects;
 
 namespace Sokoban.LevelComplete
 {
     internal sealed class LevelCompleteComponent : BehaviorComponent
     {
         private readonly GameState _gameState;
-        private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
         private RectangleRendererComponent _background = null!;
         private TextRendererComponent _text = null!;
 
@@ -26,10 +26,9 @@ namespace Sokoban.LevelComplete
 
         private LevelCompleteState _state = LevelCompleteState.Invisible;
 
-        public LevelCompleteComponent(Entity entity, GameState gameState, RestartLevelEntityFactory restartLevelEntityFactory) : base(entity)
+        public LevelCompleteComponent(Entity entity, GameState gameState) : base(entity)
         {
             _gameState = gameState;
-            _restartLevelEntityFactory = restartLevelEntityFactory;
         }
 
         public override void OnStart()
@@ -43,13 +42,9 @@ namespace Sokoban.LevelComplete
             switch (_state)
             {
                 case LevelCompleteState.Invisible:
-                    if (_gameState.IsPendingRestart)
-                    {
-                        break;
-                    }
-
                     if (_gameState.GameMode.IsLevelComplete())
                     {
+                        _gameState.OnLevelComplete();
                         ShowLevelComplete();
                     }
 
@@ -58,7 +53,9 @@ namespace Sokoban.LevelComplete
                     Animate(gameTime);
                     break;
                 case LevelCompleteState.Visible:
-                    RestartLevel();
+                    GoBackToLevelSelection();
+                    break;
+                case LevelCompleteState.WaitingForExit:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -95,17 +92,20 @@ namespace Sokoban.LevelComplete
             SetAlpha(backgroundAlpha, textAlpha);
         }
 
-        private void RestartLevel()
+        private void GoBackToLevelSelection()
         {
-            _state = LevelCompleteState.Invisible;
+            _state = LevelCompleteState.WaitingForExit;
 
-            SetAlpha(0, 0);
-
-            _gameState.AckComplete();
-            _restartLevelEntityFactory.CreateRestartLevelEntity(Entity.Scene);
-
-            var inGameMenu = FindInGameMenuComponent();
-            inGameMenu.Enabled = true;
+            var fadeInOutEntity = Scene.CreateEntity();
+            var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+            fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+            fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+            fadeInOutComponent.Action = () =>
+            {
+                var e = Scene.CreateEntity();
+                var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+            };
         }
 
         private void SetAlpha(double background, double text)
@@ -129,21 +129,20 @@ namespace Sokoban.LevelComplete
         {
             Invisible,
             Animating,
-            Visible
+            Visible,
+            WaitingForExit
         }
     }
 
     internal sealed class LevelCompleteComponentFactory : ComponentFactory<LevelCompleteComponent>
     {
         private readonly GameState _gameState;
-        private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
 
-        public LevelCompleteComponentFactory(GameState gameState, RestartLevelEntityFactory restartLevelEntityFactory)
+        public LevelCompleteComponentFactory(GameState gameState)
         {
             _gameState = gameState;
-            _restartLevelEntityFactory = restartLevelEntityFactory;
         }
 
-        protected override LevelCompleteComponent CreateComponent(Entity entity) => new LevelCompleteComponent(entity, _gameState, _restartLevelEntityFactory);
+        protected override LevelCompleteComponent CreateComponent(Entity entity) => new LevelCompleteComponent(entity, _gameState);
     }
 }
