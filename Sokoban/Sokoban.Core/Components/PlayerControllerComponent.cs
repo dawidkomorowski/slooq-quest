@@ -42,7 +42,10 @@ namespace Sokoban.Core.Components
                 return;
             }
 
-            Debug.Assert(GameMode != null, nameof(GameMode) + " != null");
+            if (GameMode is null)
+            {
+                return;
+            }
 
             if (_inputComponent.GetActionState("MoveUp"))
             {

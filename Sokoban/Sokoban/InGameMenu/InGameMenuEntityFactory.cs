@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -7,6 +8,9 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
+using Sokoban.Core.Components;
+using Sokoban.Core.GameLogic;
+using Sokoban.Core.LevelModel;
 using Sokoban.Core.SceneLoading;
 using Sokoban.RestartLevel;
 using Sokoban.VisualEffects;
@@ -72,6 +76,10 @@ namespace Sokoban.InGameMenu
             CreateInGameMenuOption(menuOptionsContainer, "Restart level", 0, () => { _restartLevelEntityFactory.CreateRestartLevelEntity(scene); });
             CreateInGameMenuOption(menuOptionsContainer, "Exit", 1, () =>
             {
+                var playerControllerComponent =
+                    scene.AllEntities.Single(e => e.HasComponent<PlayerControllerComponent>()).GetComponent<PlayerControllerComponent>();
+                playerControllerComponent.GameMode = null; // Hack to disable Player controls.
+
                 inputComponent.InputMapping = null;
 
                 var fadeInOutEntity = scene.CreateEntity();
