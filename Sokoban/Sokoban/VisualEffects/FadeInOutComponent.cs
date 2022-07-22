@@ -25,6 +25,7 @@ namespace Sokoban.VisualEffects
 
         public TimeSpan Duration { get; set; }
         public FadeMode Mode { get; set; } = FadeMode.FadeIn;
+        public Action? Action { get; set; }
 
         public override void OnStart()
         {
@@ -48,6 +49,7 @@ namespace Sokoban.VisualEffects
             {
                 _lifeSpan = Duration;
                 Entity.RemoveAfterFullFrame();
+                Action?.Invoke();
             }
 
             var value = Mode switch

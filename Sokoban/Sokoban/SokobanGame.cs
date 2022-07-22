@@ -19,6 +19,8 @@ namespace Sokoban
     // TODO Native support for looped sound playback.
     // TODO Ability to set opacity for sprite renderer.
     // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
+    // TODO Clear All Bindings API for InputComponent.
+    // TODO Enable/Disable InputComponent API?
 
     internal sealed class SokobanGame : IGame
     {

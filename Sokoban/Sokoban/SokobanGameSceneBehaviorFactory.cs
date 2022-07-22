@@ -1,8 +1,10 @@
-﻿using Geisha.Engine.Core.SceneModel;
+﻿using System;
+using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
 using Sokoban.InGameMenu;
 using Sokoban.LevelComplete;
 using Sokoban.RestartLevel;
+using Sokoban.VisualEffects;
 
 namespace Sokoban
 {
@@ -66,6 +68,10 @@ namespace Sokoban
                 levelCompleteEntity.Parent = cameraEntity;
 
                 _restartLevelEntityFactory.CreateRestartLevelEntity(Scene);
+
+                var fadeInOutEntity = Scene.CreateEntity();
+                var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
             }
         }
     }

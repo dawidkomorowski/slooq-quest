@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System;
+using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
@@ -9,6 +10,8 @@ using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 using Sokoban.Assets;
+using Sokoban.Core.SceneLoading;
+using Sokoban.VisualEffects;
 
 namespace Sokoban.MainMenu
 {
@@ -28,18 +31,6 @@ namespace Sokoban.MainMenu
             var entity = scene.CreateEntity();
 
             entity.CreateComponent<Transform2DComponent>();
-
-            var mainMenuComponent = entity.CreateComponent<MainMenuComponent>();
-
-            var options = new[]
-            {
-                new MainMenuOption { Index = 0, Text = "Continue", IsSelected = true },
-                new MainMenuOption { Index = 1, Text = "New Game", IsSelected = false },
-                new MainMenuOption { Index = 2, Text = "Credits", IsSelected = false },
-                new MainMenuOption { Index = 3, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() }
-            };
-
-            mainMenuComponent.MainMenuModel = new MainMenuModel(options);
 
             var inputComponent = entity.CreateComponent<InputComponent>();
             inputComponent.InputMapping = new InputMapping
@@ -63,6 +54,35 @@ namespace Sokoban.MainMenu
                     }
                 }
             };
+
+            var mainMenuComponent = entity.CreateComponent<MainMenuComponent>();
+
+            var options = new[]
+            {
+                new MainMenuOption { Index = 0, Text = "Continue", IsSelected = true },
+                new MainMenuOption
+                {
+                    Index = 1, Text = "New Game", IsSelected = false, Action = () =>
+                    {
+                        inputComponent.InputMapping = null;
+
+                        var fadeInOutEntity = scene.CreateEntity();
+                        var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                        fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                        fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                        fadeInOutComponent.Action = () =>
+                        {
+                            var e = scene.CreateEntity();
+                            var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                            loadSceneComponent.SceneBehaviorName = "SokobanGame";
+                        };
+                    }
+                },
+                new MainMenuOption { Index = 2, Text = "Credits", IsSelected = false },
+                new MainMenuOption { Index = 3, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() }
+            };
+
+            mainMenuComponent.MainMenuModel = new MainMenuModel(options);
 
             return entity;
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Geisha.Common.Math;
-using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input;
@@ -8,18 +7,18 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
+using Sokoban.Core.SceneLoading;
 using Sokoban.RestartLevel;
+using Sokoban.VisualEffects;
 
 namespace Sokoban.InGameMenu
 {
     internal sealed class InGameMenuEntityFactory
     {
-        private readonly IEngineManager _engineManager;
         private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
 
-        public InGameMenuEntityFactory(IEngineManager engineManager, RestartLevelEntityFactory restartLevelEntityFactory)
+        public InGameMenuEntityFactory(RestartLevelEntityFactory restartLevelEntityFactory)
         {
-            _engineManager = engineManager;
             _restartLevelEntityFactory = restartLevelEntityFactory;
         }
 
@@ -71,7 +70,21 @@ namespace Sokoban.InGameMenu
             menuOptionsContainerTransform.Translation = new Vector2(-300, 100);
 
             CreateInGameMenuOption(menuOptionsContainer, "Restart level", 0, () => { _restartLevelEntityFactory.CreateRestartLevelEntity(scene); });
-            CreateInGameMenuOption(menuOptionsContainer, "Exit", 1, () => { _engineManager.ScheduleEngineShutdown(); });
+            CreateInGameMenuOption(menuOptionsContainer, "Exit", 1, () =>
+            {
+                inputComponent.InputMapping = null;
+
+                var fadeInOutEntity = scene.CreateEntity();
+                var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                fadeInOutComponent.Duration = TimeSpan.FromSeconds(1);
+                fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                fadeInOutComponent.Action = () =>
+                {
+                    var e = scene.CreateEntity();
+                    var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                    loadSceneComponent.SceneBehaviorName = "MainMenu";
+                };
+            });
 
             return inGameMenu;
         }
