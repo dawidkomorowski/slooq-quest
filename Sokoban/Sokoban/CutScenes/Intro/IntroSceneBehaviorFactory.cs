@@ -43,7 +43,7 @@ namespace Sokoban.CutScenes.Intro
 
                 var fadeInOutEntity = Scene.CreateEntity();
                 var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
-                fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                fadeInOutComponent.Duration = TimeSpan.FromSeconds(1);
 
                 var serializedLevel = File.ReadAllText(Path.Combine("CutScenes", "Intro.sokoban-level"));
                 var level = Level.Deserialize(serializedLevel);
