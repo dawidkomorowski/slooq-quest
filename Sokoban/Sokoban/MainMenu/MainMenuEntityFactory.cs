@@ -108,7 +108,7 @@ namespace Sokoban.MainMenu
                     {
                         var e = scene.CreateEntity();
                         var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                        loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+                        loadSceneComponent.SceneBehaviorName = "IntroCutScene";
                     };
 
                     _gameState.NewGame();

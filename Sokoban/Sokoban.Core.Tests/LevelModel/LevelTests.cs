@@ -138,5 +138,22 @@ namespace Sokoban.Core.Tests.LevelModel
                 Assert.That(level, Is.Not.Null);
             }
         }
+
+        [Test]
+        public void Deserialize_ShouldBeSuccessful_ForAllGameCutScenes()
+        {
+            // Arrange
+            var levelFilePaths = Directory.GetFiles("CutScenes", "*.sokoban-level");
+
+            // Act
+            // Assert
+            foreach (var levelFilePath in levelFilePaths)
+            {
+                var levelData = File.ReadAllText(levelFilePath);
+                var level = Level.Deserialize(levelData);
+
+                Assert.That(level, Is.Not.Null);
+            }
+        }
     }
 }

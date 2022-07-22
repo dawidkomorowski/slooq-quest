@@ -2,6 +2,8 @@
 using Autofac;
 using Geisha.Engine;
 using Sokoban.Core;
+using Sokoban.CutScenes;
+using Sokoban.CutScenes.Intro;
 using Sokoban.InGameMenu;
 using Sokoban.LevelComplete;
 using Sokoban.LevelSelectionMenu;
@@ -22,6 +24,7 @@ namespace Sokoban
     // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
     // TODO Clear All Bindings API for InputComponent.
     // TODO Enable/Disable InputComponent API?
+    // TODO CoRoutines seems to greatly simplify hard-coding cut-scenes and similar scripted events. (They hide state machine).
 
     internal sealed class SokobanGame : IGame
     {
@@ -39,6 +42,13 @@ namespace Sokoban
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
+
+            // CutScenes
+            componentsRegistry.RegisterComponentFactory<SpeechBalloonComponentFactory>();
+
+            // CutScenes - Intro
+            componentsRegistry.RegisterComponentFactory<IntroCutSceneComponentFactory>();
+            componentsRegistry.RegisterSceneBehaviorFactory<IntroSceneBehaviorFactory>();
 
             // InGameMenu
             componentsRegistry.RegisterComponentFactory<InGameMenuComponentFactory>();
