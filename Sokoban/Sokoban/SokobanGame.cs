@@ -25,6 +25,7 @@ namespace Sokoban
     // TODO Clear All Bindings API for InputComponent.
     // TODO Enable/Disable InputComponent API?
     // TODO CoRoutines seems to greatly simplify hard-coding cut-scenes and similar scripted events. (They hide state machine).
+    // TODO Interpolation and easing functions.
 
     internal sealed class SokobanGame : IGame
     {

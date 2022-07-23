@@ -19,6 +19,7 @@ namespace Sokoban.CutScenes.Intro
         private Transform2DComponent _slooqTransform2DComponent = null!;
         private SpeechBalloonComponent _speechBalloonComponent = null!;
         private Wait _wait = new Wait(TimeSpan.Zero);
+        private EaseOutBackAnimation _easeOutBackAnimation = new EaseOutBackAnimation(TimeSpan.Zero);
 
         public IntroCutSceneComponent(Entity entity) : base(entity)
         {
@@ -279,10 +280,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 40:
-                    _speechBalloonComponent.SetPosition(60, -200);
-                    _speechBalloonComponent.SetDimensions(260, 80);
-                    _speechBalloonComponent.SetTextLine1("What happened?", -112, 30);
-                    _speechBalloonComponent.SetTextLine2("Where am I?", -112, 5);
+                    _speechBalloonComponent.SetPosition(80, -200);
+                    _speechBalloonComponent.SetDimensions(280, 100);
+                    _speechBalloonComponent.SetTextLine1("What happened?", -120, 40);
+                    _speechBalloonComponent.SetTextLine2("Where am I?", -120, 15);
                     _speechBalloonComponent.Show();
                     _stage = 41;
                     break;
@@ -322,17 +323,591 @@ namespace Sokoban.CutScenes.Intro
                 case 47:
                     if (_wait.Update(gameTime.DeltaTime))
                     {
-                        _stage = 180;
+                        _stage = 48;
                     }
 
                     break;
-                case 180:
-                    _stage = 999;
+                case 48:
+                    _easeOutBackAnimation = new EaseOutBackAnimation(TimeSpan.FromMilliseconds(200));
+                    _stage = 49;
+                    break;
+                case 49:
+                    if (_easeOutBackAnimation.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 50;
+                    }
+                    else
+                    {
+                        var value = _easeOutBackAnimation.Value;
+                        _slooqTransform2DComponent.Scale = new Vector2(value, value);
+                    }
+
+                    break;
+                case 50:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 51;
+                    break;
+                case 51:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 52;
+                    }
+
+                    break;
+                case 52:
+                    _speechBalloonComponent.SetPosition(-80, 220);
+                    _speechBalloonComponent.SetDimensions(260, 80);
+                    _speechBalloonComponent.SetTextLine1("Hello friend.", -112, 30);
+                    _speechBalloonComponent.Show();
+                    _stage = 53;
+                    break;
+                case 53:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 54;
+                    }
+
+                    break;
+                case 54:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 55;
+                    break;
+                case 55:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 56;
+                    }
+
+                    break;
+                case 56:
+                    _speechBalloonComponent.Hide();
+                    _stage = 57;
+                    break;
+                case 57:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 58;
+                    }
+
+                    break;
+                case 58:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 59;
+                    break;
+                case 59:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 60;
+                    }
+
+                    break;
+                case 60:
+                    _speechBalloonComponent.SetPosition(80, -200);
+                    _speechBalloonComponent.SetDimensions(260, 80);
+                    _speechBalloonComponent.SetTextLine1("Who are you?", -112, 30);
+                    _speechBalloonComponent.Show();
+                    _stage = 61;
+                    break;
+                case 61:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 62;
+                    }
+
+                    break;
+                case 62:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 63;
+                    break;
+                case 63:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 64;
+                    }
+
+                    break;
+                case 64:
+                    _speechBalloonComponent.Hide();
+                    _stage = 65;
+                    break;
+                case 65:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 66;
+                    }
+
+                    break;
+                case 66:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 67;
+                    break;
+                case 67:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 68;
+                    }
+
+                    break;
+                case 68:
+                    _speechBalloonComponent.SetPosition(-180, 220);
+                    _speechBalloonComponent.SetDimensions(480, 120);
+                    _speechBalloonComponent.SetTextLine1("I'm Slooq and I locked", -220, 40);
+                    _speechBalloonComponent.SetTextLine2("you here to play with you.", -220, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 69;
+                    break;
+                case 69:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 70;
+                    }
+
+                    break;
+                case 70:
+                    _wait = new Wait(TimeSpan.FromSeconds(4));
+                    _stage = 71;
+                    break;
+                case 71:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 72;
+                    }
+
+                    break;
+                case 72:
+                    _speechBalloonComponent.Hide();
+                    _stage = 73;
+                    break;
+                case 73:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 74;
+                    }
+
+                    break;
+                case 74:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 75;
+                    break;
+                case 75:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 76;
+                    }
+
+                    break;
+                case 76:
+                    _speechBalloonComponent.SetPosition(90, -200);
+                    _speechBalloonComponent.SetDimensions(300, 100);
+                    _speechBalloonComponent.SetTextLine1("But I don’t want", -133, 40);
+                    _speechBalloonComponent.SetTextLine2("to play!!!!", -133, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 77;
+                    break;
+                case 77:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 78;
+                    }
+
+                    break;
+                case 78:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 79;
+                    break;
+                case 79:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 80;
+                    }
+
+                    break;
+                case 80:
+                    _speechBalloonComponent.Hide();
+                    _stage = 81;
+                    break;
+                case 81:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 82;
+                    }
+
+                    break;
+                case 82:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 83;
+                    break;
+                case 83:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 84;
+                    }
+
+                    break;
+                case 84:
+                    _speechBalloonComponent.SetPosition(-160, 220);
+                    _speechBalloonComponent.SetDimensions(380, 120);
+                    _speechBalloonComponent.SetTextLine1("It's a pity because ", -175, 40);
+                    _speechBalloonComponent.SetTextLine2("you have to!", -175, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 85;
+                    break;
+                case 85:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 86;
+                    }
+
+                    break;
+                case 86:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 87;
+                    break;
+                case 87:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 88;
+                    }
+
+                    break;
+                case 88:
+                    _speechBalloonComponent.Hide();
+                    _stage = 89;
+                    break;
+                case 89:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 90;
+                    }
+
+                    break;
+                case 90:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 91;
+                    break;
+                case 91:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 92;
+                    }
+
+                    break;
+                case 92:
+                    _speechBalloonComponent.SetPosition(0, -200);
+                    _speechBalloonComponent.SetDimensions(100, 50);
+                    _speechBalloonComponent.SetTextLine1("...", -25, 17);
+                    _speechBalloonComponent.Show();
+                    _stage = 93;
+                    break;
+                case 93:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 94;
+                    }
+
+                    break;
+                case 94:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 95;
+                    break;
+                case 95:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 96;
+                    }
+
+                    break;
+                case 96:
+                    _speechBalloonComponent.Hide();
+                    _stage = 97;
+                    break;
+                case 97:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 98;
+                    }
+
+                    break;
+                case 98:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 99;
+                    break;
+                case 99:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 100;
+                    }
+
+                    break;
+                case 100:
+                    _speechBalloonComponent.SetPosition(-200, 220);
+                    _speechBalloonComponent.SetDimensions(520, 120);
+                    _speechBalloonComponent.SetTextLine1("Can you see these crates?", -240, 40);
+                    _speechBalloonComponent.SetTextLine2("Put them in the right places.", -240, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 101;
+                    break;
+                case 101:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 102;
+                    }
+
+                    break;
+                case 102:
+                    _wait = new Wait(TimeSpan.FromSeconds(4));
+                    _stage = 103;
+                    break;
+                case 103:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 104;
+                    }
+
+                    break;
+                case 104:
+                    _speechBalloonComponent.Hide();
+                    _stage = 105;
+                    break;
+                case 105:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 106;
+                    }
+
+                    break;
+                case 106:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 107;
+                    break;
+                case 107:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 108;
+                    }
+
+                    break;
+                case 108:
+                    _speechBalloonComponent.SetPosition(80, -200);
+                    _speechBalloonComponent.SetDimensions(260, 80);
+                    _speechBalloonComponent.SetTextLine1("What for?", -112, 30);
+                    _speechBalloonComponent.Show();
+                    _stage = 109;
+                    break;
+                case 109:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 110;
+                    }
+
+                    break;
+                case 110:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 111;
+                    break;
+                case 111:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 112;
+                    }
+
+                    break;
+                case 112:
+                    _speechBalloonComponent.Hide();
+                    _stage = 113;
+                    break;
+                case 113:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 114;
+                    }
+
+                    break;
+                case 114:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 115;
+                    break;
+                case 115:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 116;
+                    }
+
+                    break;
+                case 116:
+                    _speechBalloonComponent.SetPosition(-160, 220);
+                    _speechBalloonComponent.SetDimensions(380, 120);
+                    _speechBalloonComponent.SetTextLine1("Put them! Put them!", -175, 40);
+                    _speechBalloonComponent.SetTextLine2("Put them!", -175, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 117;
+                    break;
+                case 117:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 118;
+                    }
+
+                    break;
+                case 118:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 119;
+                    break;
+                case 119:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 120;
+                    }
+
+                    break;
+                case 120:
+                    _speechBalloonComponent.Hide();
+                    _stage = 121;
+                    break;
+                case 121:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 122;
+                    }
+
+                    break;
+                case 122:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 123;
+                    break;
+                case 123:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 124;
+                    }
+
+                    break;
+                case 124:
+                    _easeOutBackAnimation = new EaseOutBackAnimation(TimeSpan.FromMilliseconds(200), true);
+                    _stage = 125;
+                    break;
+                case 125:
+                    if (_easeOutBackAnimation.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 126;
+                    }
+                    else
+                    {
+                        var value = _easeOutBackAnimation.Value;
+                        _slooqTransform2DComponent.Scale = new Vector2(value, value);
+                    }
+
+                    break;
+                case 126:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 127;
+                    break;
+                case 127:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 128;
+                    }
+
+                    break;
+                case 128:
+                    _speechBalloonComponent.SetPosition(40, -200);
+                    _speechBalloonComponent.SetDimensions(160, 80);
+                    _speechBalloonComponent.SetTextLine1("But...", -60, 30);
+                    _speechBalloonComponent.Show();
+                    _stage = 129;
+                    break;
+                case 129:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 130;
+                    }
+
+                    break;
+                case 130:
+                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _stage = 131;
+                    break;
+                case 131:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 132;
+                    }
+
+                    break;
+                case 132:
+                    _speechBalloonComponent.Hide();
+                    _stage = 133;
+                    break;
+                case 133:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 134;
+                    }
+
+                    break;
+                case 134:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 135;
+                    break;
+                case 135:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 136;
+                    }
+
+                    break;
+                case 136:
+                    _speechBalloonComponent.SetPosition(180, -220);
+                    _speechBalloonComponent.SetDimensions(450, 120);
+                    _speechBalloonComponent.SetTextLine1("Okay, I'll just do what", -210, 40);
+                    _speechBalloonComponent.SetTextLine2("Slooq tells me to do.", -210, 15);
+                    _speechBalloonComponent.Show();
+                    _stage = 137;
+                    break;
+                case 137:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 138;
+                    }
+
+                    break;
+                case 138:
+                    _wait = new Wait(TimeSpan.FromSeconds(4));
+                    _stage = 139;
+                    break;
+                case 139:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 140;
+                    }
+
+                    break;
+                case 140:
+                    _speechBalloonComponent.Hide();
+                    _stage = 141;
+                    break;
+                case 141:
+                    if (_speechBalloonComponent.WaitForAnimation())
+                    {
+                        _stage = 142;
+                    }
+
+                    break;
+                case 142:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 143;
+                    break;
+                case 143:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 999;
+                    }
+
                     break;
                 case 999:
                     var fadeInOutEntity = Scene.CreateEntity();
                     var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
-                    fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                    fadeInOutComponent.Duration = TimeSpan.FromSeconds(1);
                     fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
                     fadeInOutComponent.Action = () =>
                     {
