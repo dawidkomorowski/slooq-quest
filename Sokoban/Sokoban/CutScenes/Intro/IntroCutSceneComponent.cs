@@ -334,6 +334,8 @@ namespace Sokoban.CutScenes.Intro
                 case 49:
                     if (_easeOutBackAnimation.Update(gameTime.DeltaTime))
                     {
+                        var value = _easeOutBackAnimation.Value;
+                        _slooqTransform2DComponent.Scale = new Vector2(value, value);
                         _stage = 50;
                     }
                     else
@@ -789,6 +791,8 @@ namespace Sokoban.CutScenes.Intro
                 case 125:
                     if (_easeOutBackAnimation.Update(gameTime.DeltaTime))
                     {
+                        var value = _easeOutBackAnimation.Value;
+                        _slooqTransform2DComponent.Scale = new Vector2(value, value);
                         _stage = 126;
                     }
                     else
