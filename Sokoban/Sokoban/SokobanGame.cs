@@ -4,6 +4,7 @@ using Geisha.Engine;
 using Sokoban.Core;
 using Sokoban.CutScenes;
 using Sokoban.CutScenes.Intro;
+using Sokoban.CutScenes.IntroToFinal;
 using Sokoban.InGameMenu;
 using Sokoban.LevelComplete;
 using Sokoban.LevelSelectionMenu;
@@ -50,6 +51,10 @@ namespace Sokoban
             // CutScenes - Intro
             componentsRegistry.RegisterComponentFactory<IntroCutSceneComponentFactory>();
             componentsRegistry.RegisterSceneBehaviorFactory<IntroSceneBehaviorFactory>();
+
+            // CutScenes - IntroToFinal
+            componentsRegistry.RegisterComponentFactory<IntroToFinalCutSceneComponentFactory>();
+            componentsRegistry.RegisterSceneBehaviorFactory<IntroToFinalSceneBehaviorFactory>();
 
             // InGameMenu
             componentsRegistry.RegisterComponentFactory<InGameMenuComponentFactory>();

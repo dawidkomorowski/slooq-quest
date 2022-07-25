@@ -116,7 +116,27 @@ namespace Sokoban.MainMenu
             });
             index++;
 
-            options.Add(new MainMenuOption { Index = index, Text = "Credits", IsSelected = false });
+            options.Add(new MainMenuOption
+            {
+                Index = index,
+                Text = "Credits",
+                IsSelected = false,
+                Action = () =>
+                {
+                    inputComponent.InputMapping = null;
+
+                    var fadeInOutEntity = scene.CreateEntity();
+                    var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
+                    fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+                    fadeInOutComponent.Mode = FadeInOutComponent.FadeMode.FadeOut;
+                    fadeInOutComponent.Action = () =>
+                    {
+                        var e = scene.CreateEntity();
+                        var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
+                        loadSceneComponent.SceneBehaviorName = "IntroToFinalCutScene";
+                    };
+                }
+            });
             index++;
 
             options.Add(new MainMenuOption { Index = index, Text = "Exit", IsSelected = false, Action = () => _engineManager.ScheduleEngineShutdown() });
