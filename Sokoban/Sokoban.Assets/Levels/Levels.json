@@ -1,102 +1,102 @@
 [
     {
-        "Name": "Welcome in Slooq World.",
+        "Name": "Welcome in Slooq World",
         "FileName": "Level01"
     },
     {
-        "Name": "Learn the basics.",
+        "Name": "Learn the basics",
         "FileName": "Level02"
     },
     {
-        "Name": "Messy but easy.",
+        "Name": "Messy but easy",
         "FileName": "Level03"
     },
     {
-        "Name": "The fun is taking off.",
+        "Name": "The fun is taking off",
         "FileName": "Level04"
     },
     {
-        "Name": "Split your attention.",
+        "Name": "Split your attention",
         "FileName": "Level05"
     },
     {
-        "Name": "Go round in circles.",
+        "Name": "Go round in circles",
         "FileName": "Level06"
     },
     {
-        "Name": "Green field.",
+        "Name": "Green field",
         "FileName": "Level07"
     },
     {
-        "Name": "Swinging crates.",
+        "Name": "Swinging crates",
         "FileName": "Level08"
     },
     {
-        "Name": "Everything is out of place.",
+        "Name": "Everything is out of place",
         "FileName": "Level09"
     },
     {
-        "Name": "This one is stuck.",
+        "Name": "This one is stuck",
         "FileName": "Level10"
     },
     {
-        "Name": "The order matters.",
+        "Name": "The order matters",
         "FileName": "Level11"
     },
     {
-        "Name": "Red Alert.",
+        "Name": "Red Alert",
         "FileName": "Level12"
     },
     {
-        "Name": "Close the door.",
+        "Name": "Close the door",
         "FileName": "Level13"
     },
     {
-        "Name": "First things first.",
+        "Name": "First things first",
         "FileName": "Level14"
     },
     {
-        "Name": "Meaning of numbers.",
+        "Name": "Meaning of numbers",
         "FileName": "Level15"
     },
     {
-        "Name": "Time is running out.",
+        "Name": "Time is running out",
         "FileName": "Level16"
     },
     {
-        "Name": "Something red, something blue.",
+        "Name": "Something red, something blue",
         "FileName": "Level17"
     },
     {
-        "Name": "Watch your steps.",
+        "Name": "Watch your steps",
         "FileName": "Level18"
     },
     {
-        "Name": "Broken countdown.",
+        "Name": "Broken countdown",
         "FileName": "Level19"
     },
     {
-        "Name": "Back to basics.",
+        "Name": "Back to basics",
         "FileName": "Level20"
     },
     {
-        "Name": "Watch the numbers.",
+        "Name": "Watch the numbers",
         "FileName": "Level21"
     },
     {
-        "Name": "One step too far.",
+        "Name": "One step too far",
         "FileName": "Level22"
     },
     {
-        "Name": "Layer cake.",
+        "Name": "Layer cake",
         "FileName": "Level23"
     },
     {
-        "Name": "Something is missing.",
+        "Name": "Something is missing",
         "FileName": "Level24"
     },
     {
-        "Name": "Smoky crates.",
+        "Name": "Smoky crates",
         "FileName": "Level25"
     }
 ]
