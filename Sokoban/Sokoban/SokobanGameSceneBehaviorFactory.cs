@@ -15,14 +15,16 @@ namespace Sokoban
         private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
         private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
         private readonly LevelCompleteEntityFactory _levelCompleteEntityFactory;
+        private readonly GameAudio _gameAudio;
 
         public SokobanGameSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
-            RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory)
+            RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory, GameAudio gameAudio)
         {
             _coreEntityFactory = coreEntityFactory;
             _inGameMenuEntityFactory = inGameMenuEntityFactory;
             _restartLevelEntityFactory = restartLevelEntityFactory;
             _levelCompleteEntityFactory = levelCompleteEntityFactory;
+            _gameAudio = gameAudio;
         }
 
         public string BehaviorName => SceneBehaviorName;
@@ -33,7 +35,8 @@ namespace Sokoban
                 _coreEntityFactory,
                 _inGameMenuEntityFactory,
                 _restartLevelEntityFactory,
-                _levelCompleteEntityFactory
+                _levelCompleteEntityFactory,
+                _gameAudio
             );
 
         private sealed class SokobanGameSceneBehavior : SceneBehavior
@@ -42,16 +45,18 @@ namespace Sokoban
             private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
             private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
             private readonly LevelCompleteEntityFactory _levelCompleteEntityFactory;
+            private readonly GameAudio _gameAudio;
 
             public override string Name => SceneBehaviorName;
 
             public SokobanGameSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
-                RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory) : base(scene)
+                RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory, GameAudio gameAudio) : base(scene)
             {
                 _coreEntityFactory = coreEntityFactory;
                 _inGameMenuEntityFactory = inGameMenuEntityFactory;
                 _restartLevelEntityFactory = restartLevelEntityFactory;
                 _levelCompleteEntityFactory = levelCompleteEntityFactory;
+                _gameAudio = gameAudio;
             }
 
             protected override void OnLoaded()
@@ -72,6 +77,8 @@ namespace Sokoban
                 var fadeInOutEntity = Scene.CreateEntity();
                 var fadeInOutComponent = fadeInOutEntity.CreateComponent<FadeInOutComponent>();
                 fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
+
+                _gameAudio.PlayGamePlayMusic();
             }
         }
     }

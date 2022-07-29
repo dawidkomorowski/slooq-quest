@@ -85,6 +85,7 @@ namespace Sokoban.Assets
         public static class Music
         {
             public static AssetId MainMenu { get; } = new AssetId(new Guid("4362f25e-0e7a-407c-80f4-dd3418b85639"));
+            public static AssetId GamePlay { get; } = new AssetId(new Guid("99412DCB-1888-4D9F-ABD4-0127CFCA42F4"));
         }
 
         public static class InputMapping
