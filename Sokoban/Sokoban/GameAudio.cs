@@ -24,11 +24,6 @@ namespace Sokoban
             PlayMusicLoop(SokobanAssetId.Music.MainMenu);
         }
 
-        public void PlayGamePlayMusic()
-        {
-            PlayMusicLoop(SokobanAssetId.Music.GamePlay);
-        }
-
         private void PlayMusicLoop(AssetId assetId)
         {
             if (_currentMusic == assetId)
