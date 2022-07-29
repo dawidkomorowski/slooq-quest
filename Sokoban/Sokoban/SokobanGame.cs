@@ -20,7 +20,6 @@ namespace Sokoban
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO TextRendererComponent should have default font size (non zero) and default color (non transparent)?
     // TODO Native support for looped sound playback.
-    // TODO Ability to set opacity for sprite renderer.
     // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
     // TODO CoRoutines seems to greatly simplify hard-coding cut-scenes and similar scripted events. (They hide state machine).
     // TODO Interpolation and easing functions.
