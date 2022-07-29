@@ -46,7 +46,7 @@ namespace Sokoban.CutScenes.IntroToFinal
             switch (_stage)
             {
                 case 0:
-                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
                     _stage = 1;
                     break;
                 case 1:
