@@ -57,7 +57,7 @@ namespace Sokoban.CutScenes.Intro
             {
                 case 0:
                     _slooqTransform2DComponent.Scale = Vector2.Zero;
-                    _wait = new Wait(TimeSpan.FromSeconds(2));
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
                     _stage = 1;
                     break;
                 case 1:
@@ -68,9 +68,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 2:
-                    _speechBalloonComponent.SetPosition(0, -200);
-                    _speechBalloonComponent.SetDimensions(100, 50);
-                    _speechBalloonComponent.SetTextLine1("???", -25, 17);
+                    _speechBalloonComponent.SetPosition(-30, -200);
+                    _speechBalloonComponent.SetDimensions(80, 40);
+                    _speechBalloonComponent.SetTextLine1("???", -20, 15);
                     _speechBalloonComponent.Show();
                     _stage = 3;
                     break;
@@ -280,10 +280,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 40:
-                    _speechBalloonComponent.SetPosition(80, -200);
-                    _speechBalloonComponent.SetDimensions(280, 100);
-                    _speechBalloonComponent.SetTextLine1("What happened?", -120, 40);
-                    _speechBalloonComponent.SetTextLine2("Where am I?", -120, 15);
+                    _speechBalloonComponent.SetPosition(60, -200);
+                    _speechBalloonComponent.SetDimensions(240, 80);
+                    _speechBalloonComponent.SetTextLine1("What happened?", -110, 30);
+                    _speechBalloonComponent.SetTextLine2("Where am I?", -110, 5);
                     _speechBalloonComponent.Show();
                     _stage = 41;
                     break;
@@ -357,9 +357,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 52:
-                    _speechBalloonComponent.SetPosition(-80, 220);
-                    _speechBalloonComponent.SetDimensions(260, 80);
-                    _speechBalloonComponent.SetTextLine1("Hello friend.", -112, 30);
+                    _speechBalloonComponent.SetPosition(-50, 220);
+                    _speechBalloonComponent.SetDimensions(220, 60);
+                    _speechBalloonComponent.SetTextLine1("Hello friend.", -100, 22);
                     _speechBalloonComponent.Show();
                     _stage = 53;
                     break;
@@ -404,9 +404,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 60:
-                    _speechBalloonComponent.SetPosition(80, -200);
-                    _speechBalloonComponent.SetDimensions(260, 80);
-                    _speechBalloonComponent.SetTextLine1("Who are you?", -112, 30);
+                    _speechBalloonComponent.SetPosition(50, -200);
+                    _speechBalloonComponent.SetDimensions(220, 60);
+                    _speechBalloonComponent.SetTextLine1("Who are you?", -100, 22);
                     _speechBalloonComponent.Show();
                     _stage = 61;
                     break;
@@ -451,10 +451,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 68:
-                    _speechBalloonComponent.SetPosition(-180, 220);
-                    _speechBalloonComponent.SetDimensions(480, 120);
-                    _speechBalloonComponent.SetTextLine1("I'm Slooq and I locked", -220, 40);
-                    _speechBalloonComponent.SetTextLine2("you here to play with you.", -220, 15);
+                    _speechBalloonComponent.SetPosition(-140, 220);
+                    _speechBalloonComponent.SetDimensions(380, 80);
+                    _speechBalloonComponent.SetTextLine1("I'm Slooq and I locked", -180, 30);
+                    _speechBalloonComponent.SetTextLine2("you here to play with you.", -180, 5);
                     _speechBalloonComponent.Show();
                     _stage = 69;
                     break;
@@ -499,10 +499,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 76:
-                    _speechBalloonComponent.SetPosition(90, -200);
-                    _speechBalloonComponent.SetDimensions(300, 100);
-                    _speechBalloonComponent.SetTextLine1("But I don’t want", -133, 40);
-                    _speechBalloonComponent.SetTextLine2("to play!!!!", -133, 15);
+                    _speechBalloonComponent.SetPosition(60, -200);
+                    _speechBalloonComponent.SetDimensions(250, 80);
+                    _speechBalloonComponent.SetTextLine1("But I don’t want", -110, 30);
+                    _speechBalloonComponent.SetTextLine2("to play!!!", -110, 5);
                     _speechBalloonComponent.Show();
                     _stage = 77;
                     break;
@@ -547,10 +547,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 84:
-                    _speechBalloonComponent.SetPosition(-160, 220);
-                    _speechBalloonComponent.SetDimensions(380, 120);
-                    _speechBalloonComponent.SetTextLine1("It's a pity because ", -175, 40);
-                    _speechBalloonComponent.SetTextLine2("you have to!", -175, 15);
+                    _speechBalloonComponent.SetPosition(-100, 220);
+                    _speechBalloonComponent.SetDimensions(300, 80);
+                    _speechBalloonComponent.SetTextLine1("It's a pity because ", -135, 30);
+                    _speechBalloonComponent.SetTextLine2("you have to!", -135, 5);
                     _speechBalloonComponent.Show();
                     _stage = 85;
                     break;
@@ -595,9 +595,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 92:
-                    _speechBalloonComponent.SetPosition(0, -200);
-                    _speechBalloonComponent.SetDimensions(100, 50);
-                    _speechBalloonComponent.SetTextLine1("...", -25, 17);
+                    _speechBalloonComponent.SetPosition(-30, -200);
+                    _speechBalloonComponent.SetDimensions(80, 40);
+                    _speechBalloonComponent.SetTextLine1("...", -20, 15);
                     _speechBalloonComponent.Show();
                     _stage = 93;
                     break;
@@ -642,10 +642,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 100:
-                    _speechBalloonComponent.SetPosition(-200, 220);
-                    _speechBalloonComponent.SetDimensions(520, 120);
-                    _speechBalloonComponent.SetTextLine1("Can you see these crates?", -240, 40);
-                    _speechBalloonComponent.SetTextLine2("Put them in the right places.", -240, 15);
+                    _speechBalloonComponent.SetPosition(-180, 220);
+                    _speechBalloonComponent.SetDimensions(450, 80);
+                    _speechBalloonComponent.SetTextLine1("Can you see these crates?", -210, 30);
+                    _speechBalloonComponent.SetTextLine2("Put them in the right places.", -210, 5);
                     _speechBalloonComponent.Show();
                     _stage = 101;
                     break;
@@ -690,9 +690,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 108:
-                    _speechBalloonComponent.SetPosition(80, -200);
-                    _speechBalloonComponent.SetDimensions(260, 80);
-                    _speechBalloonComponent.SetTextLine1("What for?", -112, 30);
+                    _speechBalloonComponent.SetPosition(30, -200);
+                    _speechBalloonComponent.SetDimensions(180, 60);
+                    _speechBalloonComponent.SetTextLine1("What for?", -75, 22);
                     _speechBalloonComponent.Show();
                     _stage = 109;
                     break;
@@ -737,10 +737,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 116:
-                    _speechBalloonComponent.SetPosition(-160, 220);
-                    _speechBalloonComponent.SetDimensions(380, 120);
-                    _speechBalloonComponent.SetTextLine1("Put them! Put them!", -175, 40);
-                    _speechBalloonComponent.SetTextLine2("Put them!", -175, 15);
+                    _speechBalloonComponent.SetPosition(-100, 220);
+                    _speechBalloonComponent.SetDimensions(300, 80);
+                    _speechBalloonComponent.SetTextLine1("Put them! Put them!", -140, 30);
+                    _speechBalloonComponent.SetTextLine2("Put them!", -140, 5);
                     _speechBalloonComponent.Show();
                     _stage = 117;
                     break;
@@ -814,9 +814,9 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 128:
-                    _speechBalloonComponent.SetPosition(40, -200);
-                    _speechBalloonComponent.SetDimensions(160, 80);
-                    _speechBalloonComponent.SetTextLine1("But...", -60, 30);
+                    _speechBalloonComponent.SetPosition(10, -200);
+                    _speechBalloonComponent.SetDimensions(140, 60);
+                    _speechBalloonComponent.SetTextLine1("But...", -60, 22);
                     _speechBalloonComponent.Show();
                     _stage = 129;
                     break;
@@ -861,10 +861,10 @@ namespace Sokoban.CutScenes.Intro
 
                     break;
                 case 136:
-                    _speechBalloonComponent.SetPosition(180, -220);
-                    _speechBalloonComponent.SetDimensions(450, 120);
-                    _speechBalloonComponent.SetTextLine1("Okay, I'll just do what", -210, 40);
-                    _speechBalloonComponent.SetTextLine2("Slooq tells me to do.", -210, 15);
+                    _speechBalloonComponent.SetPosition(110, -220);
+                    _speechBalloonComponent.SetDimensions(350, 80);
+                    _speechBalloonComponent.SetTextLine1("Okay, I'll just do what", -160, 30);
+                    _speechBalloonComponent.SetTextLine2("Slooq tells me to do.", -160, 5);
                     _speechBalloonComponent.Show();
                     _stage = 137;
                     break;

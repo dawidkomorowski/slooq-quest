@@ -59,7 +59,7 @@ namespace Sokoban.CutScenes
             _textLine1Renderer.Text = string.Empty;
             _textLine1Renderer.SortingLayerName = "UI";
             _textLine1Renderer.OrderInLayer = 2;
-            _textLine1Renderer.FontSize = FontSize.FromDips(30);
+            _textLine1Renderer.FontSize = FontSize.FromDips(25);
 
             var textLine2 = Entity.CreateChildEntity();
             _textLine2Transform2D = textLine2.CreateComponent<Transform2DComponent>();
@@ -68,7 +68,7 @@ namespace Sokoban.CutScenes
             _textLine2Renderer.Text = string.Empty;
             _textLine2Renderer.SortingLayerName = "UI";
             _textLine2Renderer.OrderInLayer = 2;
-            _textLine2Renderer.FontSize = FontSize.FromDips(30);
+            _textLine2Renderer.FontSize = FontSize.FromDips(25);
 
             SetAlpha(0);
         }
