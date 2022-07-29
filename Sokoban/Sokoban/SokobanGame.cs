@@ -19,7 +19,6 @@ namespace Sokoban
     // TODO Ability to change visibility of whole hierarchy of renderers.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO Native support for looped sound playback.
-    // TODO Enter keypress to run the .exe makes handling of input components to execute on Enter key bindings. Input component created on action binding will trigger again the same binding.
     // TODO CoRoutines seems to greatly simplify hard-coding cut-scenes and similar scripted events. (They hide state machine).
     // TODO Interpolation and easing functions.
 
