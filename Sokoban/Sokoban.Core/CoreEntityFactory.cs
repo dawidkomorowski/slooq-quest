@@ -136,6 +136,7 @@ namespace Sokoban.Core
         private void CreateWall(Entity levelEntity, Wall wall)
         {
             var entity = levelEntity.CreateChildEntity();
+            entity.Name = "Wall";
 
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
             transform2DComponent.Translation = wall.Tile.GetTranslation();

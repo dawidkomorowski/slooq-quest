@@ -80,6 +80,11 @@ namespace Sokoban.Assets
                 public static AssetId MoveLeft { get; } = new AssetId(new Guid("b58c800d-f76f-4507-ac5a-59fcdc1e44c1"));
                 public static AssetId MoveRight { get; } = new AssetId(new Guid("8fa57684-48a0-4d4b-855e-106596dbba08"));
             }
+
+            public static class Smoke
+            {
+                public static AssetId Default { get; } = new AssetId(new Guid("65e8b2c8-d0a8-488a-8bc3-a70491c315c1"));
+            }
         }
 
         public static class Music

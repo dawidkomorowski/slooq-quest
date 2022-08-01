@@ -24,7 +24,6 @@ namespace Sokoban.Core.Components
         private readonly Sprite _gray;
         private readonly Sprite _grayGrayedOut;
         private readonly Sprite _slooq;
-        private Transform2DComponent _transform2DComponent = null!;
         private SpriteRendererComponent _spriteRendererComponent = null!;
         private TextRendererComponent _labelTextRendererComponent = null!;
         private TextRendererComponent _editorLabelTextRendererComponent = null!;
@@ -48,7 +47,7 @@ namespace Sokoban.Core.Components
 
         public override void OnStart()
         {
-            _transform2DComponent = Entity.GetComponent<Transform2DComponent>();
+            Entity.GetComponent<Transform2DComponent>();
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
             _labelTextRendererComponent = Entity.Children.Single(e => e.Name == "Label").GetComponent<TextRendererComponent>();
             _editorLabelTextRendererComponent = Entity.Children.Single(e => e.Name == "EditorLabel").GetComponent<TextRendererComponent>();

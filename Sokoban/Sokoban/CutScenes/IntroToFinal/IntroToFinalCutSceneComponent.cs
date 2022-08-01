@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Linq;
+using Geisha.Common.Math;
+using Geisha.Engine.Animation;
+using Geisha.Engine.Animation.Components;
 using Geisha.Engine.Core;
+using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
+using Geisha.Engine.Rendering;
+using Geisha.Engine.Rendering.Components;
+using Sokoban.Assets;
 using Sokoban.Core.Components;
 using Sokoban.Core.GameLogic;
 using Sokoban.Core.LevelModel;
@@ -13,13 +20,17 @@ namespace Sokoban.CutScenes.IntroToFinal
 {
     internal sealed class IntroToFinalCutSceneComponent : BehaviorComponent
     {
+        private const double TargetSmokeScale = 20;
+        private readonly IAssetStore _assetStore;
         private int _stage = 0;
         private TileObjectPositionComponent _playerTileObjectPositionComponent = null!;
         private SpeechBalloonComponent _speechBalloonComponent = null!;
+        private Transform2DComponent _smokeTransform2DComponent = null!;
         private Wait _wait = new Wait(TimeSpan.Zero);
 
-        public IntroToFinalCutSceneComponent(Entity entity) : base(entity)
+        public IntroToFinalCutSceneComponent(Entity entity, IAssetStore assetStore) : base(entity)
         {
+            _assetStore = assetStore;
         }
 
         public GameMode? GameMode { get; set; }
@@ -34,6 +45,16 @@ namespace Sokoban.CutScenes.IntroToFinal
 
             var speechBalloonEntity = Scene.CreateEntity();
             _speechBalloonComponent = speechBalloonEntity.CreateComponent<SpeechBalloonComponent>();
+
+            var smokeEntity = Scene.CreateEntity();
+            _smokeTransform2DComponent = smokeEntity.CreateComponent<Transform2DComponent>();
+            _smokeTransform2DComponent.Scale = new Vector2(0, 0);
+            var smokeSpriteRendererComponent = smokeEntity.CreateComponent<SpriteRendererComponent>();
+            smokeSpriteRendererComponent.SortingLayerName = "VFX";
+            var smokeSpriteAnimationComponent = smokeEntity.CreateComponent<SpriteAnimationComponent>();
+            smokeSpriteAnimationComponent.AddAnimation("Default", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Smoke.Default));
+            smokeSpriteAnimationComponent.PlayInLoop = true;
+            smokeSpriteAnimationComponent.PlayAnimation("Default");
         }
 
         public override void OnUpdate(GameTime gameTime)
@@ -628,19 +649,67 @@ namespace Sokoban.CutScenes.IntroToFinal
                 case 99:
                     if (_wait.Update(gameTime.DeltaTime))
                     {
-                        GameMode.DeleteSlooq();
-
-                        var slooq = Entity.Scene.AllEntities
-                            .Single(e =>
-                                e.HasComponent<TileObjectPositionComponent>() &&
-                                e.GetComponent<TileObjectPositionComponent>().TileObject is Crate &&
-                                ((Crate)e.GetComponent<TileObjectPositionComponent>().TileObject!).Type is CrateType.Slooq);
-                        slooq.RemoveAfterFullFrame();
-
-                        _stage = 100;
+                        _stage = 200;
                     }
 
-                    // TODO FOG OF CHEAT
+                    break;
+                case 200:
+                    if (_smokeTransform2DComponent.Scale.X < TargetSmokeScale)
+                    {
+                        var deltaSmokeScale = TargetSmokeScale * gameTime.DeltaTime.TotalSeconds * 3;
+                        _smokeTransform2DComponent.Scale = _smokeTransform2DComponent.Scale.Add(new Vector2(deltaSmokeScale, deltaSmokeScale));
+                    }
+                    else
+                    {
+                        _stage = 201;
+                    }
+
+                    break;
+                case 201:
+                    GameMode.DeleteSlooq();
+
+                    var slooq = Entity.Scene.AllEntities
+                        .Single(e =>
+                            e.HasComponent<TileObjectPositionComponent>() &&
+                            e.GetComponent<TileObjectPositionComponent>().TileObject is Crate &&
+                            ((Crate)e.GetComponent<TileObjectPositionComponent>().TileObject!).Type is CrateType.Slooq);
+                    slooq.RemoveAfterFullFrame();
+
+                    ((Crate)GameMode.Level.GetTile(3, 5).TileObject!).IsHidden = true;
+                    ((Crate)GameMode.Level.GetTile(4, 5).TileObject!).IsHidden = true;
+                    ((Crate)GameMode.Level.GetTile(5, 5).TileObject!).IsHidden = true;
+                    ((Crate)GameMode.Level.GetTile(6, 5).TileObject!).IsHidden = true;
+
+                    var wallEntities = Scene.AllEntities.Where(e => e.Name == "Wall");
+                    var wallRenderers = wallEntities.Select(e => e.GetComponent<SpriteRendererComponent>());
+                    foreach (var wallRenderer in wallRenderers)
+                    {
+                        wallRenderer.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Wall.Gray);
+                    }
+
+                    _stage = 202;
+                    break;
+                case 202:
+                    if (_smokeTransform2DComponent.Scale.X > 0)
+                    {
+                        var deltaSmokeScale = TargetSmokeScale * gameTime.DeltaTime.TotalSeconds * 3;
+                        _smokeTransform2DComponent.Scale = _smokeTransform2DComponent.Scale.Subtract(new Vector2(deltaSmokeScale, deltaSmokeScale));
+                    }
+                    else
+                    {
+                        _stage = 203;
+                    }
+
+                    break;
+                case 203:
+                    _wait = new Wait(TimeSpan.FromSeconds(1));
+                    _stage = 204;
+                    break;
+                case 204:
+                    if (_wait.Update(gameTime.DeltaTime))
+                    {
+                        _stage = 100;
+                    }
 
                     break;
                 case 100:
@@ -794,6 +863,13 @@ namespace Sokoban.CutScenes.IntroToFinal
 
     internal sealed class IntroToFinalCutSceneComponentFactory : ComponentFactory<IntroToFinalCutSceneComponent>
     {
-        protected override IntroToFinalCutSceneComponent CreateComponent(Entity entity) => new IntroToFinalCutSceneComponent(entity);
+        private readonly IAssetStore _assetStore;
+
+        public IntroToFinalCutSceneComponentFactory(IAssetStore assetStore)
+        {
+            _assetStore = assetStore;
+        }
+
+        protected override IntroToFinalCutSceneComponent CreateComponent(Entity entity) => new IntroToFinalCutSceneComponent(entity, _assetStore);
     }
 }
