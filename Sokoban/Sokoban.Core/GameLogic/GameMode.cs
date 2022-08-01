@@ -56,6 +56,28 @@ namespace Sokoban.Core.GameLogic
             Move(1, 0);
         }
 
+        public void DeleteSlooq()
+        {
+            for (var x = 0; x < Level.Width; x++)
+            {
+                for (var y = 0; y < Level.Height; y++)
+                {
+                    var tile = Level.GetTile(x, y);
+
+                    if (tile.TileObject is Crate crate)
+                    {
+                        if (crate.Type is CrateType.Slooq)
+                        {
+                            tile.TileObject = null;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            throw new InvalidOperationException("Cannot delete Slooq from level as it was not found.");
+        }
+
         public bool IsLevelComplete()
         {
             for (var x = 0; x < Level.Width; x++)

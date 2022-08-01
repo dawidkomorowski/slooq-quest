@@ -734,5 +734,24 @@ namespace Sokoban.Core.Tests.GameLogic
         }
 
         #endregion
+
+        [Test]
+        public void DeleteSlooq_ShouldRemoveSlooqFromLevel()
+        {
+            // Arrange
+            var crate = new Crate { Type = CrateType.Slooq, CrateSpotType = CrateSpotType.Brown };
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = new Player();
+            level.GetTile(6, 5).TileObject = crate;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.DeleteSlooq();
+
+            // Assert
+            Assert.That(level.GetTile(6, 5).TileObject, Is.Null);
+        }
     }
 }
