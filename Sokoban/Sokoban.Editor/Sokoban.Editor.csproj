@@ -4,6 +4,7 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<UseWindowsForms>true</UseWindowsForms>
+		<PublishSingleFile>true</PublishSingleFile>
 		<Nullable>enable</Nullable>
 		<Version>0.13</Version>
 		<Authors>Dawid Komorowski</Authors>

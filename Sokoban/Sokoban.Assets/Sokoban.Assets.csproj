@@ -12,622 +12,826 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Geisha.Engine" Version="0.7.0" />
+		<PackageReference Include="Geisha.Engine" Version="0.7.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Assets\Animations\MoveDown.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\MoveLeft.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\MoveRight.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\MoveUp.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\Smoke.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\StandDown.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\StandLeft.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\StandRight.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Animations\StandUp.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\slooqquest6.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\slooqquest6.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\slooqquest6.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_00.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_01.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_02.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_03.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_04.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_05.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_06.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_07.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_08.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_09.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_10.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_11.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_12.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_13.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_14.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_15.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_16.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_17.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_18.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_19.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_20.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_21.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_22.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_23.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_24.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_25.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_26.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_27.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_28.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_29.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_30.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_31.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_32.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_33.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_34.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_35.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_36.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_37.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_38.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_39.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_40.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_41.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_42.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_43.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Graphics\Smoke\Smoke45Frames_44.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney-animalpack\PNG\Round\snake.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\dummy-file.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\License.txt">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_14.png">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.sprite.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\KeyboardMapping.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Music\awesomeness.geisha-asset">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Assets\Music\awesomeness.wav">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="CutScenes\Intro.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="CutScenes\IntroToFinal.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level02.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level03.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level04.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level05.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level06.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level07.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level08.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level09.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level14.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level20.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level17.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level22.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level21.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level23.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level10.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level13.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level01.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level11.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level15.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level12.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level16.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level19.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level18.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level24.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Level25.sokoban-level">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Levels\Levels.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
+		<None Update="Assets\Animations\MoveDown.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\MoveLeft.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\MoveRight.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\MoveUp.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\Smoke.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\StandDown.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\StandLeft.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\StandRight.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Animations\StandUp.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\slooqquest6.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\slooqquest6.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\slooqquest6.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_00.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_01.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_02.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_03.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_04.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_05.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_06.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_07.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_08.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_09.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_10.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_11.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_12.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_13.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_14.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_15.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_16.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_17.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_18.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_19.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_20.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_21.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_22.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_23.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_24.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_25.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_26.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_27.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_28.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_29.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_30.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_31.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_32.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_33.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_34.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_35.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_36.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_37.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_38.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_39.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_40.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_41.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_42.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_43.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Graphics\Smoke\Smoke45Frames_44.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney-animalpack\PNG\Round\snake.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney-animalpack\PNG\Round\snake.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney-animalpack\PNG\Round\snake.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_01.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_02.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_03.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_04.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_06.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_07.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_08.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_02.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_03.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_04.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_05.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_06.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_13.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_14.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Crates\crate_16.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_02.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\dummy-file.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\License.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Blocks\block_05.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_03.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_05.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_08.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_10.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Environment\environment_14.png">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_01.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_05.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Ground\ground_06.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_01.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_02.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_03.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_04.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_11.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_12.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_13.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_14.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_15.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_16.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_23.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\kenney_sokobanpack\PNG\Default size\Player\player_24.sprite.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\KeyboardMapping.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Music\awesomeness.geisha-asset">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Assets\Music\awesomeness.wav">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="CutScenes\Intro.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="CutScenes\IntroToFinal.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level02.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level03.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level04.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level05.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level06.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level07.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level08.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level09.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level14.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level20.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level17.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level22.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level21.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level23.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level10.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level13.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level01.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level11.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level15.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level12.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level16.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level19.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level18.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level24.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Level25.sokoban-level">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
+		<None Update="Levels\Levels.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</None>
 	</ItemGroup>
 
 </Project>
