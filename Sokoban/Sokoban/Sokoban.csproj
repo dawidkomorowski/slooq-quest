@@ -6,7 +6,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<PublishSingleFile>true</PublishSingleFile>
 		<Nullable>enable</Nullable>
-		<Version>0.13</Version>
+		<Version>0.14</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
 		<Description>Sokoban game created in Geisha Engine.</Description>
