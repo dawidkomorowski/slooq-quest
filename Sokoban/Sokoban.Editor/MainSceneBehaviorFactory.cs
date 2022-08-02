@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Reflection;
+using System.Windows.Forms;
 using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
 using Sokoban.Editor.ToggleMode;
@@ -45,6 +47,7 @@ namespace Sokoban.Editor
             protected override void OnLoaded()
             {
                 Application.OpenForms[0].KeyDown += OnKeyDown;
+                Application.OpenForms[0].Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
 
                 var cameraEntity = _coreEntityFactory.CreateCamera(Scene);
 

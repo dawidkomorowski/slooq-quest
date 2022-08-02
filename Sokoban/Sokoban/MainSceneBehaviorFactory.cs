@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Reflection;
+using System.Windows.Forms;
 using Geisha.Engine.Core.SceneModel;
 using Sokoban.Core;
 using Sokoban.Core.SceneLoading;
@@ -34,6 +37,8 @@ namespace Sokoban
 
             protected override void OnLoaded()
             {
+                Application.OpenForms[0].Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+
                 _coreEntityFactory.CreateCamera(Scene);
 
                 var fadeInOutEntity = Scene.CreateEntity();
