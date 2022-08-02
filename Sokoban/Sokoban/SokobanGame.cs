@@ -14,7 +14,6 @@ using Sokoban.VisualEffects;
 
 namespace Sokoban
 {
-    // TODO Feature Request: Custom Window Icon?
     // TODO TextRendererComponent should support text alignment.
     // TODO Ability to change visibility of whole hierarchy of renderers.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
