@@ -12,7 +12,12 @@
 		<Product>Sokoban.Editor</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<ApplicationIcon>Editor_icon.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Editor_icon.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Geisha.Engine.Windows" Version="0.7.0" />
