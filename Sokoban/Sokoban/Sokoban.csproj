@@ -13,11 +13,11 @@
 		<Product>Sokoban</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<ApplicationIcon>Slooq_icon.ico</ApplicationIcon>
+		<ApplicationIcon>slooq_icon2.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="Slooq_icon.ico" />
+	  <Content Include="slooq_icon2.ico" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -38,15 +38,17 @@ namespace Sokoban.Editor
 
         private static Level LoadDefaultLevel()
         {
-            var defaultLevelPath = Path.Join("Levels", "NewLevel.sokoban-level");
-            if (File.Exists(defaultLevelPath))
+            var newLevelPath = Path.Join("Levels", "NewLevel.sokoban-level");
+            if (File.Exists(newLevelPath))
             {
-                var serializedLevel = File.ReadAllText(defaultLevelPath);
+                var serializedLevel = File.ReadAllText(newLevelPath);
                 return Level.Deserialize(serializedLevel);
             }
             else
             {
-                return new Level();
+                var defaultLevelPath = Path.Join("Levels", "DefaultLevel.sokoban-level");
+                var serializedLevel = File.ReadAllText(defaultLevelPath);
+                return Level.Deserialize(serializedLevel);
             }
         }
 
