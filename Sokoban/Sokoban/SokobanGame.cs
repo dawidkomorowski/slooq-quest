@@ -17,7 +17,7 @@ namespace Sokoban
     // TODO Ability to change visibility of whole hierarchy of renderers.
     // TODO Multiple executables in same directory are forced to share engine-config.json.
     // TODO CoRoutines seems to greatly simplify hard-coding cut-scenes and similar scripted events. (They hide state machine).
-    // TODO Interpolation and easing functions.
+    // TODO Easing functions.
 
     internal sealed class SokobanGame : IGame
     {
