@@ -15,8 +15,6 @@ using Sokoban.VisualEffects;
 namespace Sokoban
 {
     // TODO Ability to change visibility of whole hierarchy of renderers.
-    // TODO Multiple executables in same directory are forced to share engine-config.json.
-
     internal sealed class SokobanGame : IGame
     {
         private static string EngineInformation =>
