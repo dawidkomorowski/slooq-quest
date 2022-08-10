@@ -14,7 +14,6 @@ using Sokoban.VisualEffects;
 
 namespace Sokoban
 {
-    // TODO Ability to change visibility of whole hierarchy of renderers.
     internal sealed class SokobanGame : IGame
     {
         private static string EngineInformation =>
