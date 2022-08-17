@@ -104,7 +104,15 @@ namespace Sokoban.LevelComplete
             {
                 var e = Scene.CreateEntity();
                 var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+
+                if (_gameState.CurrentLevel == _gameState.Levels.Last())
+                {
+                    loadSceneComponent.SceneBehaviorName = "FinalCutScene";
+                }
+                else
+                {
+                    loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
+                }
             };
         }
 

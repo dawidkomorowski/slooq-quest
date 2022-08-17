@@ -3,6 +3,7 @@ using Autofac;
 using Geisha.Engine;
 using Sokoban.Core;
 using Sokoban.CutScenes;
+using Sokoban.CutScenes.Final;
 using Sokoban.CutScenes.Intro;
 using Sokoban.CutScenes.IntroToFinal;
 using Sokoban.InGameMenu;
@@ -41,6 +42,10 @@ namespace Sokoban
             // CutScenes - IntroToFinal
             componentsRegistry.RegisterComponentFactory<IntroToFinalCutSceneComponentFactory>();
             componentsRegistry.RegisterSceneBehaviorFactory<IntroToFinalSceneBehaviorFactory>();
+
+            // CutScenes - Final
+            componentsRegistry.RegisterComponentFactory<FinalCutSceneComponentFactory>();
+            componentsRegistry.RegisterSceneBehaviorFactory<FinalSceneBehaviorFactory>();
 
             // InGameMenu
             componentsRegistry.RegisterComponentFactory<InGameMenuComponentFactory>();
