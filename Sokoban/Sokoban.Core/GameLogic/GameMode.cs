@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sokoban.Core.LevelModel;
 
 namespace Sokoban.Core.GameLogic
@@ -76,6 +75,14 @@ namespace Sokoban.Core.GameLogic
             }
 
             throw new InvalidOperationException("Cannot delete Slooq from level as it was not found.");
+        }
+
+        public void DeleteWall(int x, int y)
+        {
+            if (Level.GetTile(x, y).TileObject is Wall)
+            {
+                Level.GetTile(x, y).TileObject = null;
+            }
         }
 
         public bool IsLevelComplete()

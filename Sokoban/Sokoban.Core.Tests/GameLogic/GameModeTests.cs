@@ -753,5 +753,24 @@ namespace Sokoban.Core.Tests.GameLogic
             // Assert
             Assert.That(level.GetTile(6, 5).TileObject, Is.Null);
         }
+
+        [Test]
+        public void DeleteWall_ShouldRemoveWallFromLevel()
+        {
+            // Arrange
+            var wall = new Wall { Type = WallType.Red };
+
+            var level = new Level();
+            level.GetTile(5, 5).TileObject = new Player();
+            level.GetTile(6, 5).TileObject = wall;
+
+            var gameMode = new GameMode(level);
+
+            // Act
+            gameMode.DeleteWall(6, 5);
+
+            // Assert
+            Assert.That(level.GetTile(6, 5).TileObject, Is.Null);
+        }
     }
 }
