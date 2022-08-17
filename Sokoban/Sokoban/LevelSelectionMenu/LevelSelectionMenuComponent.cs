@@ -57,7 +57,16 @@ namespace Sokoban.LevelSelectionMenu
                 {
                     var e = Scene.CreateEntity();
                     var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                    loadSceneComponent.SceneBehaviorName = "SokobanGame";
+
+                    if (_gameState.CurrentLevel == _gameState.Levels.Last())
+                    {
+                        loadSceneComponent.SceneBehaviorName = "IntroToFinalCutScene";
+                    }
+                    else
+                    {
+                        loadSceneComponent.SceneBehaviorName = "SokobanGame";
+
+                    }
                 };
             });
             _inputComponent.BindAction("Back", () =>

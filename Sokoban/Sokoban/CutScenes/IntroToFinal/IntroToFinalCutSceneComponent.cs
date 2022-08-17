@@ -849,7 +849,7 @@ namespace Sokoban.CutScenes.IntroToFinal
                     {
                         var e = Scene.CreateEntity();
                         var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                        loadSceneComponent.SceneBehaviorName = "MainMenu";
+                        loadSceneComponent.SceneBehaviorName = "SokobanGame";
                     };
                     _stage = 1000;
                     break;
