@@ -720,7 +720,8 @@
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</None>
 		<None Update="CutScenes\Final.sokoban-level">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 		</None>
 		<None Update="CutScenes\Intro.sokoban-level">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
