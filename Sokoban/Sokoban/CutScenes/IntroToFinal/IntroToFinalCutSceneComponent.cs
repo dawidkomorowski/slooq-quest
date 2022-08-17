@@ -608,8 +608,8 @@ namespace Sokoban.CutScenes.IntroToFinal
                     break;
                 case 92:
                     _speechBalloonComponent.SetPosition(250, 230);
-                    _speechBalloonComponent.SetDimensions(200, 60);
-                    _speechBalloonComponent.SetTextLine1("FOG OF CHEAT", -85, 22);
+                    _speechBalloonComponent.SetDimensions(210, 60);
+                    _speechBalloonComponent.SetTextLine1("FOG OF CHEAT!", -90, 22);
                     _speechBalloonComponent.Show();
                     _stage = 93;
                     break;
