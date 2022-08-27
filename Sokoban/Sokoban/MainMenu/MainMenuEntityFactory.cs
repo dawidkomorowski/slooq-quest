@@ -133,7 +133,7 @@ namespace Sokoban.MainMenu
                     {
                         var e = scene.CreateEntity();
                         var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                        loadSceneComponent.SceneBehaviorName = "FinalCutScene";
+                        loadSceneComponent.SceneBehaviorName = "Credits";
                     };
                 }
             });

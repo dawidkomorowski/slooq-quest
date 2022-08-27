@@ -34,6 +34,7 @@
 	  <Folder Include="CutScenes\Final\" />
 	  <Folder Include="MainMenu\" />
 	  <Folder Include="LevelSelectionMenu\" />
+	  <Folder Include="Credits\" />
 	  <Folder Include="VisualEffects\" />
 	</ItemGroup>
 

@@ -2,6 +2,7 @@
 using Autofac;
 using Geisha.Engine;
 using Sokoban.Core;
+using Sokoban.Credits;
 using Sokoban.CutScenes;
 using Sokoban.CutScenes.Final;
 using Sokoban.CutScenes.Intro;
@@ -31,6 +32,10 @@ namespace Sokoban
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
+
+            // Credits
+            componentsRegistry.RegisterSceneBehaviorFactory<CreditsSceneBehaviorFactory>();
+            componentsRegistry.AutofacContainerBuilder.RegisterType<CreditsEntityFactory>().AsSelf().SingleInstance();
 
             // CutScenes
             componentsRegistry.RegisterComponentFactory<SpeechBalloonComponentFactory>();
