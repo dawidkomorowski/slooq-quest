@@ -27,7 +27,7 @@ namespace SlooqQuest.Editor.UserInterface
             entity.CreateComponent<Transform2DComponent>();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Editor.Cursor);
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Editor.Cursor);
             spriteRendererComponent.SortingLayerName = "UI";
 
             var inputComponent = entity.CreateComponent<InputComponent>();

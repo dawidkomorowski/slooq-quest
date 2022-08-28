@@ -11,7 +11,7 @@ namespace SlooqQuest.Editor
         [STAThread]
         private static void Main()
         {
-            WindowsApplication.Run(new SokobanEditor());
+            WindowsApplication.Run(new SlooqQuestEditor());
         }
     }
 }

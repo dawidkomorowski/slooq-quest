@@ -21,7 +21,7 @@ namespace SlooqQuest
 
         public void PlayMainMenuMusic()
         {
-            PlayMusicLoop(SokobanAssetId.Music.MainMenu);
+            PlayMusicLoop(SlooqQuestAssetId.Music.MainMenu);
         }
 
         private void PlayMusicLoop(AssetId assetId)

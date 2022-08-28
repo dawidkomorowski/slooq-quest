@@ -52,7 +52,7 @@ namespace SlooqQuest.CutScenes.IntroToFinal
             var smokeSpriteRendererComponent = smokeEntity.CreateComponent<SpriteRendererComponent>();
             smokeSpriteRendererComponent.SortingLayerName = "VFX";
             var smokeSpriteAnimationComponent = smokeEntity.CreateComponent<SpriteAnimationComponent>();
-            smokeSpriteAnimationComponent.AddAnimation("Default", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Smoke.Default));
+            smokeSpriteAnimationComponent.AddAnimation("Default", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Smoke.Default));
             smokeSpriteAnimationComponent.PlayInLoop = true;
             smokeSpriteAnimationComponent.PlayAnimation("Default");
         }
@@ -684,7 +684,7 @@ namespace SlooqQuest.CutScenes.IntroToFinal
                     var wallRenderers = wallEntities.Select(e => e.GetComponent<SpriteRendererComponent>());
                     foreach (var wallRenderer in wallRenderers)
                     {
-                        wallRenderer.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Wall.Gray);
+                        wallRenderer.Sprite = _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Wall.Gray);
                     }
 
                     _stage = 202;
@@ -849,7 +849,7 @@ namespace SlooqQuest.CutScenes.IntroToFinal
                     {
                         var e = Scene.CreateEntity();
                         var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-                        loadSceneComponent.SceneBehaviorName = "SokobanGame";
+                        loadSceneComponent.SceneBehaviorName = "SlooqQuestGame";
                     };
                     _stage = 1000;
                     break;

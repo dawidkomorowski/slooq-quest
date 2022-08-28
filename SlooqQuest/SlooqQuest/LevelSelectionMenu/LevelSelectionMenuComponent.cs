@@ -64,7 +64,7 @@ namespace SlooqQuest.LevelSelectionMenu
                     }
                     else
                     {
-                        loadSceneComponent.SceneBehaviorName = "SokobanGame";
+                        loadSceneComponent.SceneBehaviorName = "SlooqQuestGame";
 
                     }
                 };

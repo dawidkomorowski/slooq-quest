@@ -16,22 +16,22 @@ using SlooqQuest.VisualEffects;
 
 namespace SlooqQuest
 {
-    internal sealed class SokobanGame : IGame
+    internal sealed class SlooqQuestGame : IGame
     {
         private static string EngineInformation =>
             $"Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version?.ToString(3)}";
 
-        public string WindowTitle => $"Slooq Quest {Assembly.GetAssembly(typeof(SokobanGame))?.GetName().Version?.ToString(2)} ({EngineInformation})";
+        public string WindowTitle => $"Slooq Quest {Assembly.GetAssembly(typeof(SlooqQuestGame))?.GetName().Version?.ToString(2)} ({EngineInformation})";
 
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
-            SokobanCoreModule.RegisterComponents(componentsRegistry);
+            SlooqQuestCoreModule.RegisterComponents(componentsRegistry);
 
             componentsRegistry.AutofacContainerBuilder.RegisterType<GameAudio>().AsSelf().SingleInstance();
             componentsRegistry.AutofacContainerBuilder.RegisterType<GameState>().AsSelf().SingleInstance();
             componentsRegistry.RegisterSceneBehaviorFactory<MainSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<ModeInfo>().As<IModeInfo>().SingleInstance();
-            componentsRegistry.RegisterSceneBehaviorFactory<SokobanGameSceneBehaviorFactory>();
+            componentsRegistry.RegisterSceneBehaviorFactory<SlooqQuestGameSceneBehaviorFactory>();
 
             // Credits
             componentsRegistry.RegisterSceneBehaviorFactory<CreditsSceneBehaviorFactory>();

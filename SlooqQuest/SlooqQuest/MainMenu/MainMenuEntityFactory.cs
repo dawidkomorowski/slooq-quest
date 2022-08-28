@@ -155,7 +155,7 @@ namespace SlooqQuest.MainMenu
             transform2DComponent.Scale = new Vector2(0.6, 0.6);
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.MainMenu.Title);
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.MainMenu.Title);
             spriteRendererComponent.SortingLayerName = "UI";
 
             return entity;

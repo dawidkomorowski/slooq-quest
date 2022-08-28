@@ -5,7 +5,7 @@ using SlooqQuest.Core.SceneLoading;
 
 namespace SlooqQuest.Core
 {
-    public static class SokobanCoreModule
+    public static class SlooqQuestCoreModule
     {
         public static void RegisterComponents(IComponentsRegistry componentsRegistry)
         {

@@ -61,7 +61,7 @@ namespace SlooqQuest
 
             private void PreloadHeavyAssets()
             {
-                _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Smoke.Default);
+                _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Smoke.Default);
             }
         }
     }

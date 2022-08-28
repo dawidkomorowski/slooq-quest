@@ -3,7 +3,7 @@ using Geisha.Engine.Core.Assets;
 
 namespace SlooqQuest.Assets
 {
-    public static class SokobanAssetId
+    public static class SlooqQuestAssetId
     {
         public static class Sprites
         {

@@ -11,7 +11,7 @@ namespace SlooqQuest
         [STAThread]
         private static void Main()
         {
-            WindowsApplication.Run(new SokobanGame());
+            WindowsApplication.Run(new SlooqQuestGame());
         }
     }
 }

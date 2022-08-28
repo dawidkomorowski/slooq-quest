@@ -8,15 +8,15 @@ using SlooqQuest.VisualEffects;
 
 namespace SlooqQuest
 {
-    internal sealed class SokobanGameSceneBehaviorFactory : ISceneBehaviorFactory
+    internal sealed class SlooqQuestGameSceneBehaviorFactory : ISceneBehaviorFactory
     {
-        private const string SceneBehaviorName = "SokobanGame";
+        private const string SceneBehaviorName = "SlooqQuestGame";
         private readonly CoreEntityFactory _coreEntityFactory;
         private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
         private readonly RestartLevelEntityFactory _restartLevelEntityFactory;
         private readonly LevelCompleteEntityFactory _levelCompleteEntityFactory;
 
-        public SokobanGameSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
+        public SlooqQuestGameSceneBehaviorFactory(CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
             RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory)
         {
             _coreEntityFactory = coreEntityFactory;
@@ -28,7 +28,7 @@ namespace SlooqQuest
         public string BehaviorName => SceneBehaviorName;
 
         public SceneBehavior Create(Scene scene) =>
-            new SokobanGameSceneBehavior(
+            new SlooqQuestGameSceneBehavior(
                 scene,
                 _coreEntityFactory,
                 _inGameMenuEntityFactory,
@@ -36,7 +36,7 @@ namespace SlooqQuest
                 _levelCompleteEntityFactory
             );
 
-        private sealed class SokobanGameSceneBehavior : SceneBehavior
+        private sealed class SlooqQuestGameSceneBehavior : SceneBehavior
         {
             private readonly CoreEntityFactory _coreEntityFactory;
             private readonly InGameMenuEntityFactory _inGameMenuEntityFactory;
@@ -45,7 +45,7 @@ namespace SlooqQuest
 
             public override string Name => SceneBehaviorName;
 
-            public SokobanGameSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
+            public SlooqQuestGameSceneBehavior(Scene scene, CoreEntityFactory coreEntityFactory, InGameMenuEntityFactory inGameMenuEntityFactory,
                 RestartLevelEntityFactory restartLevelEntityFactory, LevelCompleteEntityFactory levelCompleteEntityFactory) : base(scene)
             {
                 _coreEntityFactory = coreEntityFactory;

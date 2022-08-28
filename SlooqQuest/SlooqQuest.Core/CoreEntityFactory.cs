@@ -98,7 +98,7 @@ namespace SlooqQuest.Core
             var entity = scene.CreateEntity();
 
             var inputComponent = entity.CreateComponent<InputComponent>();
-            inputComponent.InputMapping = _assetStore.GetAsset<InputMapping>(SokobanAssetId.InputMapping.Default);
+            inputComponent.InputMapping = _assetStore.GetAsset<InputMapping>(SlooqQuestAssetId.InputMapping.Default);
 
             var playerControllerComponent = entity.CreateComponent<PlayerControllerComponent>();
             playerControllerComponent.GameMode = gameMode;
@@ -124,9 +124,9 @@ namespace SlooqQuest.Core
             var groundAssetId = tile.Ground switch
             {
                 Ground.None => throw new ArgumentOutOfRangeException(),
-                Ground.Brown => SokobanAssetId.Sprites.Ground.Brown,
-                Ground.Green => SokobanAssetId.Sprites.Ground.Green,
-                Ground.Gray => SokobanAssetId.Sprites.Ground.Gray,
+                Ground.Brown => SlooqQuestAssetId.Sprites.Ground.Brown,
+                Ground.Green => SlooqQuestAssetId.Sprites.Ground.Green,
+                Ground.Gray => SlooqQuestAssetId.Sprites.Ground.Gray,
                 _ => throw new ArgumentOutOfRangeException()
             };
 
@@ -145,14 +145,14 @@ namespace SlooqQuest.Core
 
             var wallAssetId = wall.Type switch
             {
-                WallType.Red => SokobanAssetId.Sprites.Wall.Red,
-                WallType.RedGray => SokobanAssetId.Sprites.Wall.RedGray,
-                WallType.Gray => SokobanAssetId.Sprites.Wall.Gray,
-                WallType.Brown => SokobanAssetId.Sprites.Wall.Brown,
-                WallType.TopRed => SokobanAssetId.Sprites.Wall.TopRed,
-                WallType.TopRedGray => SokobanAssetId.Sprites.Wall.TopRedGray,
-                WallType.TopGray => SokobanAssetId.Sprites.Wall.TopGray,
-                WallType.TopBrown => SokobanAssetId.Sprites.Wall.TopBrown,
+                WallType.Red => SlooqQuestAssetId.Sprites.Wall.Red,
+                WallType.RedGray => SlooqQuestAssetId.Sprites.Wall.RedGray,
+                WallType.Gray => SlooqQuestAssetId.Sprites.Wall.Gray,
+                WallType.Brown => SlooqQuestAssetId.Sprites.Wall.Brown,
+                WallType.TopRed => SlooqQuestAssetId.Sprites.Wall.TopRed,
+                WallType.TopRedGray => SlooqQuestAssetId.Sprites.Wall.TopRedGray,
+                WallType.TopGray => SlooqQuestAssetId.Sprites.Wall.TopGray,
+                WallType.TopBrown => SlooqQuestAssetId.Sprites.Wall.TopBrown,
                 _ => throw new ArgumentOutOfRangeException()
             };
 
@@ -213,18 +213,18 @@ namespace SlooqQuest.Core
             transform2DComponent.Translation = player.Tile.GetTranslation();
 
             var spriteRendererComponent = entity.CreateComponent<SpriteRendererComponent>();
-            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Player.Default);
+            spriteRendererComponent.Sprite = _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Player.Default);
             spriteRendererComponent.SortingLayerName = "TileObject";
 
             var spriteAnimationComponent = entity.CreateComponent<SpriteAnimationComponent>();
-            spriteAnimationComponent.AddAnimation("StandUp", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandUp));
-            spriteAnimationComponent.AddAnimation("StandDown", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandDown));
-            spriteAnimationComponent.AddAnimation("StandLeft", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandLeft));
-            spriteAnimationComponent.AddAnimation("StandRight", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.StandRight));
-            spriteAnimationComponent.AddAnimation("MoveUp", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveUp));
-            spriteAnimationComponent.AddAnimation("MoveDown", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveDown));
-            spriteAnimationComponent.AddAnimation("MoveLeft", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveLeft));
-            spriteAnimationComponent.AddAnimation("MoveRight", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Player.MoveRight));
+            spriteAnimationComponent.AddAnimation("StandUp", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.StandUp));
+            spriteAnimationComponent.AddAnimation("StandDown", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.StandDown));
+            spriteAnimationComponent.AddAnimation("StandLeft", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.StandLeft));
+            spriteAnimationComponent.AddAnimation("StandRight", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.StandRight));
+            spriteAnimationComponent.AddAnimation("MoveUp", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.MoveUp));
+            spriteAnimationComponent.AddAnimation("MoveDown", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.MoveDown));
+            spriteAnimationComponent.AddAnimation("MoveLeft", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.MoveLeft));
+            spriteAnimationComponent.AddAnimation("MoveRight", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Player.MoveRight));
             spriteAnimationComponent.PlayInLoop = true;
             spriteAnimationComponent.PlaybackSpeed = 3.0;
             spriteAnimationComponent.PlayAnimation("StandDown");
@@ -246,10 +246,10 @@ namespace SlooqQuest.Core
             spriteRendererComponent.SortingLayerName = "CrateSpot";
             spriteRendererComponent.Sprite = crateSpot.Type switch
             {
-                CrateSpotType.Brown => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Brown),
-                CrateSpotType.Red => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Red),
-                CrateSpotType.Blue => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Blue),
-                CrateSpotType.Green => _assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.CrateSpot.Green),
+                CrateSpotType.Brown => _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.CrateSpot.Brown),
+                CrateSpotType.Red => _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.CrateSpot.Red),
+                CrateSpotType.Blue => _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.CrateSpot.Blue),
+                CrateSpotType.Green => _assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.CrateSpot.Green),
                 _ => throw new ArgumentOutOfRangeException($"Missing sprite for crate spot type: {crateSpot.Type}")
             };
         }

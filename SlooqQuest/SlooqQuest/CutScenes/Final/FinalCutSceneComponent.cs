@@ -60,7 +60,7 @@ namespace SlooqQuest.CutScenes.Final
             var smokeSpriteRendererComponent = smokeEntity.CreateComponent<SpriteRendererComponent>();
             smokeSpriteRendererComponent.SortingLayerName = "VFX";
             var smokeSpriteAnimationComponent = smokeEntity.CreateComponent<SpriteAnimationComponent>();
-            smokeSpriteAnimationComponent.AddAnimation("Default", _assetStore.GetAsset<SpriteAnimation>(SokobanAssetId.Animations.Smoke.Default));
+            smokeSpriteAnimationComponent.AddAnimation("Default", _assetStore.GetAsset<SpriteAnimation>(SlooqQuestAssetId.Animations.Smoke.Default));
             smokeSpriteAnimationComponent.PlayInLoop = true;
             smokeSpriteAnimationComponent.PlayAnimation("Default");
 

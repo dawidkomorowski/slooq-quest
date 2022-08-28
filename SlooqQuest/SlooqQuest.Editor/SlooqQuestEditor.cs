@@ -7,16 +7,16 @@ using SlooqQuest.Editor.UserInterface;
 
 namespace SlooqQuest.Editor
 {
-    internal sealed class SokobanEditor : IGame
+    internal sealed class SlooqQuestEditor : IGame
     {
         private static string EngineInformation =>
             $"Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version?.ToString(3)}";
 
-        public string WindowTitle => $"Slooq Quest Editor {Assembly.GetAssembly(typeof(SokobanEditor))?.GetName().Version?.ToString(2)} ({EngineInformation})";
+        public string WindowTitle => $"Slooq Quest Editor {Assembly.GetAssembly(typeof(SlooqQuestEditor))?.GetName().Version?.ToString(2)} ({EngineInformation})";
 
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
-            SokobanCoreModule.RegisterComponents(componentsRegistry);
+            SlooqQuestCoreModule.RegisterComponents(componentsRegistry);
 
             // ToggleMode
             componentsRegistry.AutofacContainerBuilder.RegisterType<ToggleModeEntityFactory>().AsSelf().SingleInstance();

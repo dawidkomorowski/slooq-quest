@@ -31,15 +31,15 @@ namespace SlooqQuest.Core.Components
         {
             _modeInfo = modeInfo;
 
-            _brown = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Brown);
-            _red = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Red);
-            _redGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.RedGrayedOut);
-            _blue = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Blue);
-            _blueGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.BlueGrayedOut);
-            _green = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Green);
-            _gray = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.Gray);
-            _grayGrayedOut = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Crate.GrayGrayedOut);
-            _slooq = assetStore.GetAsset<Sprite>(SokobanAssetId.Sprites.Slooq.Default);
+            _brown = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.Brown);
+            _red = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.Red);
+            _redGrayedOut = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.RedGrayedOut);
+            _blue = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.Blue);
+            _blueGrayedOut = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.BlueGrayedOut);
+            _green = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.Green);
+            _gray = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.Gray);
+            _grayGrayedOut = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Crate.GrayGrayedOut);
+            _slooq = assetStore.GetAsset<Sprite>(SlooqQuestAssetId.Sprites.Slooq.Default);
         }
 
         public Crate? Crate { get; set; }
