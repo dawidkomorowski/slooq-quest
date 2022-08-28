@@ -6,7 +6,7 @@
 		<Version>0.16</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
-		<Product>Sokoban.Assets</Product>
+		<Product>SlooqQuest.Assets</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>

@@ -9,15 +9,15 @@
 		<Version>0.16</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
-		<Description>Level editor for sokoban game created in Geisha Engine.</Description>
-		<Product>Sokoban.Editor</Product>
+		<Description>Slooq Quest game created in Geisha Engine.</Description>
+		<Product>SlooqQuest</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<ApplicationIcon>Editor_icon.ico</ApplicationIcon>
+		<ApplicationIcon>slooq_icon2.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="Editor_icon.ico" />
+	  <Content Include="slooq_icon2.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -25,7 +25,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Sokoban.Core\SlooqQuest.Core.csproj" />
+	  <ProjectReference Include="..\SlooqQuest.Assets\SlooqQuest.Assets.csproj" />
+	  <ProjectReference Include="..\SlooqQuest.Core\SlooqQuest.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="CutScenes\IntroToFinal\" />
+	  <Folder Include="CutScenes\Final\" />
+	  <Folder Include="MainMenu\" />
+	  <Folder Include="LevelSelectionMenu\" />
+	  <Folder Include="Credits\" />
+	  <Folder Include="VisualEffects\" />
 	</ItemGroup>
 
 </Project>
