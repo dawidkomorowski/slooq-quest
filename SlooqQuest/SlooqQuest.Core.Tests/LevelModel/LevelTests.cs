@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using NUnit.Framework;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Tests.LevelModel
+namespace SlooqQuest.Core.Tests.LevelModel
 {
     [TestFixture]
     public class LevelTests

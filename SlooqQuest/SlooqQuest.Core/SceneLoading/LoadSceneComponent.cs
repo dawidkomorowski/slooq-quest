@@ -1,6 +1,6 @@
 ﻿using Geisha.Engine.Core.SceneModel;
 
-namespace Sokoban.Core.SceneLoading
+namespace SlooqQuest.Core.SceneLoading
 {
     public sealed class LoadSceneComponent : Component
     {

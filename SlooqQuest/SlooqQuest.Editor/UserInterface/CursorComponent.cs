@@ -6,10 +6,10 @@ using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core;
-using Sokoban.Core.Util;
+using SlooqQuest.Core;
+using SlooqQuest.Core.Util;
 
-namespace Sokoban.Editor.UserInterface
+namespace SlooqQuest.Editor.UserInterface
 {
     internal sealed class CursorComponent : BehaviorComponent
     {

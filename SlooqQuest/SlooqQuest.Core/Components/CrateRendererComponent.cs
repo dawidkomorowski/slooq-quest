@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Linq;
-using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Assets;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Assets;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Components
+namespace SlooqQuest.Core.Components
 {
     public sealed class CrateRendererComponent : BehaviorComponent
     {

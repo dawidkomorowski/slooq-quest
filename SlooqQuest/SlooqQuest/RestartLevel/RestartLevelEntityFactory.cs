@@ -1,6 +1,6 @@
 ﻿using Geisha.Engine.Core.SceneModel;
 
-namespace Sokoban.RestartLevel
+namespace SlooqQuest.RestartLevel
 {
     internal sealed class RestartLevelEntityFactory
     {

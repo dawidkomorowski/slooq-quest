@@ -6,7 +6,7 @@ using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
 
-namespace Sokoban.VisualEffects
+namespace SlooqQuest.VisualEffects
 {
     internal sealed class FadeInOutComponent : BehaviorComponent
     {

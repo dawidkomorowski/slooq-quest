@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Sokoban.Core;
-using Sokoban.Core.EditorLogic;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core;
+using SlooqQuest.Core.EditorLogic;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Editor
+namespace SlooqQuest.Editor
 {
     internal sealed class EditorState
     {

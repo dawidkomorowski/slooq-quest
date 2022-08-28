@@ -3,10 +3,10 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core;
-using Sokoban.Core.Components;
+using SlooqQuest.Core;
+using SlooqQuest.Core.Components;
 
-namespace Sokoban.RestartLevel
+namespace SlooqQuest.RestartLevel
 {
     internal sealed class RestartLevelComponent : BehaviorComponent
     {

@@ -10,11 +10,11 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Assets;
-using Sokoban.Core.SceneLoading;
-using Sokoban.VisualEffects;
+using SlooqQuest.Assets;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.MainMenu
+namespace SlooqQuest.MainMenu
 {
     internal sealed class MainMenuEntityFactory
     {

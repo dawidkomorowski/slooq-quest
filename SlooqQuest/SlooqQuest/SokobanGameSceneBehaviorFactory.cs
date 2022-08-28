@@ -1,12 +1,12 @@
 ﻿using System;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.InGameMenu;
-using Sokoban.LevelComplete;
-using Sokoban.RestartLevel;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core;
+using SlooqQuest.InGameMenu;
+using SlooqQuest.LevelComplete;
+using SlooqQuest.RestartLevel;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class SokobanGameSceneBehaviorFactory : ISceneBehaviorFactory
     {

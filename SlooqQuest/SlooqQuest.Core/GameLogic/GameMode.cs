@@ -1,7 +1,7 @@
 ﻿using System;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.GameLogic
+namespace SlooqQuest.Core.GameLogic
 {
     public class GameMode
     {

@@ -3,7 +3,7 @@ using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
 
-namespace Sokoban.MainMenu
+namespace SlooqQuest.MainMenu
 {
     internal sealed class MainMenuComponent : BehaviorComponent
     {

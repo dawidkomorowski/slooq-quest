@@ -1,9 +1,9 @@
 ﻿using Geisha.Engine.Audio;
 using Geisha.Engine.Audio.Backend;
 using Geisha.Engine.Core.Assets;
-using Sokoban.Assets;
+using SlooqQuest.Assets;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class GameAudio
     {

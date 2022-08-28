@@ -1,7 +1,7 @@
 ﻿using Geisha.Common.Math;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Util
+namespace SlooqQuest.Core.Util
 {
     public static class TileExtensions
     {

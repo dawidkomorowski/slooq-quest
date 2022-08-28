@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Sokoban.LevelSelectionMenu
+namespace SlooqQuest.LevelSelectionMenu
 {
     internal sealed class LevelSelectionModel
     {

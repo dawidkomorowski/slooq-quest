@@ -1,6 +1,6 @@
-﻿using Sokoban.Core;
+﻿using SlooqQuest.Core;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class ModeInfo : IModeInfo
     {

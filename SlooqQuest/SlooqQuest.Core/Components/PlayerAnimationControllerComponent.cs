@@ -4,7 +4,7 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 
-namespace Sokoban.Core.Components
+namespace SlooqQuest.Core.Components
 {
     public sealed class PlayerAnimationControllerComponent : BehaviorComponent
     {

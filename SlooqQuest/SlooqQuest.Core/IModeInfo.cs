@@ -1,4 +1,4 @@
-﻿namespace Sokoban.Core
+﻿namespace SlooqQuest.Core
 {
     public interface IModeInfo
     {

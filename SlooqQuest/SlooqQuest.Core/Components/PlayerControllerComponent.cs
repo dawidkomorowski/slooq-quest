@@ -3,10 +3,10 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Components
+namespace SlooqQuest.Core.Components
 {
     public sealed class PlayerControllerComponent : BehaviorComponent
     {

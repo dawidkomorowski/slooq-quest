@@ -4,10 +4,10 @@ using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core.LevelModel;
-using Sokoban.Core.Util;
+using SlooqQuest.Core.LevelModel;
+using SlooqQuest.Core.Util;
 
-namespace Sokoban.Core.Components
+namespace SlooqQuest.Core.Components
 {
     public sealed class TileObjectPositionComponent : BehaviorComponent
     {

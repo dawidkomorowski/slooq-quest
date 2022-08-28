@@ -1,9 +1,9 @@
 ﻿using System;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.LevelSelectionMenu
+namespace SlooqQuest.LevelSelectionMenu
 {
     internal sealed class LevelSelectionMenuSceneBehaviorFactory : ISceneBehaviorFactory
     {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using NUnit.Framework;
-using Sokoban.Core.EditorLogic;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.EditorLogic;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Tests.EditorLogic
+namespace SlooqQuest.Core.Tests.EditorLogic
 {
     [TestFixture]
     public class EditModeTests

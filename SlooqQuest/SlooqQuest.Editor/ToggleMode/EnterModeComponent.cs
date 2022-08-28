@@ -4,11 +4,11 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core;
-using Sokoban.Core.Components;
-using Sokoban.Editor.UserInterface;
+using SlooqQuest.Core;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Editor.UserInterface;
 
-namespace Sokoban.Editor.ToggleMode
+namespace SlooqQuest.Editor.ToggleMode
 {
     internal sealed class EnterModeComponent : BehaviorComponent
     {

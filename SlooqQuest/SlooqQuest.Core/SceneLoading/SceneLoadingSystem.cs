@@ -3,7 +3,7 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Core.Systems;
 
-namespace Sokoban.Core.SceneLoading
+namespace SlooqQuest.Core.SceneLoading
 {
     public sealed class SceneLoadingSystem : ICustomSystem
     {

@@ -5,12 +5,12 @@ using System.Windows.Forms;
 using Geisha.Engine.Animation;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Assets;
-using Sokoban.Core;
-using Sokoban.Core.SceneLoading;
-using Sokoban.VisualEffects;
+using SlooqQuest.Assets;
+using SlooqQuest.Core;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class MainSceneBehaviorFactory : ISceneBehaviorFactory
     {

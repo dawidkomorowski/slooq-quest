@@ -1,7 +1,7 @@
 ﻿using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
 
-namespace Sokoban.Core.Util
+namespace SlooqQuest.Core.Util
 {
     public static class HierarchyVisibility
     {

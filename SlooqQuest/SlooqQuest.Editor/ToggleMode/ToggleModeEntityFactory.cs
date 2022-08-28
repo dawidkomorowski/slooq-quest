@@ -3,7 +3,7 @@ using Geisha.Engine.Input;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 
-namespace Sokoban.Editor.ToggleMode
+namespace SlooqQuest.Editor.ToggleMode
 {
     internal sealed class ToggleModeEntityFactory
     {

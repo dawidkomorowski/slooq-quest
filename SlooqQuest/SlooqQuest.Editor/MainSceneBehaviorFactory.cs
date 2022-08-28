@@ -2,11 +2,11 @@
 using System.Reflection;
 using System.Windows.Forms;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.Editor.ToggleMode;
-using Sokoban.Editor.UserInterface;
+using SlooqQuest.Core;
+using SlooqQuest.Editor.ToggleMode;
+using SlooqQuest.Editor.UserInterface;
 
-namespace Sokoban.Editor
+namespace SlooqQuest.Editor
 {
     internal sealed class MainSceneBehaviorFactory : ISceneBehaviorFactory
     {

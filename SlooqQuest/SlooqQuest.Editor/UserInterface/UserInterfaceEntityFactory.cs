@@ -7,9 +7,9 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Assets;
+using SlooqQuest.Assets;
 
-namespace Sokoban.Editor.UserInterface
+namespace SlooqQuest.Editor.UserInterface
 {
     internal sealed class UserInterfaceEntityFactory
     {

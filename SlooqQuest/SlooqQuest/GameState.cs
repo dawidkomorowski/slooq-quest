@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class GameState
     {

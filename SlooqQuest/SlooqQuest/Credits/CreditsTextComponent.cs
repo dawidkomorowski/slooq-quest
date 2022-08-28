@@ -1,12 +1,12 @@
-﻿using Geisha.Common.Math;
+﻿using System;
+using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.VisualEffects;
-using System;
-using Sokoban.Core.SceneLoading;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.Credits
+namespace SlooqQuest.Credits
 {
     internal sealed class CreditsTextComponent : BehaviorComponent
     {

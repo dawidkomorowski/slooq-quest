@@ -1,7 +1,7 @@
 ﻿using System;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.EditorLogic
+namespace SlooqQuest.Core.EditorLogic
 {
     public sealed class EditMode
     {

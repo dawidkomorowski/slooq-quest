@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sokoban.MainMenu
+namespace SlooqQuest.MainMenu
 {
     internal sealed class MainMenuModel
     {

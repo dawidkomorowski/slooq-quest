@@ -1,12 +1,12 @@
-﻿using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
-using Sokoban.VisualEffects;
+﻿using System;
 using System.IO;
-using System;
+using Geisha.Engine.Core.SceneModel;
+using SlooqQuest.Core;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.CutScenes.Final
+namespace SlooqQuest.CutScenes.Final
 {
     internal sealed class FinalSceneBehaviorFactory : ISceneBehaviorFactory
     {

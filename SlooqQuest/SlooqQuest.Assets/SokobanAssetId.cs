@@ -1,7 +1,7 @@
 ﻿using System;
 using Geisha.Engine.Core.Assets;
 
-namespace Sokoban.Assets
+namespace SlooqQuest.Assets
 {
     public static class SokobanAssetId
     {

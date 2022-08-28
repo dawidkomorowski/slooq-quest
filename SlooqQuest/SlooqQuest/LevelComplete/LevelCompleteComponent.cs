@@ -5,12 +5,12 @@ using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core.Components;
-using Sokoban.Core.SceneLoading;
-using Sokoban.InGameMenu;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.InGameMenu;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.LevelComplete
+namespace SlooqQuest.LevelComplete
 {
     internal sealed class LevelCompleteComponent : BehaviorComponent
     {

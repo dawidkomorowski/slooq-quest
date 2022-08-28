@@ -8,10 +8,10 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core.SceneLoading;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.LevelSelectionMenu
+namespace SlooqQuest.LevelSelectionMenu
 {
     internal sealed class LevelSelectionMenuComponent : BehaviorComponent
     {

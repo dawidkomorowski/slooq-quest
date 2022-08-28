@@ -1,16 +1,16 @@
-﻿using Geisha.Engine.Core.SceneModel;
+﻿using System;
+using Geisha.Common.Math;
+using Geisha.Engine.Core.Components;
+using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
-using Sokoban.VisualEffects;
-using System;
-using Geisha.Common.Math;
-using Geisha.Engine.Core.Components;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core.SceneLoading;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.Credits
+namespace SlooqQuest.Credits
 {
     internal sealed class CreditsEntityFactory
     {

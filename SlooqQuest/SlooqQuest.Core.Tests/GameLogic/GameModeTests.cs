@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
 
-namespace Sokoban.Core.Tests.GameLogic
+namespace SlooqQuest.Core.Tests.GameLogic
 {
     [TestFixture]
     public class GameModeTests

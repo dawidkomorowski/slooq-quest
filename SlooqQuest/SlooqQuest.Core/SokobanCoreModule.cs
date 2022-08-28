@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Geisha.Engine;
-using Sokoban.Core.Components;
-using Sokoban.Core.SceneLoading;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.SceneLoading;
 
-namespace Sokoban.Core
+namespace SlooqQuest.Core
 {
     public static class SokobanCoreModule
     {

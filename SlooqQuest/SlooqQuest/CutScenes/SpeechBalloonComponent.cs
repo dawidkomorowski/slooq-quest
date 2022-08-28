@@ -6,7 +6,7 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
-namespace Sokoban.CutScenes
+namespace SlooqQuest.CutScenes
 {
     internal sealed class SpeechBalloonComponent : BehaviorComponent
     {

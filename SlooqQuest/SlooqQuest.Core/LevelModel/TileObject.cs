@@ -1,4 +1,4 @@
-﻿namespace Sokoban.Core.LevelModel
+﻿namespace SlooqQuest.Core.LevelModel
 {
     public abstract class TileObject
     {

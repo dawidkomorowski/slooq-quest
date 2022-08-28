@@ -1,9 +1,9 @@
-﻿using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.VisualEffects;
-using System;
+﻿using System;
+using Geisha.Engine.Core.SceneModel;
+using SlooqQuest.Core;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.Credits
+namespace SlooqQuest.Credits
 {
     internal sealed class CreditsSceneBehaviorFactory : ISceneBehaviorFactory
     {

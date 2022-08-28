@@ -9,13 +9,13 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Assets;
-using Sokoban.Core.Components;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
-using Sokoban.Core.Util;
+using SlooqQuest.Assets;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
+using SlooqQuest.Core.Util;
 
-namespace Sokoban.Core
+namespace SlooqQuest.Core
 {
     public sealed class CoreEntityFactory
     {

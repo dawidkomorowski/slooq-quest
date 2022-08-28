@@ -1,20 +1,20 @@
 ﻿using System.Reflection;
 using Autofac;
 using Geisha.Engine;
-using Sokoban.Core;
-using Sokoban.Credits;
-using Sokoban.CutScenes;
-using Sokoban.CutScenes.Final;
-using Sokoban.CutScenes.Intro;
-using Sokoban.CutScenes.IntroToFinal;
-using Sokoban.InGameMenu;
-using Sokoban.LevelComplete;
-using Sokoban.LevelSelectionMenu;
-using Sokoban.MainMenu;
-using Sokoban.RestartLevel;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core;
+using SlooqQuest.Credits;
+using SlooqQuest.CutScenes;
+using SlooqQuest.CutScenes.Final;
+using SlooqQuest.CutScenes.Intro;
+using SlooqQuest.CutScenes.IntroToFinal;
+using SlooqQuest.InGameMenu;
+using SlooqQuest.LevelComplete;
+using SlooqQuest.LevelSelectionMenu;
+using SlooqQuest.MainMenu;
+using SlooqQuest.RestartLevel;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal sealed class SokobanGame : IGame
     {

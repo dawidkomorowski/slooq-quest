@@ -1,7 +1,7 @@
 using System;
 using Geisha.Engine.Windows;
 
-namespace Sokoban
+namespace SlooqQuest
 {
     internal static class Program
     {

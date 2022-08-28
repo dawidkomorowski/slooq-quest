@@ -4,10 +4,10 @@ using System.Linq;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input.Components;
-using Sokoban.Core.Components;
-using Sokoban.Core.Util;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.Util;
 
-namespace Sokoban.InGameMenu
+namespace SlooqQuest.InGameMenu
 {
     internal sealed class InGameMenuComponent : BehaviorComponent
     {

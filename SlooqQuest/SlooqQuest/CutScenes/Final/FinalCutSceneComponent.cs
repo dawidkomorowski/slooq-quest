@@ -1,21 +1,21 @@
-﻿using Geisha.Engine.Core;
+﻿using System;
+using System.Linq;
+using Geisha.Common.Math;
+using Geisha.Engine.Animation;
+using Geisha.Engine.Animation.Components;
+using Geisha.Engine.Core;
+using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core.GameLogic;
-using Sokoban.VisualEffects;
-using System;
-using Geisha.Common.Math;
-using Sokoban.Core.LevelModel;
-using Sokoban.Core.SceneLoading;
-using Geisha.Engine.Core.Assets;
-using Geisha.Engine.Animation.Components;
-using Geisha.Engine.Animation;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Assets;
-using System.Linq;
-using Sokoban.Core.Components;
+using SlooqQuest.Assets;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.GameLogic;
+using SlooqQuest.Core.LevelModel;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.CutScenes.Final
+namespace SlooqQuest.CutScenes.Final
 {
     internal sealed class FinalCutSceneComponent : BehaviorComponent
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sokoban.CutScenes
+namespace SlooqQuest.CutScenes
 {
     internal sealed class Wait
     {

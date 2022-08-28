@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Text.Json.Nodes;
 
-namespace Sokoban.Core.LevelModel
+namespace SlooqQuest.Core.LevelModel
 {
     public sealed class Level
     {

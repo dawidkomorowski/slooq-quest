@@ -8,14 +8,12 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
-using Sokoban.Core.Components;
-using Sokoban.Core.GameLogic;
-using Sokoban.Core.LevelModel;
-using Sokoban.Core.SceneLoading;
-using Sokoban.RestartLevel;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core.Components;
+using SlooqQuest.Core.SceneLoading;
+using SlooqQuest.RestartLevel;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.InGameMenu
+namespace SlooqQuest.InGameMenu
 {
     internal sealed class InGameMenuEntityFactory
     {

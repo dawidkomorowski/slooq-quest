@@ -1,9 +1,9 @@
 ﻿using System;
 using Geisha.Engine.Core.SceneModel;
-using Sokoban.Core;
-using Sokoban.VisualEffects;
+using SlooqQuest.Core;
+using SlooqQuest.VisualEffects;
 
-namespace Sokoban.MainMenu
+namespace SlooqQuest.MainMenu
 {
     internal sealed class MainMenuSceneBehaviorFactory : ISceneBehaviorFactory
     {
