@@ -8,7 +8,7 @@
 		<Nullable>enable</Nullable>
 		<Version>0.16</Version>
 		<Authors>Dawid Komorowski</Authors>
-		<RepositoryUrl>https://github.com/dawidkomorowski/sokoban</RepositoryUrl>
+		<RepositoryUrl>https://github.com/dawidkomorowski/slooq-quest</RepositoryUrl>
 		<Description>Slooq Quest game created in Geisha Engine.</Description>
 		<Product>SlooqQuest</Product>
 		<Copyright>Copyright (c) 2022 Dawid Komorowski</Copyright>

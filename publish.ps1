@@ -1,6 +1,9 @@
 $ErrorActionPreference = "Stop"
 
-Remove-Item -Path .\publish -Recurse
+if (Test-Path -Path .\publish) {
+    Remove-Item -Path .\publish -Recurse
+}
+
 dotnet publish .\SlooqQuest\SlooqQuest\SlooqQuest.csproj --configuration Release --runtime win-x64 --output publish\bin
 dotnet publish .\SlooqQuest\SlooqQuest.Editor\SlooqQuest.Editor.csproj --configuration Release --runtime win-x64 --output publish\bin
 Remove-Item -Path .\publish\bin\*.pdb
