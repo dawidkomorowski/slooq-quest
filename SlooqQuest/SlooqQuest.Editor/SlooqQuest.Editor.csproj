@@ -6,7 +6,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<PublishSingleFile>true</PublishSingleFile>
 		<Nullable>enable</Nullable>
-		<Version>0.16</Version>
+		<Version>1.0</Version>
 		<Authors>Dawid Komorowski</Authors>
 		<RepositoryUrl>https://github.com/dawidkomorowski/slooq-quest</RepositoryUrl>
 		<Description>Level editor for Slooq Quest game created in Geisha Engine.</Description>
