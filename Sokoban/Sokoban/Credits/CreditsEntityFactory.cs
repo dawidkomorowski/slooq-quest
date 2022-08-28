@@ -48,7 +48,7 @@ namespace Sokoban.Credits
             });
         }
 
-        public void CreateCreditsText(Scene scene, double x, double y, double fontSize, string text)
+        public void CreateCreditsText(Scene scene, double x, double y, double fontSize, string text, bool isLast = false)
         {
             var entity = scene.CreateEntity();
             var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
@@ -60,7 +60,8 @@ namespace Sokoban.Credits
             textRendererComponent.SortingLayerName = "UI";
             textRendererComponent.Text = text;
 
-            entity.CreateComponent<CreditsTextComponent>();
+            var creditsTextComponent = entity.CreateComponent<CreditsTextComponent>();
+            creditsTextComponent.IsLast = isLast;
         }
     }
 }
