@@ -16,12 +16,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Sokoban.Assets\Sokoban.Assets.csproj" />
+		<ProjectReference Include="..\Sokoban.Assets\SlooqQuest.Assets.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-			<_Parameter1>Sokoban.Core.Tests</_Parameter1>
+			<_Parameter1>SlooqQuest.Core.Tests</_Parameter1>
 		</AssemblyAttribute>
 	</ItemGroup>
 

@@ -21,7 +21,7 @@ namespace Sokoban
         private static string EngineInformation =>
             $"Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version?.ToString(3)}";
 
-        public string WindowTitle => $"Sokoban {Assembly.GetAssembly(typeof(SokobanGame))?.GetName().Version?.ToString(2)} ({EngineInformation})";
+        public string WindowTitle => $"Slooq Quest {Assembly.GetAssembly(typeof(SokobanGame))?.GetName().Version?.ToString(2)} ({EngineInformation})";
 
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {

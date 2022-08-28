@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Sokoban.Core\Sokoban.Core.csproj" />
+		<ProjectReference Include="..\Sokoban.Core\SlooqQuest.Core.csproj" />
 	</ItemGroup>
 
 </Project>

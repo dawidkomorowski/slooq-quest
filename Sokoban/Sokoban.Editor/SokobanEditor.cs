@@ -12,7 +12,7 @@ namespace Sokoban.Editor
         private static string EngineInformation =>
             $"Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version?.ToString(3)}";
 
-        public string WindowTitle => $"Sokoban Editor {Assembly.GetAssembly(typeof(SokobanEditor))?.GetName().Version?.ToString(2)} ({EngineInformation})";
+        public string WindowTitle => $"Slooq Quest Editor {Assembly.GetAssembly(typeof(SokobanEditor))?.GetName().Version?.ToString(2)} ({EngineInformation})";
 
         public void RegisterComponents(IComponentsRegistry componentsRegistry)
         {
