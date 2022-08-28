@@ -36,6 +36,7 @@ namespace Sokoban
             // Credits
             componentsRegistry.RegisterSceneBehaviorFactory<CreditsSceneBehaviorFactory>();
             componentsRegistry.AutofacContainerBuilder.RegisterType<CreditsEntityFactory>().AsSelf().SingleInstance();
+            componentsRegistry.RegisterComponentFactory<CreditsTextComponentFactory>();
 
             // CutScenes
             componentsRegistry.RegisterComponentFactory<SpeechBalloonComponentFactory>();

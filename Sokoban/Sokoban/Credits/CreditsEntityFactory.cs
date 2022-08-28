@@ -4,6 +4,10 @@ using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
 using Sokoban.VisualEffects;
 using System;
+using Geisha.Common.Math;
+using Geisha.Engine.Core.Components;
+using Geisha.Engine.Rendering;
+using Geisha.Engine.Rendering.Components;
 using Sokoban.Core.SceneLoading;
 
 namespace Sokoban.Credits
@@ -42,6 +46,21 @@ namespace Sokoban.Credits
                     loadSceneComponent.SceneBehaviorName = "MainMenu";
                 };
             });
+        }
+
+        public void CreateCreditsText(Scene scene, double x, double y, double fontSize, string text)
+        {
+            var entity = scene.CreateEntity();
+            var transform2DComponent = entity.CreateComponent<Transform2DComponent>();
+            transform2DComponent.Translation = new Vector2(x, y);
+
+            var textRendererComponent = entity.CreateComponent<TextRendererComponent>();
+            textRendererComponent.FontSize = FontSize.FromDips(fontSize);
+            textRendererComponent.Color = Color.FromArgb(255, 255, 255, 255);
+            textRendererComponent.SortingLayerName = "UI";
+            textRendererComponent.Text = text;
+
+            entity.CreateComponent<CreditsTextComponent>();
         }
     }
 }

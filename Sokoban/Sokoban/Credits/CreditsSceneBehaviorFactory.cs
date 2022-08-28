@@ -45,6 +45,57 @@ namespace Sokoban.Credits
                 fadeInOutComponent.Duration = TimeSpan.FromMilliseconds(250);
 
                 _creditsEntityFactory.CreateExitCreditsEntity(Scene);
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(0), 45, "Story");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(0), 60, "Dominik Wiech");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(1), 45, "Game Design");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(1), 60, "Dawid Komorowski");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(2), 45, "Level Design");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(2), 60, "Dominik Wiech");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(3), 45, "Game Programming");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(3), 60, "Dawid Komorowski");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(4), 45, "Quality Assurance");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(4), 60, "Dominik Wiech");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(5), 45, "Engine Programming");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(5), 60, "Dawid Komorowski");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(7), 45, "Powered by");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(7), 60, "Geisha Engine");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(9), 45, "Third party assets");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(10), 45, "Graphics: Sokoban (pack)");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(10), 60, "by Kenney Vleugels (Kenney.nl)");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(11), 45, "Graphics: Animal pack");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(11), 60, "by Kenney Vleugels (Kenney.nl)");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(12), 45, "Graphics: Tiny Dungeon (1.0)");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(12), 60, "by Kenney Vleugels (Kenney.nl)");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(13), 45, "Graphics: Smoke Aura");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(13), 35, "by Beast (https://opengameart.org/content/smoke-aura)");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(14), 45, "Music: Menu Music");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(14), 35, "by mrpoly (https://opengameart.org/content/menu-music)");
+
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(15), 45, "Font: Burnstown Dam");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(15), 60, "by Typodermic Fonts");
+            }
+
+            private static double HeaderPosition(int i)
+            {
+                return -500 - 200 * i;
+            }
+
+            private static double ContentPosition(int i)
+            {
+                return -500 - 200 * i - 60;
             }
         }
     }
