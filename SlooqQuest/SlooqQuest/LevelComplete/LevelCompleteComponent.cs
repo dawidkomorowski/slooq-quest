@@ -26,6 +26,8 @@ namespace SlooqQuest.LevelComplete
 
         private LevelCompleteState _state = LevelCompleteState.Invisible;
 
+        private string _nextSceneName = string.Empty;
+
         public LevelCompleteComponent(Entity entity, GameState gameState) : base(entity)
         {
             _gameState = gameState;
@@ -44,6 +46,15 @@ namespace SlooqQuest.LevelComplete
                 case LevelCompleteState.Invisible:
                     if (_gameState.GameMode.IsLevelComplete())
                     {
+                        if (_gameState.CurrentLevel == _gameState.Levels.Last())
+                        {
+                            _nextSceneName = "FinalCutScene";
+                        }
+                        else
+                        {
+                            _nextSceneName = "LevelSelectionMenu";
+                        }
+
                         _gameState.OnLevelComplete();
                         ShowLevelComplete();
                     }
@@ -53,7 +64,7 @@ namespace SlooqQuest.LevelComplete
                     Animate(gameTime);
                     break;
                 case LevelCompleteState.Visible:
-                    GoBackToLevelSelection();
+                    GoToScene(_nextSceneName);
                     break;
                 case LevelCompleteState.WaitingForExit:
                     break;
@@ -92,7 +103,7 @@ namespace SlooqQuest.LevelComplete
             SetAlpha(backgroundAlpha, textAlpha);
         }
 
-        private void GoBackToLevelSelection()
+        private void GoToScene(string sceneName)
         {
             _state = LevelCompleteState.WaitingForExit;
 
@@ -104,15 +115,7 @@ namespace SlooqQuest.LevelComplete
             {
                 var e = Scene.CreateEntity();
                 var loadSceneComponent = e.CreateComponent<LoadSceneComponent>();
-
-                if (_gameState.CurrentLevel == _gameState.Levels.Last())
-                {
-                    loadSceneComponent.SceneBehaviorName = "FinalCutScene";
-                }
-                else
-                {
-                    loadSceneComponent.SceneBehaviorName = "LevelSelectionMenu";
-                }
+                loadSceneComponent.SceneBehaviorName = sceneName;
             };
         }
 
