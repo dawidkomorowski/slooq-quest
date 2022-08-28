@@ -48,6 +48,8 @@ namespace Sokoban.Credits
 
                 _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(0), 45, "Powered by");
                 _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(0), 60, "Geisha Engine");
+                _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(1) + 50, 45, "https://github.com/dawidkomorowski/geisha");
+
 
                 _creditsEntityFactory.CreateCreditsText(Scene, -550, HeaderPosition(2), 45, "Story");
                 _creditsEntityFactory.CreateCreditsText(Scene, -550, ContentPosition(2), 60, "Dominik Wiech");
